@@ -40,7 +40,7 @@ export const Header: React.FC = () => {
           {/* Brand Title */}
           <a href="#" className="group flex items-center gap-3">
             <img
-              src="/images/logo-emblem.svg"
+              src={clinicConfig.images.logoEmblem}
               alt="Logo drg. Ummi Kaltsum"
               className="w-10 h-10 rounded-lg shrink-0 shadow-xs"
             />

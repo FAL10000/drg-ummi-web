@@ -93,6 +93,7 @@ export interface BusinessConfig {
     waitingArea: string;
     practiceExterior: string;
     sterilization: string;
+    logoEmblem: string;
   };
   facilities: ClinicFacility[];
   faqs: FaqItem[];
@@ -102,6 +103,8 @@ export interface BusinessConfig {
     medicalSpecialty: string;
   };
 }
+
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 export const clinicConfig: BusinessConfig = {
   clinicName: "Praktek Dokter Gigi drg. Ummi Kaltsum",
@@ -229,14 +232,15 @@ export const clinicConfig: BusinessConfig = {
     },
   ],
   images: {
-    hero: "/images/drg-ummi-treatment-room.webp",
-    doctorPortrait: "/images/drg-ummi-portrait.webp",
-    doctorPatient: "/images/drg-ummi-patient-care.webp",
-    dentalChair: "/images/dental-chair.webp",
-    treatmentRoom: "/images/drg-ummi-treatment-room.webp",
-    waitingArea: "/images/waiting-area.webp",
-    practiceExterior: "/images/practice-exterior.webp",
-    sterilization: "/images/sterilization.webp",
+    hero: `${baseUrl}/images/drg-ummi-treatment-room.webp`,
+    doctorPortrait: `${baseUrl}/images/drg-ummi-portrait.webp`,
+    doctorPatient: `${baseUrl}/images/drg-ummi-patient-care.webp`,
+    dentalChair: `${baseUrl}/images/dental-chair.webp`,
+    treatmentRoom: `${baseUrl}/images/drg-ummi-treatment-room.webp`,
+    waitingArea: `${baseUrl}/images/waiting-area.webp`,
+    practiceExterior: `${baseUrl}/images/practice-exterior.webp`,
+    sterilization: `${baseUrl}/images/sterilization.webp`,
+    logoEmblem: `${baseUrl}/images/logo-emblem.svg`,
   },
   facilities: [
     {
@@ -245,7 +249,7 @@ export const clinicConfig: BusinessConfig = {
       subtitle: "Fasilitas Perawatan Gigi & Dental Unit",
       description: "Peralatan dental elektrik terawat dengan pencahayaan LED fokus dan instrumen higienis sebelum setiap tindakan pasien.",
       tag: "Ruang Periksa Utama",
-      image: "/images/drg-ummi-treatment-room.webp",
+      image: `${baseUrl}/images/drg-ummi-treatment-room.webp`,
       alt: "Ruang periksa dental unit utama praktek drg. Ummi Kaltsum di Cibodas Tangerang",
     },
     {
@@ -254,7 +258,7 @@ export const clinicConfig: BusinessConfig = {
       subtitle: "Unit Perawatan & Kursi Periksa Pasien",
       description: "Kursi dental elektrik higienis dengan sistem suction dan pencahayaan terintegrasi untuk kenyamanan pasien dewasa maupun anak.",
       tag: "Peralatan Higienis",
-      image: "/images/dental-chair.webp",
+      image: `${baseUrl}/images/dental-chair.webp`,
       alt: "Kursi periksa dental ergonomis dan lampu operasi LED drg. Ummi Kaltsum",
     },
     {
@@ -263,7 +267,7 @@ export const clinicConfig: BusinessConfig = {
       subtitle: "Konsultasi Terbuka & Rekam Medis Pasien",
       description: "Ruang diskusi privat untuk menjelaskan opsi penanganan, edukasi kebersihan mulut, serta kenyamanan konsultasi keluarga.",
       tag: "Area Konsultasi",
-      image: "/images/waiting-area.webp",
+      image: `${baseUrl}/images/waiting-area.webp`,
       alt: "Area konsultasi personal dan meja administrasi pasien drg. Ummi Kaltsum",
     },
     {
@@ -272,7 +276,7 @@ export const clinicConfig: BusinessConfig = {
       subtitle: "Antiseptik Medis & Instrumen Terawat",
       description: "Setiap alat dan instrumen diproses melalui standar kebersihan medis ketat guna menjamin pencegahan infeksi silang.",
       tag: "Standar Kebersihan",
-      image: "/images/sterilization.webp",
+      image: `${baseUrl}/images/sterilization.webp`,
       alt: "Peralatan medis dan antiseptik sterilisasi instrumen dental",
     },
     {
@@ -281,7 +285,7 @@ export const clinicConfig: BusinessConfig = {
       subtitle: "Jl. Kav. Pemda 3 No. 241A, Panunggangan Barat",
       description: "Papan nama resmi 'Praktek Dokter Gigi drg. Ummi Kaltsum' terpasang jelas di depan rumah praktik agar mudah dikenali pasien.",
       tag: "Akses Praktik",
-      image: "/images/practice-exterior.webp",
+      image: `${baseUrl}/images/practice-exterior.webp`,
       alt: "Papan nama resmi Praktek Dokter Gigi drg. Ummi Kaltsum di Jl. Kav. Pemda 3",
     },
   ],
@@ -308,7 +312,7 @@ export const clinicConfig: BusinessConfig = {
     },
   ],
   meta: {
-    websiteUrl: "https://drg-ummi-kaltsum.id",
+    websiteUrl: "https://fal10000.github.io/drg-ummi-web",
     priceRange: "$$",
     medicalSpecialty: "Dentistry",
   },

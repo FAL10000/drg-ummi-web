@@ -14,7 +14,7 @@ export const Footer: React.FC = () => {
           <div className="md:col-span-5 space-y-3">
             <div className="flex items-center gap-2.5">
               <img
-                src="/images/logo-emblem.svg"
+                src={clinicConfig.images.logoEmblem}
                 alt="Emblem drg. Ummi Kaltsum"
                 className="w-7 h-7 rounded-sm opacity-90"
               />
