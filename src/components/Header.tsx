@@ -29,7 +29,7 @@ export const Header: React.FC = () => {
             <span>{clinicConfig.subTagline}</span>
           </span>
           <span className="hidden sm:inline font-mono text-[11px]">
-            By Appointment · WA {clinicConfig.contact.phoneDisplay}
+            Dengan Janji Temu · WA {clinicConfig.contact.phoneDisplay}
           </span>
         </div>
       </div>

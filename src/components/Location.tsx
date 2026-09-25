@@ -73,7 +73,7 @@ export const Location: React.FC = () => {
               </a>
 
               <a
-                href={buildWhatsAppUrl("Hallo Dok, saya sedang menuju ke klinik dan ingin mengonfirmasi patokan alamat.")}
+                href={buildWhatsAppUrl("Hallo Dok, saya sedang menuju ke lokasi praktik dan ingin mengonfirmasi patokan alamat.")}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackWhatsAppBooking('location_direction_route_wa')}

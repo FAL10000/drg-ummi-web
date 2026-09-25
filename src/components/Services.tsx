@@ -12,7 +12,7 @@ export const Services: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-6 border-b border-brand-border">
           <div className="max-w-xl">
             <div className="text-xs uppercase tracking-widest font-semibold text-brand-slate mb-2">
-              Pelayanan Klinis
+              Layanan Gigi
             </div>
             <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-brand-navy tracking-tight">
               Layanan Perawatan Gigi

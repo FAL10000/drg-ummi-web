@@ -50,7 +50,7 @@ export const JapaneseMinimalConcept: React.FC = () => {
           {/* Left Vertical Typographic Column */}
           <div className="lg:col-span-1 border-r border-[#1C1D1F]/15 hidden lg:flex flex-col justify-between items-center py-12 px-2">
             <span className="font-mono text-[10px] tracking-[0.25em] text-[#73757A] uppercase [writing-mode:vertical-rl] rotate-180">
-              KEHENINGAN &bull; KETENANGAN &bull; KENYAMANAN
+              PRAKTIK MANDIRI &bull; CIBODAS, TANGERANG
             </span>
             <div className="w-px h-16 bg-[#1C1D1F]/20"></div>
             <span className="font-mono text-[10px] text-[#73757A] tracking-widest">
@@ -87,14 +87,14 @@ export const JapaneseMinimalConcept: React.FC = () => {
                     {clinicConfig.doctorName}
                   </div>
                   <p className="text-xs text-[#73757A] mt-1 leading-relaxed font-light">
-                    Pemeriksaan personal tanpa ketergesaan untuk kenyamanan keluarga di Cibodas.
+                    Pemeriksaan langsung bersama dokter gigi untuk pasien anak dan dewasa.
                   </p>
                 </div>
               </div>
             </div>
 
             <div className="border-t border-[#1C1D1F]/15 p-4 md:px-8 bg-[#F2EFE7] flex justify-between items-center text-[11px] font-mono text-[#73757A]">
-              <span>DOKUMENTASI PRAKTEK MANDIRI</span>
+              <span>DOKUMENTASI PRAKTIK MANDIRI</span>
               <span>KOTA TANGERANG {clinicConfig.location.postalCode}</span>
             </div>
           </div>
@@ -110,11 +110,11 @@ export const JapaneseMinimalConcept: React.FC = () => {
               </div>
 
               <h1 className="font-['Shippori_Mincho'] text-3xl md:text-4xl lg:text-[2.65rem] text-[#1C1D1F] leading-[1.28] tracking-tight mb-6">
-                Pemeriksaan gigi yang hening, tenang, dan bersahaja.
+                Pemeriksaan gigi dalam suasana yang tenang.
               </h1>
 
               <p className="text-sm md:text-[15px] text-[#73757A] leading-relaxed font-light mb-8">
-                Kami membatasi ritme tindakan agar setiap pasien anak, dewasa, hingga lansia didengarkan secara menyeluruh dalam ruang yang bersih dan tidak mengintimidasi.
+                Konsultasi dilakukan langsung bersama drg. Ummi sebelum tindakan.
               </p>
 
               <div className="space-y-4 py-6 border-t border-b border-[#1C1D1F]/15">
@@ -123,7 +123,7 @@ export const JapaneseMinimalConcept: React.FC = () => {
                   <span className="font-mono font-semibold text-[#1C1D1F]">{clinicConfig.googleRating.score.toFixed(1)} / 5.0 ({clinicConfig.googleRating.reviewCount} Ulasan)</span>
                 </div>
                 <div className="flex justify-between items-baseline text-xs">
-                  <span className="text-[#73757A] font-mono">Sistem Periksa</span>
+                  <span className="text-[#73757A] font-mono">Cara Reservasi</span>
                   <span className="font-mono text-[#1C1D1F]">Janji Temu Terkonfirmasi</span>
                 </div>
                 <div className="flex justify-between items-baseline text-xs">
@@ -167,7 +167,7 @@ export const JapaneseMinimalConcept: React.FC = () => {
               </h2>
             </div>
             <p className="font-mono text-xs text-[#73757A] max-w-sm mt-4 md:mt-0 leading-relaxed">
-              Tindakan konservatif mengedepankan pertahanan gigi asli dengan penjelasan transparan sebelum dimulai.
+              Pilihan perawatan dijelaskan sesuai kondisi gigi setelah pemeriksaan.
             </p>
           </div>
 

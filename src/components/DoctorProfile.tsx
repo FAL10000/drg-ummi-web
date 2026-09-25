@@ -16,7 +16,7 @@ export const DoctorProfile: React.FC = () => {
               <div className="relative aspect-[4/5] bg-slate-100 overflow-hidden group">
                 <img
                   src={clinicConfig.images.doctorPortrait}
-                  alt="Potret drg. Ummi Kaltsum dokter gigi penanggung jawab praktek mandiri"
+                  alt="Potret drg. Ummi Kaltsum dokter gigi penanggung jawab praktik mandiri"
                   className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-103"
                   loading="lazy"
                 />

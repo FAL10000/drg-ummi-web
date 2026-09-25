@@ -71,7 +71,7 @@ export const BoldTypographyConcept: React.FC = () => {
               className="bg-[#25D366] hover:bg-[#20ba5a] text-slate-950 px-4 sm:px-5 py-2.5 uppercase font-mono text-xs font-black tracking-wider transition-all shadow-[2px_2px_0px_#0A0A0A] flex items-center gap-2"
             >
               <MessageCircle className="w-4 h-4 fill-slate-950" />
-              <span>BOOK VIA WA</span>
+              <span>RESERVASI VIA WA</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </a>
           </div>
@@ -91,8 +91,8 @@ export const BoldTypographyConcept: React.FC = () => {
 
               <h1 className="font-extrabold text-4xl sm:text-6xl md:text-7xl lg:text-[5.2rem] leading-[0.95] tracking-tighter uppercase text-[#0A0A0A]">
                 PERAWATAN<br />
-                GIGI YANG<br />
-                <span className="text-[#0038FF] underline decoration-4 underline-offset-8">UNTUK KELUARGA.</span>
+                GIGI UNTUK<br />
+                <span className="text-[#0038FF] underline decoration-4 underline-offset-8">KELUARGA.</span>
               </h1>
 
               <p className="text-base sm:text-xl font-medium text-[#262626] max-w-xl leading-relaxed pt-2">
@@ -193,7 +193,7 @@ export const BoldTypographyConcept: React.FC = () => {
               </div>
               <div className="pt-1.5 border-t border-slate-200 text-[11px] text-[#0038FF] font-medium flex justify-between items-center">
                 <span>MALAM S/D 21.00</span>
-                <span className="font-bold">BY RESERVASI</span>
+                <span className="font-bold">DENGAN RESERVASI</span>
               </div>
             </div>
 
@@ -303,8 +303,8 @@ export const BoldTypographyConcept: React.FC = () => {
 
               <h2 className="font-extrabold text-3xl sm:text-5xl uppercase tracking-tighter text-[#0A0A0A] leading-tight">
                 PELAYANAN LANGSUNG.<br />
-                PENJELASAN TERBUKA.<br />
-                <span className="text-[#0038FF]">KOMUNIKASI JELAS.</span>
+                PENJELASAN JELAS<br />
+                <span className="text-[#0038FF]">SEBELUM TINDAKAN.</span>
               </h2>
 
               <p className="text-base sm:text-lg text-[#333333] leading-relaxed">
@@ -312,7 +312,7 @@ export const BoldTypographyConcept: React.FC = () => {
               </p>
 
               <div className="border-l-4 border-[#0038FF] pl-4 py-2 text-sm sm:text-base font-medium text-[#111111] bg-[#F0F4FF]">
-                Konsultasi mengutamakan komunikasi yang terbuka agar kondisi gigi dan rencana perawatan dipahami bersama oleh pasien dan keluarga.
+                Kondisi gigi dan pilihan perawatan dijelaskan secara jelas sebelum tindakan dimulai.
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 font-mono text-xs">
@@ -356,7 +356,7 @@ export const BoldTypographyConcept: React.FC = () => {
           <div className="flex flex-col md:flex-row justify-between md:items-end mb-10 pb-4 border-b-2 border-[#0A0A0A] gap-4">
             <div>
               <div className="font-mono text-xs font-bold text-[#0038FF] uppercase tracking-widest mb-1">
-                // INDEKS TINDAKAN
+                // DAFTAR LAYANAN
               </div>
               <h2 className="font-extrabold text-3xl sm:text-5xl uppercase tracking-tighter text-[#0A0A0A]">
                 LAYANAN PERAWATAN GIGI
@@ -608,7 +608,7 @@ export const BoldTypographyConcept: React.FC = () => {
                     <span className="text-[11px] text-emerald-700">Dengan reservasi terlebih dahulu</span>
                   </div>
                   <span className="bg-emerald-600 text-white font-bold px-3 py-1 text-xs">
-                    BY APPOINTMENT ONLY
+                    HANYA DENGAN JANJI TEMU
                   </span>
                 </div>
 
@@ -685,7 +685,7 @@ export const BoldTypographyConcept: React.FC = () => {
                   </div>
                 </div>
                 <div className="p-3 border-t-2 border-[#0A0A0A] font-mono text-[11px] text-[#666666] flex justify-between items-center">
-                  <span>KENALI RUMAH DARI PLANG DEPAN</span>
+                  <span>CARI PLANG PRAKTIK DI DEPAN RUMAH</span>
                   <span className="text-[#0038FF] font-bold">JL. KAV. PEMDA 3</span>
                 </div>
               </div>

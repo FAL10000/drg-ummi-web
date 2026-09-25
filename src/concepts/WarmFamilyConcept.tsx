@@ -67,7 +67,7 @@ export const WarmFamilyConcept: React.FC = () => {
               </div>
 
               <h1 className="font-['Lora',serif] text-3xl sm:text-4xl lg:text-[2.75rem] text-[#382821] leading-tight font-normal">
-                Dokter gigi keluarga yang dekat, sabar, dan bersahaja.
+                Dokter gigi keluarga di Panunggangan Barat, Cibodas.
               </h1>
 
               <p className="text-base sm:text-lg text-[#614F44] leading-relaxed">
@@ -136,7 +136,7 @@ export const WarmFamilyConcept: React.FC = () => {
       {/* Services Section */}
       <section id="layanan-keluarga" className="max-w-6xl mx-auto px-6 py-14 border-t border-[#EADBCE]">
         <div className="max-w-xl mb-10">
-          <span className="text-xs uppercase tracking-wider text-[#8C5E47] font-semibold">Pelayanan Klinis</span>
+          <span className="text-xs uppercase tracking-wider text-[#8C5E47] font-semibold">Layanan Gigi</span>
           <h2 className="font-['Lora',serif] text-2xl sm:text-3xl text-[#382821] mt-1 font-normal">
             Perawatan untuk Pasien Anak &amp; Dewasa
           </h2>
@@ -185,7 +185,7 @@ export const WarmFamilyConcept: React.FC = () => {
             Suasana Ruang Pemeriksaan
           </h2>
           <p className="text-xs sm:text-sm text-[#7A6458] mt-2">
-            Dokumentasi sarana ruang periksa praktek mandiri drg. Ummi Kaltsum di Jl. Kav. Pemda 3.
+            Dokumentasi sarana ruang periksa praktik mandiri drg. Ummi Kaltsum di Jl. Kav. Pemda 3.
           </p>
         </div>
 
@@ -194,7 +194,7 @@ export const WarmFamilyConcept: React.FC = () => {
             <div className="aspect-[4/3] overflow-hidden bg-[#F0E6D8]">
               <img
                 src={clinicConfig.images.treatmentRoom}
-                alt="Ruang periksa utama praktek drg. Ummi Kaltsum"
+                alt="Ruang periksa utama praktik drg. Ummi Kaltsum"
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
@@ -231,7 +231,7 @@ export const WarmFamilyConcept: React.FC = () => {
             </div>
             <div className="p-4">
               <span className="font-['Lora',serif] font-semibold text-[#382821] text-sm block">Unit Dental Chair</span>
-              <p className="text-xs text-[#7A6458] mt-1">Kursi periksa dental unit untuk kenyamanan posisi pasien.</p>
+              <p className="text-xs text-[#7A6458] mt-1">Unit kursi periksa dental untuk pemeriksaan dan tindakan perawatan gigi.</p>
             </div>
           </div>
         </div>

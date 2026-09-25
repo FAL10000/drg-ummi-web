@@ -148,7 +148,7 @@ export const clinicConfig: BusinessConfig = {
     eveningNotice: {
       title: "Jadwal Setelah Jam Reguler",
       description: "Jadwal setelah jam reguler hingga pukul 21.00 dapat tersedia dengan reservasi dan konfirmasi terlebih dahulu.",
-      policy: "Pelayanan malam tersedia hanya dengan reservasi dan konfirmasi sebelumnya (by appointment only).",
+      policy: "Pelayanan malam tersedia hanya dengan reservasi dan konfirmasi terlebih dahulu (hanya dengan janji temu).",
       buttonText: "Tanyakan Jadwal Malam via WA",
       whatsappMessage: "Hallo Dok, saya membutuhkan jadwal perawatan malam hari setelah jam kerja reguler. Apakah ada slot janji temu?",
     },
@@ -243,13 +243,13 @@ export const clinicConfig: BusinessConfig = {
       description: "Ruang periksa dengan unit dental elektrik untuk pemeriksaan dan tindakan perawatan gigi.",
       tag: "Ruang Periksa",
       image: `${baseUrl}/images/drg-ummi-treatment-room.webp`,
-      alt: "Ruang periksa dental unit utama praktek drg. Ummi Kaltsum di Cibodas Tangerang",
+      alt: "Ruang periksa dental unit utama praktik drg. Ummi Kaltsum di Cibodas Tangerang",
     },
     {
       id: "dental-chair",
       title: "Dental Chair",
       subtitle: "Unit Kursi Periksa Pasien",
-      description: "Kursi periksa dental untuk kenyamanan posisi pasien selama tindakan perawatan gigi.",
+      description: "Unit kursi periksa dental untuk pemeriksaan dan tindakan perawatan gigi.",
       tag: "Kursi Periksa",
       image: `${baseUrl}/images/dental-chair.webp`,
       alt: "Kursi periksa dental unit drg. Ummi Kaltsum",
@@ -293,7 +293,7 @@ export const clinicConfig: BusinessConfig = {
     },
     {
       question: "Apakah bisa membuat jadwal setelah jam kerja (malam)?",
-      answer: "Jadwal setelah jam reguler hingga pukul 21.00 dapat tersedia dengan reservasi dan konfirmasi terlebih dahulu via WhatsApp (by appointment only).",
+      answer: "Jadwal setelah jam reguler hingga pukul 21.00 dapat tersedia dengan reservasi dan konfirmasi terlebih dahulu via WhatsApp (hanya dengan janji temu).",
     },
     {
       question: "Bagaimana cara membuat janji perawatan?",

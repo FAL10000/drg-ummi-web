@@ -32,7 +32,7 @@ export const WarmNeighborhoodConcept: React.FC = () => {
         <div className="max-w-6xl mx-auto flex flex-wrap justify-between items-center gap-2">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#97472E]"></span>
-            <span className="font-semibold text-[#1C1C18]">Praktik Dokter Gigi Lingkungan</span>
+            <span className="font-semibold text-[#1C1C18]">Praktik Dokter Gigi di Panunggangan Barat</span>
             <span className="text-[#C5C6CD]">&bull;</span>
             <span>Panunggangan Barat, Cibodas</span>
           </div>
@@ -97,8 +97,8 @@ export const WarmNeighborhoodConcept: React.FC = () => {
               </div>
 
               <h1 className="font-['Newsreader',serif] font-normal text-4xl sm:text-5xl lg:text-6xl text-[#000B21] leading-[1.12] tracking-tight">
-                Perawatan gigi yang nyaman, <br className="hidden sm:inline" />
-                <span className="italic text-[#97472E]">dekat dari rumah.</span>
+                Dokter gigi keluarga di <br className="hidden sm:inline" />
+                <span className="italic text-[#97472E]">Panunggangan Barat, Cibodas.</span>
               </h1>
 
               <p className="text-base sm:text-lg text-[#44474D] max-w-xl leading-relaxed">
@@ -140,7 +140,7 @@ export const WarmNeighborhoodConcept: React.FC = () => {
               {/* Quiet Information Line */}
               <div className="pt-6 border-t border-[#E6DDD2] grid grid-cols-2 sm:grid-cols-3 gap-4">
                 <div>
-                  <span className="text-[11px] uppercase tracking-wider text-[#97472E] font-semibold block mb-0.5">Sistem Periksa</span>
+                  <span className="text-[11px] uppercase tracking-wider text-[#97472E] font-semibold block mb-0.5">Cara Reservasi</span>
                   <span className="font-['Newsreader',serif] text-lg font-medium text-[#000B21] block">Janji Temu</span>
                   <span className="text-xs text-[#44474D]">Jadwal terkonfirmasi via WhatsApp</span>
                 </div>
@@ -261,7 +261,7 @@ export const WarmNeighborhoodConcept: React.FC = () => {
           
           <div className="max-w-2xl mb-10">
             <span className="text-xs uppercase tracking-wider text-[#97472E] font-semibold block mb-1">
-              Pelayanan Klinis
+              Layanan Gigi
             </span>
             <h2 className="font-['Newsreader',serif] text-3xl sm:text-4xl text-[#000B21] font-normal">
               Layanan Perawatan Gigi
@@ -417,12 +417,12 @@ export const WarmNeighborhoodConcept: React.FC = () => {
                 <div className="p-4 space-y-1">
                   <h4 className="font-['Newsreader',serif] text-base font-semibold text-[#000B21]">Dental Chair</h4>
                   <p className="text-xs text-[#44474D] leading-relaxed">
-                    Unit kursi periksa dental untuk kenyamanan posisi pasien saat perawatan.
+                    Unit kursi periksa dental untuk tindakan perawatan gigi.
                   </p>
                 </div>
               </div>
               <div className="px-4 pb-4 text-[11px] text-[#75777E]">
-                Kenyamanan Posisi
+                Unit Periksa
               </div>
             </div>
 

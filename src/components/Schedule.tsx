@@ -18,7 +18,7 @@ export const Schedule: React.FC = () => {
             Jam Praktik Reguler
           </h2>
           <p className="text-xs sm:text-sm text-brand-muted mt-2">
-            Harap reservasi terlebih dahulu agar jadwal perawatan Anda teralokasi dengan nyaman.
+            Silakan reservasi terlebih dahulu melalui WhatsApp agar jadwal kunjungan dapat dikonfirmasi.
           </p>
         </div>
 
