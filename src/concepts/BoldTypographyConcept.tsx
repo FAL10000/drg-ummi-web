@@ -92,7 +92,7 @@ export const BoldTypographyConcept: React.FC = () => {
               <h1 className="font-extrabold text-4xl sm:text-6xl md:text-7xl lg:text-[5.2rem] leading-[0.95] tracking-tighter uppercase text-[#0A0A0A]">
                 PERAWATAN<br />
                 GIGI YANG<br />
-                <span className="text-[#0038FF] underline decoration-4 underline-offset-8">TELITI &amp; PERSONAL.</span>
+                <span className="text-[#0038FF] underline decoration-4 underline-offset-8">UNTUK KELUARGA.</span>
               </h1>
 
               <p className="text-base sm:text-xl font-medium text-[#262626] max-w-xl leading-relaxed pt-2">
@@ -224,7 +224,7 @@ export const BoldTypographyConcept: React.FC = () => {
                 </div>
               </div>
               <p className="font-mono text-xs text-slate-300">
-                Berdasarkan 55 ulasan riil pasien di profil Google Maps.
+                Berdasarkan 55 ulasan di profil Google Maps.
               </p>
             </div>
 
@@ -791,7 +791,7 @@ export const BoldTypographyConcept: React.FC = () => {
               <div>{clinicConfig.schedule.monday.days}: {clinicConfig.schedule.monday.hours}</div>
               <div>{clinicConfig.schedule.tuesdayToSaturday.days}: {clinicConfig.schedule.tuesdayToSaturday.hours}</div>
               <div>{clinicConfig.schedule.sunday.days}: {clinicConfig.schedule.sunday.hours}</div>
-              <div className="text-emerald-400 font-bold">Malam s/d 21.00: By appointment only</div>
+              <div className="text-emerald-400 font-bold">Jadwal s/d 21.00: Dengan reservasi</div>
             </div>
 
             <div className="md:col-span-3 space-y-2 text-slate-300">

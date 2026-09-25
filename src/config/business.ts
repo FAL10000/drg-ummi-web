@@ -93,7 +93,6 @@ export interface BusinessConfig {
   faqs: FaqItem[];
   meta: {
     websiteUrl: string;
-    priceRange: string;
     medicalSpecialty: string;
   };
 }
@@ -123,7 +122,7 @@ export const clinicConfig: BusinessConfig = {
     postalCode: "15139",
     fullAddress: "Jl. Kav. Pemda 3 No. 241A, RT.005/RW.005, Panunggangan Barat, Kec. Cibodas, Kota Tangerang, Banten 15139",
     landmark: "Kavling Pemda 3, dekat akses Palem Semi & Karawaci",
-    googleMapsUrl: "https://maps.google.com/?q=Jl.+Kav.+Pemda+3+No.241A+Panunggangan+Barat+Cibodas+Tangerang",
+    googleMapsUrl: "https://maps.app.goo.gl/1tSCCc8naE9CFYTw9",
     googleMapsEmbedUrl: "https://maps.google.com/maps?q=Jl.+Kav.+Pemda+3+No.241A+Panunggangan+Barat+Cibodas+Tangerang&t=&z=15&ie=UTF8&iwloc=&output=embed",
     geo: {
       latitude: -6.2113393,
@@ -147,9 +146,9 @@ export const clinicConfig: BusinessConfig = {
       note: "Praktik Pagi – Malam",
     },
     eveningNotice: {
-      title: "Butuh jadwal setelah jam kerja?",
-      description: "Jadwal perawatan hingga pukul 21.00 dapat tersedia dengan reservasi dan konfirmasi terlebih dahulu.",
-      policy: "Pelayanan malam berlaku hanya dengan janji temu (by appointment only). Tidak melayani walk-in larut malam.",
+      title: "Jadwal Setelah Jam Reguler",
+      description: "Jadwal setelah jam reguler hingga pukul 21.00 dapat tersedia dengan reservasi dan konfirmasi terlebih dahulu.",
+      policy: "Pelayanan malam tersedia hanya dengan reservasi dan konfirmasi sebelumnya (by appointment only).",
       buttonText: "Tanyakan Jadwal Malam via WA",
       whatsappMessage: "Hallo Dok, saya membutuhkan jadwal perawatan malam hari setelah jam kerja reguler. Apakah ada slot janji temu?",
     },
@@ -158,7 +157,7 @@ export const clinicConfig: BusinessConfig = {
     score: 5.0,
     reviewCount: 55,
     source: "Google Maps",
-    url: "https://maps.google.com/?q=Jl.+Kav.+Pemda+3+No.241A+Panunggangan+Barat+Cibodas+Tangerang",
+    url: "https://maps.app.goo.gl/1tSCCc8naE9CFYTw9",
   },
   services: [
     {
@@ -294,7 +293,7 @@ export const clinicConfig: BusinessConfig = {
     },
     {
       question: "Apakah bisa membuat jadwal setelah jam kerja (malam)?",
-      answer: "Jadwal perawatan hingga pukul 21.00 dapat tersedia dengan reservasi dan konfirmasi terlebih dahulu via WhatsApp (by appointment only). Kami tidak melayani walk-in larut malam.",
+      answer: "Jadwal setelah jam reguler hingga pukul 21.00 dapat tersedia dengan reservasi dan konfirmasi terlebih dahulu via WhatsApp (by appointment only).",
     },
     {
       question: "Bagaimana cara membuat janji perawatan?",
@@ -307,7 +306,6 @@ export const clinicConfig: BusinessConfig = {
   ],
   meta: {
     websiteUrl: "https://fal10000.github.io/drg-ummi-web",
-    priceRange: "$$",
     medicalSpecialty: "Dentistry",
   },
 };

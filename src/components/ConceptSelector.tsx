@@ -1,63 +1,63 @@
 import React, { useState } from 'react';
-import { Layers, Check, X, Sparkles, Palette } from 'lucide-react';
+import { Layers, Check, X, Sparkles, Palette, Copy, CheckCheck } from 'lucide-react';
 
 export type ConceptId = 'editorial' | 'japanese-minimal' | 'warm-family' | 'bold-typography' | 'warm-neighborhood';
 
 interface ConceptOption {
   id: ConceptId;
   name: string;
+  shortName: string;
   tagline: string;
   description: string;
   badge: string;
   colors: string[];
-  fonts: string;
 }
 
 export const CONCEPTS: ConceptOption[] = [
   {
     id: 'editorial',
-    name: 'Concept 1: Flagship Editorial',
-    tagline: 'Tenang, Presisi & Terstruktur',
-    description: 'Desain desktop & mobile komprehensif dengan tipografi Playfair Display dan palet Navy & Linen.',
-    badge: 'Desain Utama Stitch',
+    name: 'Pilihan 1: Flagship Editorial',
+    shortName: 'Pilihan 1',
+    tagline: 'Tenang, Elegan & Profesional',
+    description: 'Kesan rapi, terpercaya, dan tertata dengan nuansa biru klasik dan aksen linen yang elegan.',
+    badge: 'Elegan & Rapi',
     colors: ['#172A3A', '#243B53', '#FAF9F6', '#25D366'],
-    fonts: 'Playfair Display + Plus Jakarta Sans',
   },
   {
     id: 'japanese-minimal',
-    name: 'Concept 2: Japanese Minimal',
-    tagline: 'Quiet Clinic & Arsitektural',
-    description: 'Nuansa hening bernuansa Jepang, batas tipis hairline, whitespace lapang, dan tipografi vertikal.',
+    name: 'Pilihan 2: Japanese Minimal',
+    shortName: 'Pilihan 2',
+    tagline: 'Hening, Rapi & Bersih',
+    description: 'Tata letak yang lapang, tenang, dan bersahaja dengan estetika hening nan nyaman.',
     badge: 'Minimalis Hening',
     colors: ['#1C1D1F', '#2B384A', '#F7F5F0', '#ECE8DF'],
-    fonts: 'Shippori Mincho + JetBrains Mono',
   },
   {
     id: 'warm-family',
-    name: 'Concept 3: Warm Family Practice',
-    tagline: 'Ramah, Bersahaja & Homey',
-    description: 'Sentuhan ramah keluarga dengan warna hangat terracotta, aksen tulisan tangan, dan kartu lembut.',
-    badge: 'Keluarga & Anak',
+    name: 'Pilihan 3: Warm Family',
+    shortName: 'Pilihan 3',
+    tagline: 'Hangat & Ramah Keluarga',
+    description: 'Suasana bersahabat dan homey dengan nuansa terakota yang ramah untuk pasien anak dan keluarga.',
+    badge: 'Ramah Keluarga',
     colors: ['#382821', '#C46D50', '#FAF4EB', '#25D366'],
-    fonts: 'Lora + Outfit + Caveat',
   },
   {
     id: 'bold-typography',
-    name: 'Concept 4: Bold Contemporary',
-    tagline: 'Swiss Typographic & Modern',
-    description: 'Tipografi monumental, kontras monokrom tinggi dengan aksen cobalt blue dan layout grid arsitektural.',
+    name: 'Pilihan 4: Bold Contemporary',
+    shortName: 'Pilihan 4',
+    tagline: 'Modern, Tegas & Terang',
+    description: 'Gaya modern yang tegas dengan tipografi berani, kontras tinggi, dan tata letak yang segar.',
     badge: 'Modern & Tegas',
     colors: ['#0A0A0A', '#0038FF', '#FFFFFF', '#25D366'],
-    fonts: 'Space Grotesk + IBM Plex Mono',
   },
   {
     id: 'warm-neighborhood',
-    name: 'Concept 5: Warm Neighborhood Dental',
-    tagline: 'Humanist, Lembut & Earthen',
-    description: 'Nuansa studio hangat bertekstur perkamen, tipografi Newsreader puitis, dan kartu layanan interaktif.',
-    badge: 'Hangat & Bersahabat',
+    name: 'Pilihan 5: Warm Neighborhood',
+    shortName: 'Pilihan 5',
+    tagline: 'Akrab & Bersahabat',
+    description: 'Nuansa hangat yang dekat dengan lingkungan sekitar Cibodas, bersahaja dan nyaman dipandang.',
+    badge: 'Dekat & Akrab',
     colors: ['#000B21', '#97472E', '#FDF9F3', '#25D366'],
-    fonts: 'Newsreader + Plus Jakarta Sans',
   },
 ];
 
@@ -71,25 +71,39 @@ export const ConceptSelector: React.FC<ConceptSelectorProps> = ({
   onSelectConcept,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [copiedId, setCopiedId] = useState<string | null>(null);
   const selected = CONCEPTS.find((c) => c.id === currentConcept) || CONCEPTS[0];
+
+  const handleCopyLink = (e: React.MouseEvent, id: ConceptId) => {
+    e.stopPropagation();
+    try {
+      const url = new URL(window.location.href);
+      url.searchParams.set('design', id);
+      navigator.clipboard.writeText(url.toString());
+      setCopiedId(id);
+      setTimeout(() => setCopiedId(null), 2000);
+    } catch {
+      // fallback
+    }
+  };
 
   return (
     <>
       {/* Floating Sticky Trigger Pill */}
-      <div className="fixed top-24 right-4 z-50">
+      <div className="fixed top-20 sm:top-24 right-3 sm:right-4 z-50">
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
-          className="flex items-center gap-2 bg-[#172A3A] text-white px-3.5 py-2.5 rounded-full shadow-xl hover:bg-[#243B53] border-2 border-white/30 transition-all hover:scale-105 active:scale-95 group focus:outline-hidden"
-          title="Ganti Konsep Desain Stitch"
-          aria-label="Pilih Konsep Desain"
+          className="flex items-center gap-2 bg-[#172A3A] text-white px-3 sm:px-4 py-2 sm:py-2.5 rounded-full shadow-xl hover:bg-[#243B53] border-2 border-white/30 transition-all hover:scale-105 active:scale-95 group focus:outline-hidden"
+          title="Bandingkan 5 pilihan desain website"
+          aria-label="Pilih Desain Website"
         >
           <Palette className="w-4 h-4 text-emerald-400 group-hover:rotate-12 transition-transform" />
           <span className="text-xs font-semibold tracking-wide hidden sm:inline">
-            Ganti Konsep:
+            Bandingkan Desain:
           </span>
-          <span className="text-xs font-mono text-emerald-300 font-bold max-w-[130px] truncate">
-            {selected.name.split(':')[0]}
+          <span className="text-xs font-mono text-emerald-300 font-bold">
+            {selected.shortName}
           </span>
           <Layers className="w-3.5 h-3.5 text-slate-300 ml-0.5" />
         </button>
@@ -104,23 +118,23 @@ export const ConceptSelector: React.FC<ConceptSelectorProps> = ({
           >
             {/* Header */}
             <div className="px-6 py-5 bg-[#FAF9F6] border-b border-gray-200 flex items-center justify-between">
-              <div className="flex items-center gap-2.5">
-                <div className="p-2 bg-[#172A3A] text-emerald-400 rounded-lg">
+              <div className="flex items-center gap-3">
+                <div className="p-2.5 bg-[#172A3A] text-emerald-400 rounded-xl">
                   <Sparkles className="w-5 h-5" />
                 </div>
                 <div>
                   <h3 className="font-serif text-lg font-bold text-[#172A3A]">
-                    Pilih Konsep Desain Stitch
+                    Pilih desain website yang paling Ibu suka
                   </h3>
-                  <p className="text-xs text-gray-500">
-                    Bandingkan 4 variasi desain hasil ekspor Google Stitch secara langsung.
+                  <p className="text-xs text-gray-600 mt-0.5 leading-relaxed">
+                    Silakan lihat kelima pilihan desain. Isi dan informasi praktik sama, hanya gaya tampilannya yang berbeda.
                   </p>
                 </div>
               </div>
               <button
                 type="button"
                 onClick={() => setIsOpen(false)}
-                className="p-1.5 text-gray-400 hover:text-gray-700 rounded-lg hover:bg-gray-100 transition-colors"
+                className="p-1.5 text-gray-400 hover:text-gray-700 rounded-lg hover:bg-gray-100 transition-colors shrink-0 ml-2"
                 aria-label="Tutup"
               >
                 <X className="w-5 h-5" />
@@ -128,9 +142,11 @@ export const ConceptSelector: React.FC<ConceptSelectorProps> = ({
             </div>
 
             {/* Concept Options List */}
-            <div className="p-6 overflow-y-auto space-y-4 divide-y divide-gray-100">
+            <div className="p-4 sm:p-6 overflow-y-auto space-y-3.5 divide-y divide-gray-100">
               {CONCEPTS.map((concept) => {
                 const isCurrent = currentConcept === concept.id;
+                const isCopied = copiedId === concept.id;
+
                 return (
                   <div
                     key={concept.id}
@@ -138,7 +154,7 @@ export const ConceptSelector: React.FC<ConceptSelectorProps> = ({
                       onSelectConcept(concept.id);
                       setIsOpen(false);
                     }}
-                    className={`pt-4 first:pt-0 p-4 rounded-xl cursor-pointer transition-all border ${
+                    className={`pt-3.5 first:pt-0 p-4 rounded-xl cursor-pointer transition-all border ${
                       isCurrent
                         ? 'border-[#172A3A] bg-[#F1F6FA] shadow-xs'
                         : 'border-transparent hover:border-gray-200 hover:bg-gray-50'
@@ -188,10 +204,28 @@ export const ConceptSelector: React.FC<ConceptSelectorProps> = ({
                       </div>
                     </div>
 
-                    <div className="mt-3 pt-2 border-t border-gray-100/80 flex items-center justify-between text-[11px] font-mono text-gray-500">
-                      <span>Tipografi: {concept.fonts}</span>
-                      <span className="text-[#172A3A] font-semibold hover:underline">
-                        {isCurrent ? 'Sedang Aktif' : 'Terapkan Desain →'}
+                    <div className="mt-3 pt-2.5 border-t border-gray-100 flex items-center justify-between text-xs">
+                      <button
+                        type="button"
+                        onClick={(e) => handleCopyLink(e, concept.id)}
+                        className="inline-flex items-center gap-1.5 text-gray-500 hover:text-[#172A3A] text-[11px] font-medium py-0.5 px-1.5 rounded hover:bg-gray-200/50 transition-colors"
+                        title="Salin link langsung untuk pilihan desain ini"
+                      >
+                        {isCopied ? (
+                          <>
+                            <CheckCheck className="w-3.5 h-3.5 text-emerald-600" />
+                            <span className="text-emerald-700 font-semibold">Link tersalin!</span>
+                          </>
+                        ) : (
+                          <>
+                            <Copy className="w-3.5 h-3.5" />
+                            <span>Salin Link Pilihan Ini</span>
+                          </>
+                        )}
+                      </button>
+
+                      <span className="text-[#172A3A] font-semibold text-xs hover:underline">
+                        {isCurrent ? 'Sedang Dilihat ✓' : 'Lihat Desain Ini →'}
                       </span>
                     </div>
                   </div>
@@ -201,11 +235,11 @@ export const ConceptSelector: React.FC<ConceptSelectorProps> = ({
 
             {/* Modal Footer */}
             <div className="px-6 py-3.5 bg-gray-50 border-t border-gray-200 flex justify-between items-center text-xs text-gray-500">
-              <span>Data bisnis tetap konsisten di seluruh konsep.</span>
+              <span>Informasi jadwal, layanan &amp; kontak tetap sama.</span>
               <button
                 type="button"
                 onClick={() => setIsOpen(false)}
-                className="px-4 py-1.5 text-xs font-semibold text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50"
+                className="px-4 py-1.5 text-xs font-semibold text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-100 transition-colors"
               >
                 Tutup
               </button>

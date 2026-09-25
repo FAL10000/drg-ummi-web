@@ -23,7 +23,7 @@ export const Footer: React.FC = () => {
               </span>
             </div>
             <p className="text-slate-400 text-xs leading-relaxed max-w-sm">
-              Praktik dokter gigi mandiri keluarga di Panunggangan Barat, Kec. Cibodas, Kota Tangerang. Pelayanan personal, tenang, dan higienis.
+              Praktik dokter gigi mandiri di Panunggangan Barat, Cibodas, Kota Tangerang.
             </p>
             <div className="text-slate-400 text-xs leading-normal">
               {clinicConfig.location.fullAddress}
@@ -40,7 +40,7 @@ export const Footer: React.FC = () => {
               <div>{clinicConfig.schedule.tuesdayToSaturday.days}: {clinicConfig.schedule.tuesdayToSaturday.hours}</div>
               <div>{clinicConfig.schedule.sunday.days}: {clinicConfig.schedule.sunday.hours}</div>
               <div className="text-emerald-400 font-medium">
-                Jadwal malam s/d 21.00: By appointment only
+                Jadwal s/d 21.00: Dengan reservasi &amp; konfirmasi
               </div>
             </div>
           </div>

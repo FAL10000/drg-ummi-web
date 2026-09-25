@@ -10,7 +10,7 @@ export const JapaneseMinimalConcept: React.FC = () => {
       <div className="px-6 md:px-16 py-3 border-b border-[#1C1D1F]/15 text-[10px] md:text-xs font-mono text-[#73757A] flex justify-between items-center tracking-widest uppercase">
         <span>{clinicConfig.subTagline}</span>
         <span className="hidden md:inline">Praktik Mandiri · Janji Temu Terjadwal</span>
-        <span>★ {clinicConfig.googleRating.score.toFixed(1)} Google ({clinicConfig.googleRating.reviewCount} Ulasan)</span>
+        <span>★ {clinicConfig.googleRating.score.toFixed(1)} di Google · {clinicConfig.googleRating.reviewCount} Ulasan</span>
       </div>
 
       {/* Header */}
@@ -51,7 +51,7 @@ export const JapaneseMinimalConcept: React.FC = () => {
           {/* Left Vertical Typographic Column */}
           <div className="lg:col-span-1 border-r border-[#1C1D1F]/15 hidden lg:flex flex-col justify-between items-center py-12 px-2">
             <span className="font-mono text-[10px] tracking-[0.25em] text-[#73757A] uppercase [writing-mode:vertical-rl] rotate-180">
-              KEHENINGAN &bull; KETELITIAN &bull; KENYAMANAN
+              KEHENINGAN &bull; KETENANGAN &bull; KENYAMANAN
             </span>
             <div className="w-px h-16 bg-[#1C1D1F]/20"></div>
             <span className="font-mono text-[10px] text-[#73757A] tracking-widest">
@@ -74,7 +74,7 @@ export const JapaneseMinimalConcept: React.FC = () => {
               <div className="relative w-full max-w-md aspect-[4/5] bg-[#E2DDCF] overflow-hidden border border-[#1C1D1F]/20 group">
                 <img
                   src={clinicConfig.images.doctorPatient}
-                  alt="drg. Ummi Kaltsum memeriksa pasien anak dengan sabar dan teliti"
+                  alt="drg. Ummi Kaltsum memeriksa pasien anak dalam suasana praktik mandiri"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103"
                   loading="lazy"
                 />
@@ -110,7 +110,7 @@ export const JapaneseMinimalConcept: React.FC = () => {
               </div>
 
               <h1 className="font-['Shippori_Mincho'] text-3xl md:text-4xl lg:text-[2.65rem] text-[#1C1D1F] leading-[1.28] tracking-tight mb-8">
-                Pemeriksaan gigi yang hening, teliti, dan bersahaja.
+                Pemeriksaan gigi yang hening, tenang, dan bersahaja.
               </h1>
 
               <p className="text-sm md:text-[15px] text-[#73757A] leading-relaxed font-light mb-8">
@@ -255,8 +255,8 @@ export const JapaneseMinimalConcept: React.FC = () => {
                 <span>{clinicConfig.schedule.sunday.hours}</span>
               </div>
               <div className="py-3 flex justify-between text-[#2B384A] font-semibold">
-                <span>Jadwal Malam s/d 21.00</span>
-                <span>By Appointment Only</span>
+                <span>Jadwal s/d 21.00</span>
+                <span>Dengan Reservasi</span>
               </div>
             </div>
 

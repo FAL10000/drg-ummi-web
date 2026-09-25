@@ -87,7 +87,7 @@ export const WarmFamilyConcept: React.FC = () => {
                   ))}
                 </div>
                 <span className="text-sm text-[#614F44]">
-                  <strong>5.0 Bintang</strong> dari 55 ulasan warga sekitar
+                  <strong>5.0 di Google</strong> · 55 ulasan
                 </span>
               </div>
 

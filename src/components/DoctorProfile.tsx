@@ -54,9 +54,9 @@ export const DoctorProfile: React.FC = () => {
               Pemeriksaan dan konsultasi langsung bersama dokter gigi.
             </h2>
 
-            <blockquote className="border-l-2 border-brand-slate pl-4 italic text-brand-dark text-sm sm:text-base bg-[#FAF9F6] py-2">
-              &ldquo;Kesehatan gigi dimulai dari pemahaman yang baik. Kami meluangkan waktu mendengarkan keluhan pasien agar rencana tindakan dipahami bersama.&rdquo;
-            </blockquote>
+            <div className="border-l-2 border-brand-slate pl-4 text-brand-dark text-xs sm:text-sm bg-[#FAF9F6] py-2.5 leading-relaxed">
+              Pelayanan konsultasi dan pemeriksaan gigi mengutamakan komunikasi yang jelas agar rencana perawatan dipahami bersama oleh pasien dan keluarga.
+            </div>
 
             <div className="space-y-3 text-xs sm:text-sm text-brand-muted leading-relaxed">
               <p>

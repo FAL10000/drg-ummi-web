@@ -110,7 +110,7 @@ export const WarmNeighborhoodConcept: React.FC = () => {
                 </span>
                 <span className="font-bold text-[#000B21]">5.0 di Google</span>
                 <span className="text-[#C5C6CD]">&bull;</span>
-                <span>55 ulasan pasien Cibodas</span>
+                <span>55 ulasan</span>
               </div>
 
               <h1 className="font-['Newsreader',serif] font-normal text-4xl sm:text-5xl lg:text-6xl text-[#000B21] leading-[1.12] tracking-tight">
@@ -811,7 +811,7 @@ export const WarmNeighborhoodConcept: React.FC = () => {
               </p>
               <div className="flex items-center gap-1.5 text-amber-400 font-semibold pt-1">
                 <Star className="w-4 h-4 fill-current" />
-                <span>5.0 di Google Maps ({clinicConfig.googleRating.reviewCount} ulasan)</span>
+                <span>5.0 di Google · {clinicConfig.googleRating.reviewCount} ulasan</span>
               </div>
             </div>
 
@@ -822,7 +822,7 @@ export const WarmNeighborhoodConcept: React.FC = () => {
               <div>{clinicConfig.schedule.monday.days}: {clinicConfig.schedule.monday.hours}</div>
               <div>{clinicConfig.schedule.tuesdayToSaturday.days}: {clinicConfig.schedule.tuesdayToSaturday.hours}</div>
               <div>{clinicConfig.schedule.sunday.days}: {clinicConfig.schedule.sunday.hours}</div>
-              <div className="text-emerald-400 font-medium">Jadwal Malam s/d 21.00: By appointment only</div>
+              <div className="text-emerald-400 font-medium">Jadwal s/d 21.00: Dengan reservasi</div>
             </div>
 
             <div className="md:col-span-3 space-y-2 text-slate-300">

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { DentistJsonLd } from './components/DentistJsonLd';
 import { ConceptSelector, ConceptId } from './components/ConceptSelector';
 import { EditorialConcept } from './concepts/EditorialConcept';
@@ -7,30 +7,76 @@ import { WarmFamilyConcept } from './concepts/WarmFamilyConcept';
 import { BoldTypographyConcept } from './concepts/BoldTypographyConcept';
 import { WarmNeighborhoodConcept } from './concepts/WarmNeighborhoodConcept';
 
-export const App: React.FC = () => {
-  const [activeConcept, setActiveConcept] = useState<ConceptId>(() => {
-    try {
-      const saved = localStorage.getItem('selected_stitch_concept');
-      if (
-        saved === 'editorial' ||
-        saved === 'japanese-minimal' ||
-        saved === 'warm-family' ||
-        saved === 'bold-typography' ||
-        saved === 'warm-neighborhood'
-      ) {
-        return saved;
-      }
-    } catch {
-      // LocalStorage unavailable fallback
-    }
-    return 'editorial';
-  });
+const VALID_CONCEPTS: ConceptId[] = [
+  'editorial',
+  'japanese-minimal',
+  'warm-family',
+  'bold-typography',
+  'warm-neighborhood',
+];
 
+function getInitialConcept(): ConceptId {
+  try {
+    // 1. Check URL query param: ?design=...
+    const params = new URLSearchParams(window.location.search);
+    const designParam = params.get('design') as ConceptId;
+    if (designParam && VALID_CONCEPTS.includes(designParam)) {
+      return designParam;
+    }
+
+    // 2. Fallback to localStorage
+    const saved = localStorage.getItem('drg_selected_concept') as ConceptId;
+    if (saved && VALID_CONCEPTS.includes(saved)) {
+      return saved;
+    }
+  } catch {
+    // Ignore restricted environments
+  }
+
+  // 3. Default to editorial
+  return 'editorial';
+}
+
+export const App: React.FC = () => {
+  const [activeConcept, setActiveConcept] = useState<ConceptId>(getInitialConcept);
+
+  const handleSelectConcept = useCallback((concept: ConceptId) => {
+    setActiveConcept(concept);
+    try {
+      localStorage.setItem('drg_selected_concept', concept);
+      const url = new URL(window.location.href);
+      url.searchParams.set('design', concept);
+      window.history.replaceState({}, '', url.toString());
+    } catch {
+      // Ignore
+    }
+  }, []);
+
+  // Listen to browser popstate (back/forward navigation)
+  useEffect(() => {
+    const handlePopState = () => {
+      const params = new URLSearchParams(window.location.search);
+      const designParam = params.get('design') as ConceptId;
+      if (designParam && VALID_CONCEPTS.includes(designParam)) {
+        setActiveConcept(designParam);
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  // Sync activeConcept to URL and localStorage on mount / change
   useEffect(() => {
     try {
-      localStorage.setItem('selected_stitch_concept', activeConcept);
+      localStorage.setItem('drg_selected_concept', activeConcept);
+      const url = new URL(window.location.href);
+      if (url.searchParams.get('design') !== activeConcept) {
+        url.searchParams.set('design', activeConcept);
+        window.history.replaceState({}, '', url.toString());
+      }
     } catch {
-      // Silently catch in restricted env
+      // Ignore
     }
     // Scroll to top on concept switch
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -60,7 +106,7 @@ export const App: React.FC = () => {
       {/* Floating Interactive Concept Selector */}
       <ConceptSelector
         currentConcept={activeConcept}
-        onSelectConcept={setActiveConcept}
+        onSelectConcept={handleSelectConcept}
       />
 
       {/* Active Concept Render */}

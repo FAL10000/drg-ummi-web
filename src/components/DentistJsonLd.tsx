@@ -11,7 +11,6 @@ export const DentistJsonLd: React.FC = () => {
     "description": clinicConfig.philosophy,
     "url": clinicConfig.meta.websiteUrl,
     "telephone": clinicConfig.contact.phoneDisplay,
-    "priceRange": clinicConfig.meta.priceRange,
     "image": [
       `${clinicConfig.meta.websiteUrl}/images/drg-ummi-treatment-room.webp`,
       `${clinicConfig.meta.websiteUrl}/images/drg-ummi-portrait.webp`,
@@ -60,10 +59,7 @@ export const DentistJsonLd: React.FC = () => {
         "closes": "19:00"
       }
     ],
-    "isAcceptingNewPatients": true,
-    "medicalSpecialty": "Dentistry",
-    "currenciesAccepted": "IDR",
-    "paymentAccepted": "Cash, QRIS, Bank Transfer"
+    "medicalSpecialty": "Dentistry"
   };
 
   return (
