@@ -19,7 +19,7 @@ export const CONCEPTS: ConceptOption[] = [
     name: 'Pilihan 1: Flagship Editorial',
     shortName: 'Pilihan 1',
     tagline: 'Tenang, Elegan & Profesional',
-    description: 'Kesan rapi, terpercaya, dan tertata dengan nuansa biru klasik dan aksen linen yang elegan.',
+    description: 'Kesan rapi, elegan, dan tertata dengan nuansa biru klasik dan aksen linen.',
     badge: 'Elegan & Rapi',
     colors: ['#172A3A', '#243B53', '#FAF9F6', '#25D366'],
   },

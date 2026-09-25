@@ -143,14 +143,8 @@ export const BoldTypographyConcept: React.FC = () => {
                 <img
                   src={clinicConfig.images.treatmentRoom}
                   alt="Ruang periksa dental unit utama drg. Ummi Kaltsum Cibodas"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover"
                 />
-                <div className="absolute top-3 left-3 bg-[#0A0A0A] text-white font-mono text-[10px] font-bold px-2.5 py-1 border border-white/20">
-                  RUANG PERIKSA UTAMA
-                </div>
-                <div className="absolute bottom-3 right-3 bg-[#0038FF] text-white font-mono text-[10px] font-bold px-2.5 py-1">
-                  DENTAL UNIT
-                </div>
               </div>
               <div className="p-3 border-t-2 border-[#0A0A0A] bg-white font-mono text-[11px] text-[#666666] flex justify-between items-center">
                 <span>DENTAL UNIT ELEKTRIK</span>
@@ -317,8 +311,8 @@ export const BoldTypographyConcept: React.FC = () => {
                 Sebagai dokter gigi praktik mandiri di Panunggangan Barat, Cibodas, drg. Ummi Kaltsum memberikan pelayanan langsung pada setiap pasien yang berkunjung.
               </p>
 
-              <div className="border-l-4 border-[#0038FF] pl-4 py-2 text-sm sm:text-base font-medium text-[#111111] italic bg-[#F0F4FF]">
-                &ldquo;Kami meluangkan waktu untuk menjelaskan kondisi gigi dan opsi perawatan yang sesuai sebelum tindakan dilakukan.&rdquo;
+              <div className="border-l-4 border-[#0038FF] pl-4 py-2 text-sm sm:text-base font-medium text-[#111111] bg-[#F0F4FF]">
+                Konsultasi mengutamakan komunikasi yang terbuka agar kondisi gigi dan rencana perawatan dipahami bersama oleh pasien dan keluarga.
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 font-mono text-xs">
@@ -343,10 +337,10 @@ export const BoldTypographyConcept: React.FC = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackWhatsAppBooking('concept4_profile_wa')}
-                  className="inline-flex items-center gap-2 bg-[#0A0A0A] hover:bg-[#0038FF] text-white px-6 py-3.5 font-mono text-xs font-bold uppercase tracking-wider transition-colors"
+                  className="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-[#0038FF] hover:underline"
                 >
-                  <MessageCircle className="w-4 h-4 text-emerald-400" />
-                  <span>KONSULTASI DENGAN DOKTER UMMI VIA WA &rarr;</span>
+                  <MessageCircle className="w-4 h-4 text-emerald-600" />
+                  <span>Konsultasi dengan drg. Ummi via WhatsApp &rarr;</span>
                 </a>
               </div>
             </div>
@@ -404,9 +398,9 @@ export const BoldTypographyConcept: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => trackWhatsAppBooking('concept4_service', service.title)}
-                    className="inline-flex items-center gap-1.5 bg-[#0A0A0A] group-hover:bg-[#25D366] group-hover:text-slate-950 text-white font-mono text-xs font-bold px-4 py-2 uppercase tracking-wider transition-all"
+                    className="inline-flex items-center gap-1 font-mono text-xs font-bold text-[#0038FF] hover:underline"
                   >
-                    <span>RESERVASI</span>
+                    <span>TANYAKAN</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </a>
                 </div>

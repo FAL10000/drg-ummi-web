@@ -35,18 +35,11 @@ export const Services: React.FC = () => {
                 {service.number}
               </div>
 
-              {/* Title & Badge */}
+              {/* Title */}
               <div className="md:col-span-4">
-                <div className="flex flex-wrap items-center gap-2 mb-1">
-                  <h3 className="font-serif text-base sm:text-lg text-brand-navy group-hover:text-brand-slate transition-colors font-semibold">
-                    {service.title}
-                  </h3>
-                </div>
-                {service.badge && (
-                  <span className="inline-block text-[10px] font-mono text-brand-slate bg-brand-lightBlue px-2 py-0.5 border border-[#DCE8F2]">
-                    {service.badge}
-                  </span>
-                )}
+                <h3 className="font-serif text-base sm:text-lg text-brand-navy group-hover:text-brand-slate transition-colors font-semibold">
+                  {service.title}
+                </h3>
               </div>
 
               {/* Description */}

@@ -26,18 +26,13 @@ export const Atmosphere: React.FC = () => {
           
           {/* Wide panoramic feature (Dental Unit) */}
           <div className="md:col-span-7 border border-brand-border bg-white shadow-xs overflow-hidden">
-            <div className="relative aspect-[16/10] bg-[#EEF2F6] overflow-hidden group">
+            <div className="relative aspect-[16/10] bg-[#EEF2F6] overflow-hidden">
               <img
                 src={mainFacility.image}
                 alt={mainFacility.alt}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
+                className="w-full h-full object-cover"
                 loading="lazy"
               />
-              <div className="absolute top-3 left-3">
-                <span className="font-mono text-[10px] text-brand-slate bg-white/95 backdrop-blur-xs px-2.5 py-1 border border-brand-border shadow-xs">
-                  {mainFacility.tag}
-                </span>
-              </div>
             </div>
             <div className="p-4 bg-[#FAF9F6] border-t border-brand-border flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-[11px] text-brand-muted">
               <span className="font-medium text-brand-navy">{mainFacility.title}</span>
@@ -52,18 +47,13 @@ export const Atmosphere: React.FC = () => {
                 key={facility.id}
                 className="border border-brand-border bg-white shadow-xs overflow-hidden"
               >
-                <div className="relative aspect-[16/9] bg-[#F7F9FB] overflow-hidden group">
+                <div className="relative aspect-[16/9] bg-[#F7F9FB] overflow-hidden">
                   <img
                     src={facility.image}
                     alt={facility.alt}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
+                    className="w-full h-full object-cover"
                     loading="lazy"
                   />
-                  <div className="absolute top-3 left-3">
-                    <span className="font-mono text-[10px] text-brand-muted bg-white/95 backdrop-blur-xs px-2 py-0.5 border border-dashed border-brand-border">
-                      {facility.tag}
-                    </span>
-                  </div>
                 </div>
                 <div className="p-3 bg-[#FAF9F6] border-t border-brand-border text-[11px] text-brand-muted flex justify-between items-center">
                   <span className="font-medium text-brand-navy">{facility.title}</span>

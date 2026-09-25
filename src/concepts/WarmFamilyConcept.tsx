@@ -1,174 +1,158 @@
 import React from 'react';
-import { Star, MessageCircle, MapPin, Clock } from 'lucide-react';
+import { Star, MessageCircle, MapPin, Clock, ArrowRight } from 'lucide-react';
 import { clinicConfig, buildWhatsAppUrl } from '../config/business';
 import { trackWhatsAppBooking, trackMapsClick } from '../utils/analytics';
 
 export const WarmFamilyConcept: React.FC = () => {
   return (
-    <div className="bg-[#FAF4EB] text-[#382821] font-['Outfit',sans-serif] selection:bg-[#C46D50] selection:text-white pb-24 md:pb-0">
+    <div className="bg-[#FAF6F0] text-[#382821] font-['Outfit',sans-serif] selection:bg-[#C46D50] selection:text-white pb-24 md:pb-0">
       
-      {/* Friendly Neighborhood Badge Bar */}
-      <div className="bg-[#F0E6D8] border-b border-[#E3D6C5] px-6 py-2.5 text-xs text-[#5D473B] flex justify-between items-center">
-        <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-[#C46D50]"></span>
-          <span>Praktik dokter gigi keluarga di lingkungan Kavling Pemda 3</span>
-        </div>
-        <div className="hidden sm:flex items-center gap-4 text-[11px] font-medium">
-          <span>{clinicConfig.subTagline}</span>
-          <span className="text-[#C46D50] font-semibold">★ {clinicConfig.googleRating.score.toFixed(1)} di Google ({clinicConfig.googleRating.reviewCount} Ulasan Pasien)</span>
+      {/* Top Location Bar */}
+      <div className="bg-[#F2ECE1] border-b border-[#E3D9CC] px-6 py-2.5 text-xs text-[#5D473B]">
+        <div className="max-w-6xl mx-auto flex flex-wrap justify-between items-center gap-2">
+          <span>Praktik dokter gigi keluarga di Panunggangan Barat, Cibodas</span>
+          <div className="flex items-center gap-3 text-xs">
+            <div className="flex text-amber-600">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-3.5 h-3.5 fill-current" />
+              ))}
+            </div>
+            <span><strong>5.0 di Google</strong> · {clinicConfig.googleRating.reviewCount} ulasan</span>
+          </div>
         </div>
       </div>
 
-      {/* Warm Header */}
+      {/* Header */}
       <header className="max-w-6xl mx-auto px-6 py-6 flex justify-between items-center">
         <div>
-          <a href="#" className="block group">
-            <span className="font-['Lora',serif] text-2xl sm:text-3xl font-semibold text-[#433129] tracking-tight block">
+          <a href="#" className="block">
+            <span className="font-['Lora',serif] text-2xl sm:text-3xl font-semibold text-[#382821] tracking-tight block">
               {clinicConfig.doctorName}
             </span>
-            <span className="text-xs text-[#C46D50] font-medium tracking-wide">
-              {clinicConfig.tagline} &bull; Ramah Keluarga
+            <span className="text-xs text-[#8C5E47] font-medium tracking-wide">
+              Praktik Dokter Gigi Mandiri · Keluarga &amp; Anak
             </span>
           </a>
         </div>
 
         <div className="flex items-center gap-6">
-          <nav className="hidden md:flex gap-6 text-sm text-[#5D473B] font-medium">
-            <a href="#layanan-keluarga" className="hover:text-[#C46D50] transition-colors">Perawatan Keluarga</a>
-            <a href="#jadwal-keluarga" className="hover:text-[#C46D50] transition-colors">Jam Praktik</a>
-            <a href="#lokasi-keluarga" className="hover:text-[#C46D50] transition-colors">Petunjuk Arah</a>
+          <nav className="hidden md:flex gap-6 text-sm text-[#5D473B]">
+            <a href="#layanan-keluarga" className="hover:text-[#C46D50] transition-colors">Layanan</a>
+            <a href="#jadwal-keluarga" className="hover:text-[#C46D50] transition-colors">Jadwal</a>
+            <a href="#lokasi-keluarga" className="hover:text-[#C46D50] transition-colors">Lokasi</a>
           </nav>
 
           <a
             href={buildWhatsAppUrl()}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => trackWhatsAppBooking('concept2_header')}
-            className="bg-brand-wa hover:bg-brand-waHover text-white px-5 py-2.5 rounded-full text-xs font-semibold tracking-wide flex items-center gap-2 shadow-xs transition-all hover:scale-102"
+            onClick={() => trackWhatsAppBooking('concept3_header')}
+            className="bg-[#25D366] hover:bg-[#20ba5a] text-white px-5 py-2.5 rounded-full text-xs font-semibold tracking-wide flex items-center gap-2 shadow-xs transition-colors"
           >
             <MessageCircle className="w-4 h-4" />
-            <span>Reservasi via WhatsApp</span>
+            <span>Reservasi via WA</span>
           </a>
         </div>
       </header>
 
-      {/* HERO: Welcoming Residential Atmosphere */}
-      <section className="max-w-6xl mx-auto px-6 pt-4 pb-14">
-        <div className="bg-[#FFFDF9] rounded-3xl border border-[#EADBCE] p-8 md:p-14 shadow-sm relative overflow-hidden">
-          
-          {/* Handwritten Accent Label */}
-          <div className="absolute top-6 right-8 hidden md:block">
-            <span className="font-['Caveat',cursive] text-2xl text-[#C46D50] -rotate-6 block">
-              Dekat dari rumah, ramah untuk anak &amp; orang tua ~
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+      {/* Hero: Warm & Human Atmosphere */}
+      <section className="max-w-6xl mx-auto px-6 pt-2 pb-14">
+        <div className="bg-white rounded-2xl border border-[#EADBCE] p-8 md:p-12 shadow-xs">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             
             {/* Left Storytelling */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F5ECE1] text-[#C46D50] text-xs font-medium">
-                <span>Rumah Praktik Dokter Gigi &bull; Panunggangan Barat</span>
+            <div className="lg:col-span-7 space-y-5">
+              <div className="text-xs uppercase tracking-wider text-[#8C5E47] font-semibold">
+                Kavling Pemda 3 · Panunggangan Barat, Cibodas
               </div>
 
-              <h1 className="font-['Lora',serif] text-3xl sm:text-4xl lg:text-5xl text-[#382821] leading-tight">
+              <h1 className="font-['Lora',serif] text-3xl sm:text-4xl lg:text-[2.75rem] text-[#382821] leading-tight font-normal">
                 Dokter gigi keluarga yang dekat, sabar, dan bersahaja.
               </h1>
 
               <p className="text-base sm:text-lg text-[#614F44] leading-relaxed">
-                Pemeriksaan gigi tidak perlu membuat tegang. Bersama <strong>{clinicConfig.doctorName}</strong>, kami melayani keluarga di lingkungan Panunggangan Barat dan sekitarnya dengan suasana rumahan yang tenang, jujur, dan penuh kehangatan.
+                Pemeriksaan gigi tidak perlu membuat tegang. Bersama <strong>{clinicConfig.doctorName}</strong>, kami melayani keluarga di lingkungan Panunggangan Barat dan sekitarnya dengan suasana rumahan yang tenang dan bersahabat.
               </p>
 
-              {/* Organic Trust Box */}
-              <div className="flex flex-wrap items-center gap-4 pt-2">
-                <div className="flex items-center gap-1.5 text-amber-500">
+              {/* Trust Line */}
+              <div className="flex items-center gap-2 text-sm text-[#614F44] pt-1">
+                <div className="flex text-amber-500">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-4 h-4 fill-amber-500 text-amber-500" />
                   ))}
                 </div>
-                <span className="text-sm text-[#614F44]">
-                  <strong>5.0 di Google</strong> · 55 ulasan
-                </span>
+                <span><strong>5.0 di Google</strong> · {clinicConfig.googleRating.reviewCount} ulasan</span>
               </div>
 
-              <div className="pt-2 flex flex-col sm:flex-row gap-3">
+              {/* Single Main CTA + Secondary Text Link */}
+              <div className="pt-3 flex flex-col sm:flex-row sm:items-center gap-4">
                 <a
                   href={buildWhatsAppUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => trackWhatsAppBooking('concept2_hero')}
-                  className="inline-flex items-center justify-center gap-2 bg-[#C46D50] hover:bg-[#a85338] text-white px-6 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-xs"
+                  onClick={() => trackWhatsAppBooking('concept3_hero')}
+                  className="inline-flex items-center justify-center gap-2.5 bg-[#25D366] hover:bg-[#20ba5a] text-white px-6 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-xs"
                 >
                   <MessageCircle className="w-4 h-4" />
                   <span>Buat Janji Kunjungan</span>
                 </a>
+
                 <a
                   href="#lokasi-keluarga"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full text-xs font-semibold text-[#433129] border border-[#DDD0C2] hover:bg-[#F5ECE1] transition-all"
+                  className="inline-flex items-center gap-1.5 text-xs uppercase tracking-wider font-semibold text-[#8C5E47] hover:text-[#382821] transition-colors py-2"
                 >
-                  <MapPin className="w-4 h-4 text-[#C46D50]" />
-                  <span>Lihat Lokasi &amp; Peta</span>
+                  <span>Petunjuk Arah &amp; Peta</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </a>
               </div>
             </div>
 
-            {/* Right Visual Card */}
+            {/* Right Visual: Clear Photo of Doctor & Patient */}
             <div className="lg:col-span-5">
-              <div className="rounded-2xl overflow-hidden border border-[#EADBCE] bg-[#FAF4EB] p-2.5 shadow-xs">
-                <div className="aspect-[4/5] rounded-xl overflow-hidden bg-white relative group">
+              <div className="rounded-xl overflow-hidden border border-[#EADBCE] bg-[#FAF6F0] p-2 shadow-xs">
+                <div className="aspect-[4/4.8] rounded-lg overflow-hidden bg-[#F0E6D8]">
                   <img
                     src={clinicConfig.images.doctorPatient}
-                    alt="drg. Ummi Kaltsum memeriksa pasien anak dengan senyum ramah"
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
+                    alt="drg. Ummi Kaltsum memeriksa pasien anak dalam suasana praktik mandiri"
+                    className="w-full h-full object-cover"
+                    loading="eager"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#382821]/80 via-transparent to-transparent pointer-events-none"></div>
-                  <div className="absolute bottom-4 left-4 right-4 text-white">
-                    <span className="inline-block px-2.5 py-0.5 rounded-full bg-[#C46D50] text-[10px] font-bold uppercase tracking-wider mb-1">
-                      Dokumentasi Praktik
-                    </span>
-                    <div className="font-['Lora',serif] text-lg font-semibold text-white">
-                      Pemeriksaan Pasien Anak
-                    </div>
-                    <p className="text-[11px] text-[#F5ECE1] mt-0.5">
-                      drg. Ummi melayani pemeriksaan gigi anak dengan pendampingan orang tua.
-                    </p>
-                  </div>
                 </div>
                 <div className="p-3 text-center">
                   <span className="font-['Lora',serif] text-sm font-semibold text-[#382821] block">
                     {clinicConfig.doctorName}
                   </span>
                   <span className="text-[11px] text-[#7A6458] mt-0.5 block">
-                    {clinicConfig.doctorCredentials} · Panunggangan Barat, Cibodas
+                    Praktik Mandiri · Panunggangan Barat, Cibodas
                   </span>
                 </div>
               </div>
             </div>
 
           </div>
-
         </div>
       </section>
 
       {/* Services Section */}
       <section id="layanan-keluarga" className="max-w-6xl mx-auto px-6 py-14 border-t border-[#EADBCE]">
-        <div className="text-center max-w-xl mx-auto mb-12">
-          <span className="text-xs uppercase tracking-wider text-[#C46D50] font-bold">Layanan Sepenuh Hati</span>
-          <h2 className="font-['Lora',serif] text-3xl sm:text-4xl text-[#382821] mt-2">
-            Perawatan untuk Setiap Anggota Keluarga
+        <div className="max-w-xl mb-10">
+          <span className="text-xs uppercase tracking-wider text-[#8C5E47] font-semibold">Pelayanan Klinis</span>
+          <h2 className="font-['Lora',serif] text-2xl sm:text-3xl text-[#382821] mt-1 font-normal">
+            Perawatan untuk Pasien Anak &amp; Dewasa
           </h2>
+          <p className="text-xs sm:text-sm text-[#7A6458] mt-2">
+            Konsultasi dan penanganan kesehatan gigi dengan pendampingan keluarga yang nyaman.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {clinicConfig.services.map((service) => (
             <div
               key={service.id}
-              className="bg-white rounded-2xl p-6 border border-[#EADBCE] shadow-xs hover:border-[#C46D50] transition-colors flex flex-col justify-between"
+              className="bg-white rounded-xl p-5 sm:p-6 border border-[#EADBCE] shadow-xs flex flex-col justify-between"
             >
               <div>
-                <span className="inline-block px-2.5 py-0.5 rounded-full bg-[#FAF4EB] text-[11px] font-semibold text-[#C46D50] mb-3">
-                  {service.badge || 'Layanan Gigi'}
-                </span>
+                <span className="text-xs font-mono text-[#8C5E47] block mb-1">{service.number}</span>
                 <h3 className="font-['Lora',serif] text-lg font-semibold text-[#382821] mb-2">
                   {service.title}
                 </h3>
@@ -182,11 +166,10 @@ export const WarmFamilyConcept: React.FC = () => {
                   href={buildWhatsAppUrl(service.whatsappMessage)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => trackWhatsAppBooking('concept2_service', service.title)}
-                  className="text-xs font-semibold text-[#C46D50] hover:text-[#382821] inline-flex items-center gap-1"
+                  onClick={() => trackWhatsAppBooking('concept3_service', service.title)}
+                  className="text-xs font-semibold text-[#8C5E47] hover:text-[#382821] inline-flex items-center gap-1 transition-colors"
                 >
-                  <span>Tanyakan Jadwal via WA</span>
-                  <span>&rarr;</span>
+                  <span>Konsultasi Layanan &rarr;</span>
                 </a>
               </div>
             </div>
@@ -194,61 +177,61 @@ export const WarmFamilyConcept: React.FC = () => {
         </div>
       </section>
 
-      {/* Real Photos Clinic Atmosphere Gallery */}
+      {/* Real Photos Clinic Atmosphere */}
       <section className="max-w-6xl mx-auto px-6 py-14 border-t border-[#EADBCE]">
-        <div className="text-center max-w-xl mx-auto mb-10">
-          <span className="text-xs uppercase tracking-wider text-[#C46D50] font-bold">Suasana Praktik</span>
-          <h2 className="font-['Lora',serif] text-2xl sm:text-3xl text-[#382821] mt-2">
-            Lingkungan Periksa yang Bersih &amp; Menenangkan
+        <div className="max-w-xl mb-10">
+          <span className="text-xs uppercase tracking-wider text-[#8C5E47] font-semibold">Dokumentasi Ruang</span>
+          <h2 className="font-['Lora',serif] text-2xl sm:text-3xl text-[#382821] mt-1 font-normal">
+            Suasana Ruang Pemeriksaan
           </h2>
           <p className="text-xs sm:text-sm text-[#7A6458] mt-2">
-            Fasilitas praktik mandiri drg. Ummi Kaltsum di Jl. Kav. Pemda 3 Cibodas, Tangerang.
+            Dokumentasi sarana ruang periksa praktek mandiri drg. Ummi Kaltsum di Jl. Kav. Pemda 3.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-white rounded-2xl overflow-hidden border border-[#EADBCE] shadow-xs">
-            <div className="aspect-[4/3] overflow-hidden">
+          <div className="bg-white rounded-xl overflow-hidden border border-[#EADBCE] shadow-xs">
+            <div className="aspect-[4/3] overflow-hidden bg-[#F0E6D8]">
               <img
                 src={clinicConfig.images.treatmentRoom}
                 alt="Ruang periksa utama praktek drg. Ummi Kaltsum"
-                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                className="w-full h-full object-cover"
                 loading="lazy"
               />
             </div>
             <div className="p-4">
               <span className="font-['Lora',serif] font-semibold text-[#382821] text-sm block">Ruang Periksa Utama</span>
-              <p className="text-xs text-[#7A6458] mt-1">Peralatan dental elektrik terawat dan terjaga higienitasnya.</p>
+              <p className="text-xs text-[#7A6458] mt-1">Dental unit elektrik untuk tindakan pemeriksaan dan perawatan gigi.</p>
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl overflow-hidden border border-[#EADBCE] shadow-xs">
-            <div className="aspect-[4/3] overflow-hidden">
+          <div className="bg-white rounded-xl overflow-hidden border border-[#EADBCE] shadow-xs">
+            <div className="aspect-[4/3] overflow-hidden bg-[#F0E6D8]">
               <img
                 src={clinicConfig.images.waitingArea}
-                alt="Area konsultasi personal dokter dan pasien"
-                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                alt="Area konsultasi dokter dan pasien"
+                className="w-full h-full object-cover"
                 loading="lazy"
               />
             </div>
             <div className="p-4">
-              <span className="font-['Lora',serif] font-semibold text-[#382821] text-sm block">Area Konsultasi Personal</span>
-              <p className="text-xs text-[#7A6458] mt-1">Tempat diskusi dan penjelasan tindakan medis secara transparan.</p>
+              <span className="font-['Lora',serif] font-semibold text-[#382821] text-sm block">Area Konsultasi &amp; Administrasi</span>
+              <p className="text-xs text-[#7A6458] mt-1">Area diskusi kondisi gigi serta pencatatan rekam kunjungan pasien.</p>
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl overflow-hidden border border-[#EADBCE] shadow-xs">
-            <div className="aspect-[4/3] overflow-hidden">
+          <div className="bg-white rounded-xl overflow-hidden border border-[#EADBCE] shadow-xs">
+            <div className="aspect-[4/3] overflow-hidden bg-[#F0E6D8]">
               <img
                 src={clinicConfig.images.dentalChair}
-                alt="Kursi periksa dental ergonomis"
-                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                alt="Kursi periksa dental unit"
+                className="w-full h-full object-cover"
                 loading="lazy"
               />
             </div>
             <div className="p-4">
-              <span className="font-['Lora',serif] font-semibold text-[#382821] text-sm block">Dental Unit Ergonomis</span>
-              <p className="text-xs text-[#7A6458] mt-1">Unit kursi periksa dental untuk tindakan perawatan gigi.</p>
+              <span className="font-['Lora',serif] font-semibold text-[#382821] text-sm block">Unit Dental Chair</span>
+              <p className="text-xs text-[#7A6458] mt-1">Kursi periksa dental unit untuk kenyamanan posisi pasien.</p>
             </div>
           </div>
         </div>
@@ -256,40 +239,36 @@ export const WarmFamilyConcept: React.FC = () => {
 
       {/* Schedule & Evening Policy */}
       <section id="jadwal-keluarga" className="max-w-4xl mx-auto px-6 py-14">
-        <div className="bg-white rounded-3xl p-8 md:p-12 border border-[#EADBCE] shadow-xs space-y-6">
-          <div className="text-center">
-            <span className="text-xs uppercase tracking-wider text-[#C46D50] font-bold">Waktu Periksa</span>
-            <h2 className="font-['Lora',serif] text-2xl sm:text-3xl text-[#382821] mt-1">
-              Jam Buka &amp; Jadwal Praktik
+        <div className="bg-white rounded-2xl p-6 sm:p-10 border border-[#EADBCE] shadow-xs space-y-6">
+          <div>
+            <span className="text-xs uppercase tracking-wider text-[#8C5E47] font-semibold">Waktu Pelayanan</span>
+            <h2 className="font-['Lora',serif] text-2xl sm:text-3xl text-[#382821] mt-1 font-normal">
+              Jam Praktik Reguler
             </h2>
           </div>
 
           <div className="divide-y divide-[#F0E6D8] text-sm">
-            <div className="py-3 flex justify-between">
+            <div className="py-3 flex justify-between items-center">
               <span className="font-medium text-[#382821]">{clinicConfig.schedule.monday.days}</span>
-              <span className="font-semibold text-[#C46D50]">{clinicConfig.schedule.monday.hours}</span>
+              <span className="text-[#8C5E47] font-medium">{clinicConfig.schedule.monday.hours}</span>
             </div>
-            <div className="py-3 flex justify-between">
+            <div className="py-3 flex justify-between items-center">
               <span className="font-medium text-[#382821]">{clinicConfig.schedule.tuesdayToSaturday.days}</span>
-              <span className="font-semibold text-[#C46D50]">{clinicConfig.schedule.tuesdayToSaturday.hours}</span>
+              <span className="text-[#8C5E47] font-medium">{clinicConfig.schedule.tuesdayToSaturday.hours}</span>
             </div>
-            <div className="py-3 flex justify-between">
+            <div className="py-3 flex justify-between items-center">
               <span className="font-medium text-[#382821]">{clinicConfig.schedule.sunday.days}</span>
-              <span className="font-semibold text-[#C46D50]">{clinicConfig.schedule.sunday.hours}</span>
+              <span className="text-[#8C5E47] font-medium">{clinicConfig.schedule.sunday.hours}</span>
             </div>
           </div>
 
           {/* Evening Notice */}
-          <div className="p-4 rounded-xl bg-[#FAF4EB] border border-[#EADBCE] flex items-start gap-3 text-xs text-[#614F44]">
-            <Clock className="w-5 h-5 text-[#C46D50] shrink-0 mt-0.5" />
-            <div>
+          <div className="p-4 rounded-xl bg-[#FAF6F0] border border-[#EADBCE] flex items-start gap-3 text-xs text-[#614F44]">
+            <Clock className="w-5 h-5 text-[#8C5E47] shrink-0 mt-0.5" />
+            <div className="space-y-1">
               <strong className="text-[#382821]">{clinicConfig.schedule.eveningNotice.title}</strong>
-              <p className="mt-1">
-                {clinicConfig.schedule.eveningNotice.description}
-              </p>
-              <p className="mt-1 text-[11px] text-[#8C5E47] italic">
-                {clinicConfig.schedule.eveningNotice.policy}
-              </p>
+              <p>{clinicConfig.schedule.eveningNotice.description}</p>
+              <p className="text-[#8C5E47] font-medium">{clinicConfig.schedule.eveningNotice.policy}</p>
             </div>
           </div>
         </div>
@@ -299,19 +278,19 @@ export const WarmFamilyConcept: React.FC = () => {
       <section id="lokasi-keluarga" className="max-w-6xl mx-auto px-6 py-14 border-t border-[#EADBCE]">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
           <div className="md:col-span-5 space-y-4">
-            <span className="text-xs uppercase tracking-wider text-[#C46D50] font-bold">Lokasi Rumah Praktik</span>
-            <h2 className="font-['Lora',serif] text-2xl sm:text-3xl text-[#382821]">
-              Alamat yang Mudah Dijangkau
+            <span className="text-xs uppercase tracking-wider text-[#8C5E47] font-semibold">Alamat Praktik</span>
+            <h2 className="font-['Lora',serif] text-2xl sm:text-3xl text-[#382821] font-normal">
+              Lokasi Rumah Praktik
             </h2>
             <p className="text-sm text-[#614F44] leading-relaxed">
               {clinicConfig.location.fullAddress}
             </p>
-            <p className="text-xs text-[#C46D50] font-medium bg-[#F5ECE1] p-3 rounded-lg">
+            <div className="text-xs text-[#8C5E47] bg-[#F5ECE1] p-3 rounded-lg">
               <strong>Patokan:</strong> {clinicConfig.location.landmark}
-            </p>
+            </div>
 
             {/* Real Practice Signage */}
-            <div className="rounded-xl overflow-hidden border border-[#EADBCE] bg-[#FAF4EB]">
+            <div className="rounded-xl overflow-hidden border border-[#EADBCE] bg-[#FAF6F0]">
               <div className="relative aspect-[16/9]">
                 <img
                   src={clinicConfig.images.practiceExterior}
@@ -321,7 +300,7 @@ export const WarmFamilyConcept: React.FC = () => {
                 />
               </div>
               <div className="p-2 text-[11px] text-[#7A6458] text-center">
-                Papan nama resmi terpasang jelas di depan rumah praktik
+                Papan nama resmi terpasang di depan rumah praktik
               </div>
             </div>
 
@@ -330,8 +309,8 @@ export const WarmFamilyConcept: React.FC = () => {
                 href={clinicConfig.location.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackMapsClick('concept2_maps')}
-                className="inline-flex items-center gap-2 bg-[#382821] hover:bg-[#5D473B] text-white px-5 py-3 rounded-full text-xs font-semibold"
+                onClick={() => trackMapsClick('concept3_maps')}
+                className="inline-flex items-center gap-2 bg-[#382821] hover:bg-[#5D473B] text-white px-5 py-3 rounded-full text-xs font-semibold transition-colors"
               >
                 <MapPin className="w-4 h-4" />
                 <span>Buka Petunjuk di Google Maps</span>
@@ -339,7 +318,7 @@ export const WarmFamilyConcept: React.FC = () => {
             </div>
           </div>
 
-          <div className="md:col-span-7 rounded-2xl overflow-hidden border border-[#EADBCE] shadow-xs aspect-[16/10]">
+          <div className="md:col-span-7 rounded-xl overflow-hidden border border-[#EADBCE] shadow-xs aspect-[16/10]">
             <iframe
               title="Peta Lokasi drg. Ummi Kaltsum"
               src={clinicConfig.location.googleMapsEmbedUrl}
