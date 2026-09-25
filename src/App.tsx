@@ -5,6 +5,7 @@ import { EditorialConcept } from './concepts/EditorialConcept';
 import { JapaneseMinimalConcept } from './concepts/JapaneseMinimalConcept';
 import { WarmFamilyConcept } from './concepts/WarmFamilyConcept';
 import { BoldTypographyConcept } from './concepts/BoldTypographyConcept';
+import { WarmNeighborhoodConcept } from './concepts/WarmNeighborhoodConcept';
 
 export const App: React.FC = () => {
   const [activeConcept, setActiveConcept] = useState<ConceptId>(() => {
@@ -14,7 +15,8 @@ export const App: React.FC = () => {
         saved === 'editorial' ||
         saved === 'japanese-minimal' ||
         saved === 'warm-family' ||
-        saved === 'bold-typography'
+        saved === 'bold-typography' ||
+        saved === 'warm-neighborhood'
       ) {
         return saved;
       }
@@ -42,6 +44,8 @@ export const App: React.FC = () => {
         return <WarmFamilyConcept />;
       case 'bold-typography':
         return <BoldTypographyConcept />;
+      case 'warm-neighborhood':
+        return <WarmNeighborhoodConcept />;
       case 'editorial':
       default:
         return <EditorialConcept />;

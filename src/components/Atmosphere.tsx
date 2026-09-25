@@ -17,7 +17,7 @@ export const Atmosphere: React.FC = () => {
             Suasana Ruang Pemeriksaan
           </h2>
           <p className="text-xs sm:text-sm text-brand-muted mt-2">
-            Fasilitas pemeriksaan yang higienis, teratur, dan menjaga privasi selama perawatan.
+            Dokumentasi sarana ruang periksa dan peralatan praktik dokter gigi.
           </p>
         </div>
 
@@ -41,7 +41,7 @@ export const Atmosphere: React.FC = () => {
             </div>
             <div className="p-4 bg-[#FAF9F6] border-t border-brand-border flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-[11px] text-brand-muted">
               <span className="font-medium text-brand-navy">{mainFacility.title}</span>
-              <span className="font-mono text-brand-slate font-medium">Higienis &amp; Bersih</span>
+              <span className="font-mono text-brand-slate font-medium">Panunggangan Barat</span>
             </div>
           </div>
 

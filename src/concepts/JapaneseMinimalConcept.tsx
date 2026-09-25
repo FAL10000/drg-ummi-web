@@ -66,7 +66,7 @@ export const JapaneseMinimalConcept: React.FC = () => {
                 [FIG. 01 — DOKTER PENANGGUNG JAWAB]
               </div>
               <span className="inline-block text-[11px] font-mono px-2.5 py-0.5 border border-[#1C1D1F]/20 text-[#1C1D1F]">
-                1 Pasien · 1 Waktu
+                Praktik Mandiri
               </span>
             </div>
 
@@ -209,7 +209,7 @@ export const JapaneseMinimalConcept: React.FC = () => {
               RUANG &bull; DOKUMENTASI
             </span>
             <h2 className="font-['Shippori_Mincho'] text-3xl md:text-4xl text-[#1C1D1F] tracking-tight">
-              Fasilitas &amp; Lingkungan Steril
+              Sarana Ruang Praktik
             </h2>
           </div>
 
@@ -243,22 +243,27 @@ export const JapaneseMinimalConcept: React.FC = () => {
             
             <div className="divide-y divide-[#1C1D1F]/15 font-mono text-xs text-[#73757A]">
               <div className="py-3 flex justify-between">
-                <span className="text-[#1C1D1F]">Senin – Jumat</span>
-                <span>{clinicConfig.schedule.weekdays.hours}</span>
+                <span className="text-[#1C1D1F]">{clinicConfig.schedule.monday.days}</span>
+                <span>{clinicConfig.schedule.monday.hours}</span>
               </div>
               <div className="py-3 flex justify-between">
-                <span className="text-[#1C1D1F]">Sabtu</span>
-                <span>{clinicConfig.schedule.saturday.hours}</span>
+                <span className="text-[#1C1D1F]">{clinicConfig.schedule.tuesdayToSaturday.days}</span>
+                <span>{clinicConfig.schedule.tuesdayToSaturday.hours}</span>
+              </div>
+              <div className="py-3 flex justify-between">
+                <span className="text-[#1C1D1F]">{clinicConfig.schedule.sunday.days}</span>
+                <span>{clinicConfig.schedule.sunday.hours}</span>
               </div>
               <div className="py-3 flex justify-between text-[#2B384A] font-semibold">
                 <span>Jadwal Malam s/d 21.00</span>
                 <span>By Appointment Only</span>
               </div>
-              <div className="py-3 flex justify-between text-rose-700">
-                <span>Minggu &amp; Libur</span>
-                <span>Tutup</span>
-              </div>
             </div>
+
+            <p className="text-[11px] text-[#73757A] bg-[#F7F5F0] p-3 border-l-2 border-[#1C1D1F]">
+              <span className="font-medium text-[#1C1D1F] block mb-1">{clinicConfig.schedule.eveningNotice.title}</span>
+              {clinicConfig.schedule.eveningNotice.description} {clinicConfig.schedule.eveningNotice.policy}
+            </p>
 
             <p className="text-xs text-[#73757A] leading-relaxed font-light">
               Alamat: {clinicConfig.location.fullAddress} (Patokan: {clinicConfig.location.landmark}).

@@ -36,12 +36,12 @@ export const Footer: React.FC = () => {
               Waktu Pelayanan
             </div>
             <div className="text-slate-400 space-y-1.5 text-xs">
-              <div>{clinicConfig.schedule.weekdays.days}: {clinicConfig.schedule.weekdays.hours}</div>
-              <div>{clinicConfig.schedule.saturday.days}: {clinicConfig.schedule.saturday.hours}</div>
+              <div>{clinicConfig.schedule.monday.days}: {clinicConfig.schedule.monday.hours}</div>
+              <div>{clinicConfig.schedule.tuesdayToSaturday.days}: {clinicConfig.schedule.tuesdayToSaturday.hours}</div>
+              <div>{clinicConfig.schedule.sunday.days}: {clinicConfig.schedule.sunday.hours}</div>
               <div className="text-emerald-400 font-medium">
                 Jadwal malam s/d 21.00: By appointment only
               </div>
-              <div>{clinicConfig.schedule.sundayAndHolidays.days}: {clinicConfig.schedule.sundayAndHolidays.hours}</div>
             </div>
           </div>
 

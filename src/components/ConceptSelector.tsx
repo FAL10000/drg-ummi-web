@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Layers, Check, X, Sparkles, Palette } from 'lucide-react';
 
-export type ConceptId = 'editorial' | 'japanese-minimal' | 'warm-family' | 'bold-typography';
+export type ConceptId = 'editorial' | 'japanese-minimal' | 'warm-family' | 'bold-typography' | 'warm-neighborhood';
 
 interface ConceptOption {
   id: ConceptId;
@@ -16,7 +16,7 @@ interface ConceptOption {
 export const CONCEPTS: ConceptOption[] = [
   {
     id: 'editorial',
-    name: 'Flagship Editorial (Utama)',
+    name: 'Concept 1: Flagship Editorial',
     tagline: 'Tenang, Presisi & Terstruktur',
     description: 'Desain desktop & mobile komprehensif dengan tipografi Playfair Display dan palet Navy & Linen.',
     badge: 'Desain Utama Stitch',
@@ -25,7 +25,7 @@ export const CONCEPTS: ConceptOption[] = [
   },
   {
     id: 'japanese-minimal',
-    name: 'Concept 1: Japanese Minimal',
+    name: 'Concept 2: Japanese Minimal',
     tagline: 'Quiet Clinic & Arsitektural',
     description: 'Nuansa hening bernuansa Jepang, batas tipis hairline, whitespace lapang, dan tipografi vertikal.',
     badge: 'Minimalis Hening',
@@ -34,7 +34,7 @@ export const CONCEPTS: ConceptOption[] = [
   },
   {
     id: 'warm-family',
-    name: 'Concept 2: Warm Family Practice',
+    name: 'Concept 3: Warm Family Practice',
     tagline: 'Ramah, Bersahaja & Homey',
     description: 'Sentuhan ramah keluarga dengan warna hangat terracotta, aksen tulisan tangan, dan kartu lembut.',
     badge: 'Keluarga & Anak',
@@ -43,12 +43,21 @@ export const CONCEPTS: ConceptOption[] = [
   },
   {
     id: 'bold-typography',
-    name: 'Concept 3: Bold Contemporary',
+    name: 'Concept 4: Bold Contemporary',
     tagline: 'Swiss Typographic & Modern',
-    description: 'Tipografi besar berani (*headline monumental*), kontras monokrom tinggi dengan aksen cobalt blue.',
+    description: 'Tipografi monumental, kontras monokrom tinggi dengan aksen cobalt blue dan layout grid arsitektural.',
     badge: 'Modern & Tegas',
-    colors: ['#0A0A0A', '#0038FF', '#FFFFFF', '#EBEBEB'],
+    colors: ['#0A0A0A', '#0038FF', '#FFFFFF', '#25D366'],
     fonts: 'Space Grotesk + IBM Plex Mono',
+  },
+  {
+    id: 'warm-neighborhood',
+    name: 'Concept 5: Warm Neighborhood Dental',
+    tagline: 'Humanist, Lembut & Earthen',
+    description: 'Nuansa studio hangat bertekstur perkamen, tipografi Newsreader puitis, dan kartu layanan interaktif.',
+    badge: 'Hangat & Bersahabat',
+    colors: ['#000B21', '#97472E', '#FDF9F3', '#25D366'],
+    fonts: 'Newsreader + Plus Jakarta Sans',
   },
 ];
 

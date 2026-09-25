@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, MessageCircle } from 'lucide-react';
+import { MapPin, MessageCircle } from 'lucide-react';
 import { clinicConfig, buildWhatsAppUrl } from '../config/business';
 import { trackWhatsAppBooking } from '../utils/analytics';
 
@@ -25,20 +25,20 @@ export const DoctorProfile: React.FC = () => {
 
                 <div className="absolute bottom-4 left-4 right-4 text-white">
                   <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-brand-navy/90 backdrop-blur-md text-[10px] font-mono uppercase tracking-wider text-slate-100 border border-white/20 mb-2">
-                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                    <MapPin className="w-3.5 h-3.5 text-emerald-400" />
                     <span>{clinicConfig.doctorCredentials}</span>
                   </div>
                   <div className="font-serif text-xl sm:text-2xl text-white font-medium">
                     {clinicConfig.doctorName}
                   </div>
                   <p className="text-[11px] text-slate-200 mt-1 line-clamp-2">
-                    Dedikasi perawatan gigi keluarga dengan pendekatan teliti, komunikatif, dan ramah anak.
+                    Pelayanan kesehatan gigi keluarga di wilayah Panunggangan Barat, Cibodas.
                   </p>
                 </div>
               </div>
 
               <div className="p-3 bg-[#FAF9F6] border-t border-brand-border text-[11px] text-brand-muted font-mono flex items-center justify-between">
-                <span>Dokumentasi Tindakan Langsung</span>
+                <span>Praktik Dokter Gigi Mandiri</span>
                 <span>{clinicConfig.location.district}, {clinicConfig.location.city}</span>
               </div>
             </div>
@@ -51,25 +51,25 @@ export const DoctorProfile: React.FC = () => {
             </div>
 
             <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-brand-navy tracking-tight leading-tight">
-              Pendekatan yang personal, teliti, dan bersahabat untuk warga sekitar.
+              Pemeriksaan dan konsultasi langsung bersama dokter gigi.
             </h2>
 
             <blockquote className="border-l-2 border-brand-slate pl-4 italic text-brand-dark text-sm sm:text-base bg-[#FAF9F6] py-2">
-              "Kesehatan gigi dimulai dari rasa tenang. Kami meluangkan waktu mendengarkan keluhan pasien agar setiap tindakan dipahami dengan jelas."
+              &ldquo;Kesehatan gigi dimulai dari pemahaman yang baik. Kami meluangkan waktu mendengarkan keluhan pasien agar rencana tindakan dipahami bersama.&rdquo;
             </blockquote>
 
             <div className="space-y-3 text-xs sm:text-sm text-brand-muted leading-relaxed">
               <p>
-                Sebagai praktik mandiri lingkungan di Panunggangan Barat, <strong>{clinicConfig.doctorName}</strong> memberikan pelayanan langsung secara konsisten. Pasien anak diajak beradaptasi terlebih dahulu tanpa rasa tertekan, sementara pasien dewasa mendapatkan penjelasan opsi penanganan gigi secara transparan.
+                Sebagai dokter gigi praktik mandiri di Panunggangan Barat, <strong>{clinicConfig.doctorName}</strong> memberikan pelayanan langsung untuk setiap pasien. Pasien anak hingga dewasa mendapatkan penjelasan kondisi gigi dengan komunikasi yang jelas.
               </p>
               <p>
-                Lingkungan praktik dijaga tetap bersih, rapi, dan menenangkan, menjauhkan kesan kaku klinik besar.
+                Ruang praktik tertata rapi untuk kenyamanan konsultasi dan pemeriksaan gigi.
               </p>
             </div>
 
             <div className="pt-2 flex items-center gap-2 text-xs text-brand-muted">
-              <ShieldCheck className="w-4 h-4 text-brand-slate shrink-0" />
-              <span>Praktik berizin resmi di Kota Tangerang. Standar sterilisasi instrumen diperhatikan secara ketat.</span>
+              <MapPin className="w-4 h-4 text-brand-slate shrink-0" />
+              <span>Praktik mandiri berlokasi di Panunggangan Barat, Cibodas, Kota Tangerang.</span>
             </div>
 
             <div className="pt-2">

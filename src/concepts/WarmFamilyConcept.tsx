@@ -127,10 +127,10 @@ export const WarmFamilyConcept: React.FC = () => {
                       Dokumentasi Praktik
                     </span>
                     <div className="font-['Lora',serif] text-lg font-semibold text-white">
-                      Pemeriksaan Tanpa Rasa Takut
+                      Pemeriksaan Pasien Anak
                     </div>
                     <p className="text-[11px] text-[#F5ECE1] mt-0.5">
-                      drg. Ummi telaten mendampingi pasien anak agar nyaman dan rileks.
+                      drg. Ummi melayani pemeriksaan gigi anak dengan pendampingan orang tua.
                     </p>
                   </div>
                 </div>
@@ -248,7 +248,7 @@ export const WarmFamilyConcept: React.FC = () => {
             </div>
             <div className="p-4">
               <span className="font-['Lora',serif] font-semibold text-[#382821] text-sm block">Dental Unit Ergonomis</span>
-              <p className="text-xs text-[#7A6458] mt-1">Pencahayaan LED fokus dan instrumen yang steril sebelum periksa.</p>
+              <p className="text-xs text-[#7A6458] mt-1">Unit kursi periksa dental untuk tindakan perawatan gigi.</p>
             </div>
           </div>
         </div>
@@ -266,16 +266,16 @@ export const WarmFamilyConcept: React.FC = () => {
 
           <div className="divide-y divide-[#F0E6D8] text-sm">
             <div className="py-3 flex justify-between">
-              <span className="font-medium text-[#382821]">Senin – Jumat</span>
-              <span className="font-semibold text-[#C46D50]">{clinicConfig.schedule.weekdays.hours}</span>
+              <span className="font-medium text-[#382821]">{clinicConfig.schedule.monday.days}</span>
+              <span className="font-semibold text-[#C46D50]">{clinicConfig.schedule.monday.hours}</span>
             </div>
             <div className="py-3 flex justify-between">
-              <span className="font-medium text-[#382821]">Sabtu</span>
-              <span className="font-semibold text-[#C46D50]">{clinicConfig.schedule.saturday.hours}</span>
+              <span className="font-medium text-[#382821]">{clinicConfig.schedule.tuesdayToSaturday.days}</span>
+              <span className="font-semibold text-[#C46D50]">{clinicConfig.schedule.tuesdayToSaturday.hours}</span>
             </div>
-            <div className="py-3 flex justify-between text-rose-700">
-              <span>Minggu &amp; Libur</span>
-              <span>Tutup (Dengan perjanjian khusus)</span>
+            <div className="py-3 flex justify-between">
+              <span className="font-medium text-[#382821]">{clinicConfig.schedule.sunday.days}</span>
+              <span className="font-semibold text-[#C46D50]">{clinicConfig.schedule.sunday.hours}</span>
             </div>
           </div>
 
@@ -283,8 +283,11 @@ export const WarmFamilyConcept: React.FC = () => {
           <div className="p-4 rounded-xl bg-[#FAF4EB] border border-[#EADBCE] flex items-start gap-3 text-xs text-[#614F44]">
             <Clock className="w-5 h-5 text-[#C46D50] shrink-0 mt-0.5" />
             <div>
-              <strong className="text-[#382821]">Perawatan Malam hingga 21.00 WIB:</strong>
+              <strong className="text-[#382821]">{clinicConfig.schedule.eveningNotice.title}</strong>
               <p className="mt-1">
+                {clinicConfig.schedule.eveningNotice.description}
+              </p>
+              <p className="mt-1 text-[11px] text-[#8C5E47] italic">
                 {clinicConfig.schedule.eveningNotice.policy}
               </p>
             </div>

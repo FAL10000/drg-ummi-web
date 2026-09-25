@@ -25,42 +25,42 @@ export const Schedule: React.FC = () => {
         {/* Tabular Schedule */}
         <div className="border-t border-b border-brand-border divide-y divide-brand-border">
           
-          {/* Weekdays */}
+          {/* Monday */}
           <div className="py-4 sm:py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs sm:text-sm">
             <span className="font-serif text-brand-navy font-semibold text-base sm:text-lg">
-              {schedule.weekdays.days}
+              {schedule.monday.days}
             </span>
             <div className="flex items-center gap-3">
               <span className="font-mono text-brand-dark font-medium bg-brand-lightBlue px-2.5 py-0.5 border border-[#DCE8F2]">
-                {schedule.weekdays.hours}
+                {schedule.monday.hours}
               </span>
-              <span className="text-brand-muted text-xs">({schedule.weekdays.note})</span>
+              <span className="text-brand-muted text-xs">({schedule.monday.note})</span>
             </div>
           </div>
 
-          {/* Saturday */}
+          {/* Tuesday to Saturday */}
           <div className="py-4 sm:py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs sm:text-sm">
             <span className="font-serif text-brand-navy font-semibold text-base sm:text-lg">
-              {schedule.saturday.days}
+              {schedule.tuesdayToSaturday.days}
             </span>
             <div className="flex items-center gap-3">
               <span className="font-mono text-brand-dark font-medium bg-brand-lightBlue px-2.5 py-0.5 border border-[#DCE8F2]">
-                {schedule.saturday.hours}
+                {schedule.tuesdayToSaturday.hours}
               </span>
-              <span className="text-brand-muted text-xs">({schedule.saturday.note})</span>
+              <span className="text-brand-muted text-xs">({schedule.tuesdayToSaturday.note})</span>
             </div>
           </div>
 
-          {/* Sunday & Holidays */}
+          {/* Sunday */}
           <div className="py-4 sm:py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs sm:text-sm">
-            <span className="font-serif text-brand-navy font-semibold text-base sm:text-lg text-rose-700">
-              {schedule.sundayAndHolidays.days}
+            <span className="font-serif text-brand-navy font-semibold text-base sm:text-lg">
+              {schedule.sunday.days}
             </span>
             <div className="flex items-center gap-3">
-              <span className="font-mono text-rose-700 font-medium bg-rose-50 px-2.5 py-0.5 border border-rose-200">
-                {schedule.sundayAndHolidays.hours}
+              <span className="font-mono text-brand-dark font-medium bg-brand-lightBlue px-2.5 py-0.5 border border-[#DCE8F2]">
+                {schedule.sunday.hours}
               </span>
-              <span className="text-brand-muted text-xs">({schedule.sundayAndHolidays.note})</span>
+              <span className="text-brand-muted text-xs">({schedule.sunday.note})</span>
             </div>
           </div>
 

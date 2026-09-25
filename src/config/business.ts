@@ -23,6 +23,12 @@ export interface FaqItem {
   answer: string;
 }
 
+export interface ScheduleBlock {
+  days: string;
+  hours: string;
+  note: string;
+}
+
 export interface BusinessConfig {
   clinicName: string;
   doctorName: string;
@@ -54,21 +60,9 @@ export interface BusinessConfig {
     };
   };
   schedule: {
-    weekdays: {
-      days: string;
-      hours: string;
-      note: string;
-    };
-    saturday: {
-      days: string;
-      hours: string;
-      note: string;
-    };
-    sundayAndHolidays: {
-      days: string;
-      hours: string;
-      note: string;
-    };
+    monday: ScheduleBlock;
+    tuesdayToSaturday: ScheduleBlock;
+    sunday: ScheduleBlock;
     eveningNotice: {
       title: string;
       description: string;
@@ -109,11 +103,11 @@ const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, "");
 export const clinicConfig: BusinessConfig = {
   clinicName: "Praktek Dokter Gigi drg. Ummi Kaltsum",
   doctorName: "drg. Ummi Kaltsum",
-  doctorCredentials: "SIP Aktif · Kota Tangerang",
+  doctorCredentials: "Dokter Gigi · Kota Tangerang",
   tagline: "Praktik Dokter Gigi Mandiri",
   subTagline: "Panunggangan Barat · Cibodas · Tangerang",
-  heroQuote: "Perawatan gigi yang tenang, teliti, dan personal untuk keluarga Anda.",
-  philosophy: "Sebagai praktik mandiri lingkungan di Panunggangan Barat, drg. Ummi Kaltsum memberikan pelayanan langsung secara konsisten. Pasien anak diajak beradaptasi terlebih dahulu tanpa rasa tertekan, sementara pasien dewasa mendapatkan penjelasan opsi penanganan gigi secara transparan.",
+  heroQuote: "Pelayanan pemeriksaan dan perawatan kesehatan gigi untuk keluarga Anda.",
+  philosophy: "Sebagai dokter gigi praktik mandiri di Panunggangan Barat, Cibodas, drg. Ummi Kaltsum melayani konsultasi dan perawatan kesehatan gigi untuk pasien anak-anak hingga dewasa dengan komunikasi yang jelas.",
   contact: {
     phoneDisplay: "0858-8841-7271",
     phoneTel: "085888417271",
@@ -132,29 +126,29 @@ export const clinicConfig: BusinessConfig = {
     googleMapsUrl: "https://maps.google.com/?q=Jl.+Kav.+Pemda+3+No.241A+Panunggangan+Barat+Cibodas+Tangerang",
     googleMapsEmbedUrl: "https://maps.google.com/maps?q=Jl.+Kav.+Pemda+3+No.241A+Panunggangan+Barat+Cibodas+Tangerang&t=&z=15&ie=UTF8&iwloc=&output=embed",
     geo: {
-      latitude: -6.2162,
-      longitude: 106.6185,
+      latitude: -6.2113393,
+      longitude: 106.6173795,
     },
   },
   schedule: {
-    weekdays: {
-      days: "Senin – Jumat",
-      hours: "16.00 – 20.00 WIB",
-      note: "Praktik Sore – Malam",
+    monday: {
+      days: "Senin",
+      hours: "13.00 – 19.00 WIB",
+      note: "Praktik Siang – Malam",
     },
-    saturday: {
-      days: "Sabtu",
-      hours: "09.00 – 16.00 WIB",
-      note: "Praktik Siang",
+    tuesdayToSaturday: {
+      days: "Selasa – Sabtu",
+      hours: "09.00 – 19.00 WIB",
+      note: "Praktik Pagi – Malam",
     },
-    sundayAndHolidays: {
-      days: "Minggu & Hari Libur",
-      hours: "Tutup",
-      note: "Dengan perjanjian khusus",
+    sunday: {
+      days: "Minggu",
+      hours: "10.00 – 19.00 WIB",
+      note: "Praktik Pagi – Malam",
     },
     eveningNotice: {
       title: "Butuh jadwal setelah jam kerja?",
-      description: "Untuk pasien dengan kesibukan kerja di luar kota atau Karawaci, jadwal perawatan hingga pukul 21.00 WIB dapat disediakan melalui reservasi dan konfirmasi terlebih dahulu.",
+      description: "Jadwal perawatan hingga pukul 21.00 dapat tersedia dengan reservasi dan konfirmasi terlebih dahulu.",
       policy: "Pelayanan malam berlaku hanya dengan janji temu (by appointment only). Tidak melayani walk-in larut malam.",
       buttonText: "Tanyakan Jadwal Malam via WA",
       whatsappMessage: "Hallo Dok, saya membutuhkan jadwal perawatan malam hari setelah jam kerja reguler. Apakah ada slot janji temu?",
@@ -172,8 +166,8 @@ export const clinicConfig: BusinessConfig = {
       number: "01",
       title: "Pemeriksaan & Konsultasi Gigi",
       shortTitle: "Pemeriksaan & Konsultasi",
-      description: "Pemeriksaan menyeluruh terhadap gigi dan gusi dengan waktu konsultasi yang tenang, jelas, serta edukatif untuk anak dan dewasa.",
-      badge: "Pemeriksaan Awal",
+      description: "Pemeriksaan rongga mulut dan konsultasi kondisi kesehatan gigi untuk pasien anak dan dewasa.",
+      badge: "Pemeriksaan",
       whatsappMessage: "Hallo Dok, saya ingin menanyakan jadwal untuk Pemeriksaan & Konsultasi Gigi.",
     },
     {
@@ -181,16 +175,16 @@ export const clinicConfig: BusinessConfig = {
       number: "02",
       title: "Scaling & Pembersihan Karang Gigi",
       shortTitle: "Scaling Gigi",
-      description: "Pembersihan karang dan plak gigi secara teliti untuk menghentikan gusi berdarah, mencegah periodontitis, serta menjaga kesegaran nafas.",
-      badge: "Perawatan Rutin",
+      description: "Pembersihan karang gigi dan plak untuk memelihara kebersihan jaringan gigi dan gusi.",
+      badge: "Pembersihan",
       whatsappMessage: "Hallo Dok, saya ingin menanyakan jadwal untuk Scaling & Pembersihan Karang Gigi.",
     },
     {
       id: "tambal-gigi",
       number: "03",
-      title: "Tambal Gigi Komposit Estetik",
-      shortTitle: "Tambal Gigi Estetik",
-      description: "Perbaikan gigi berlubang menggunakan bahan sewarna gigi asli untuk mengembalikan fungsi kunyah dan penampilan alami.",
+      title: "Tambal Gigi Komposit",
+      shortTitle: "Tambal Gigi",
+      description: "Penambalan gigi berlubang menggunakan bahan resin komposit sewarna gigi.",
       badge: "Restorasi",
       whatsappMessage: "Hallo Dok, saya ingin menanyakan jadwal untuk Tambal Gigi Komposit.",
     },
@@ -199,8 +193,8 @@ export const clinicConfig: BusinessConfig = {
       number: "04",
       title: "Cabut Gigi Anak & Dewasa",
       shortTitle: "Cabut Gigi",
-      description: "Pencabutan gigi susu yang goyang maupun gigi dewasa yang sudah tidak dapat dipertahankan, dilakukan dengan hati-hati dan minim rasa tegang.",
-      badge: "Tindakan Bedah Minor",
+      description: "Pencabutan gigi susu anak maupun gigi dewasa sesuai indikasi pemeriksaan klinis.",
+      badge: "Tindakan Gigi",
       whatsappMessage: "Hallo Dok, saya ingin menanyakan jadwal untuk Cabut Gigi.",
     },
     {
@@ -208,26 +202,26 @@ export const clinicConfig: BusinessConfig = {
       number: "05",
       title: "Perawatan Gigi Anak (Pediatrik)",
       shortTitle: "Gigi Anak",
-      description: "Pendekatan ramah tanpa paksaan agar anak merasa aman dan tidak trauma terhadap dokter gigi sejak kunjungan pertama.",
-      badge: "Ramah Anak",
+      description: "Pemeriksaan dan penanganan kesehatan gigi anak dengan pendampingan orang tua.",
+      badge: "Gigi Anak",
       whatsappMessage: "Hallo Dok, saya ingin menanyakan jadwal untuk Perawatan Gigi Anak.",
     },
     {
       id: "saluran-akar",
       number: "06",
       title: "Perawatan Saluran Akar Gigi",
-      shortTitle: "Perawatan Saluran Akar",
-      description: "Penanganan infeksi saluran akar gigi berlubang dalam untuk meredakan nyeri dan mempertahankan gigi asli agar tidak perlu dicabut.",
-      badge: "Endodontik",
+      shortTitle: "Saluran Akar",
+      description: "Perawatan saluran akar untuk menangani infeksi pada gigi berlubang dalam.",
+      badge: "Perawatan Akar",
       whatsappMessage: "Hallo Dok, saya ingin menanyakan jadwal untuk Perawatan Saluran Akar.",
     },
     {
       id: "gigi-tiruan",
       number: "07",
       title: "Gigi Tiruan Lepasan",
-      shortTitle: "Gigi Tiruan / Palsu",
-      description: "Pembuatan protesa gigi pengganti yang pas dan nyaman guna mengembalikan fungsi pengunyahan serta kenyamanan berbicara.",
-      badge: "Prostodonsia",
+      shortTitle: "Gigi Tiruan",
+      description: "Pembuatan protesa gigi tiruan lepasan pengganti gigi yang tanggal.",
+      badge: "Protesa Gigi",
       whatsappMessage: "Hallo Dok, saya ingin menanyakan jadwal untuk Gigi Tiruan Lepasan.",
     },
   ],
@@ -246,44 +240,44 @@ export const clinicConfig: BusinessConfig = {
     {
       id: "treatment-room",
       title: "Ruang Periksa Utama",
-      subtitle: "Fasilitas Perawatan Gigi & Dental Unit",
-      description: "Peralatan dental elektrik terawat dengan pencahayaan LED fokus dan instrumen higienis sebelum setiap tindakan pasien.",
-      tag: "Ruang Periksa Utama",
+      subtitle: "Dental Unit & Ruang Praktik",
+      description: "Ruang periksa dengan unit dental elektrik untuk pemeriksaan dan tindakan perawatan gigi.",
+      tag: "Ruang Periksa",
       image: `${baseUrl}/images/drg-ummi-treatment-room.webp`,
       alt: "Ruang periksa dental unit utama praktek drg. Ummi Kaltsum di Cibodas Tangerang",
     },
     {
       id: "dental-chair",
-      title: "Dental Chair Ergonomis",
-      subtitle: "Unit Perawatan & Kursi Periksa Pasien",
-      description: "Kursi dental elektrik higienis dengan sistem suction dan pencahayaan terintegrasi untuk kenyamanan pasien dewasa maupun anak.",
-      tag: "Peralatan Higienis",
+      title: "Dental Chair",
+      subtitle: "Unit Kursi Periksa Pasien",
+      description: "Kursi periksa dental untuk kenyamanan posisi pasien selama tindakan perawatan gigi.",
+      tag: "Kursi Periksa",
       image: `${baseUrl}/images/dental-chair.webp`,
-      alt: "Kursi periksa dental ergonomis dan lampu operasi LED drg. Ummi Kaltsum",
+      alt: "Kursi periksa dental unit drg. Ummi Kaltsum",
     },
     {
       id: "waiting-area",
-      title: "Area Konsultasi & Meja Diskusi",
-      subtitle: "Konsultasi Terbuka & Rekam Medis Pasien",
-      description: "Ruang diskusi privat untuk menjelaskan opsi penanganan, edukasi kebersihan mulut, serta kenyamanan konsultasi keluarga.",
+      title: "Area Meja Konsultasi",
+      subtitle: "Meja Konsultasi & Administrasi",
+      description: "Area untuk konsultasi kondisi gigi serta pencatatan rekam kunjungan pasien.",
       tag: "Area Konsultasi",
       image: `${baseUrl}/images/waiting-area.webp`,
-      alt: "Area konsultasi personal dan meja administrasi pasien drg. Ummi Kaltsum",
+      alt: "Meja konsultasi dan administrasi pasien drg. Ummi Kaltsum",
     },
     {
       id: "sterilization",
-      title: "Protokol Sterilisasi & Farmasi",
-      subtitle: "Antiseptik Medis & Instrumen Terawat",
-      description: "Setiap alat dan instrumen diproses melalui standar kebersihan medis ketat guna menjamin pencegahan infeksi silang.",
-      tag: "Standar Kebersihan",
+      title: "Area Instrumen Praktik",
+      subtitle: "Peralatan & Instrumen Dental",
+      description: "Area penataan dan penyiapan peralatan instrumen perawatan gigi.",
+      tag: "Peralatan Praktik",
       image: `${baseUrl}/images/sterilization.webp`,
-      alt: "Peralatan medis dan antiseptik sterilisasi instrumen dental",
+      alt: "Peralatan dan instrumen praktik dokter gigi",
     },
     {
       id: "practice-exterior",
-      title: "Plang Nama & Tampak Rumah Praktik",
+      title: "Papan Nama Praktik",
       subtitle: "Jl. Kav. Pemda 3 No. 241A, Panunggangan Barat",
-      description: "Papan nama resmi 'Praktek Dokter Gigi drg. Ummi Kaltsum' terpasang jelas di depan rumah praktik agar mudah dikenali pasien.",
+      description: "Papan nama resmi 'Praktek Dokter Gigi drg. Ummi Kaltsum' di depan rumah praktik untuk pengenalan lokasi.",
       tag: "Akses Praktik",
       image: `${baseUrl}/images/practice-exterior.webp`,
       alt: "Papan nama resmi Praktek Dokter Gigi drg. Ummi Kaltsum di Jl. Kav. Pemda 3",
@@ -291,24 +285,24 @@ export const clinicConfig: BusinessConfig = {
   ],
   faqs: [
     {
-      question: "Apakah harus membuat janji terlebih dahulu sebelum datang?",
-      answer: "Sangat disarankan. Karena merupakan praktik mandiri personal, reservasi melalui WhatsApp membantu memastikan Anda mendapatkan slot jam periksa yang pasti tanpa antrean yang melelahkan.",
+      question: "Apakah perlu membuat janji terlebih dahulu sebelum datang?",
+      answer: "Disarankan untuk reservasi melalui WhatsApp terlebih dahulu agar jadwal konsultasi atau perawatan Anda terkonfirmasi sebelum datang.",
     },
     {
       question: "Apakah melayani pasien anak-anak?",
-      answer: "Ya. drg. Ummi melayani anak-anak dengan pendekatan sabar dan komunikatif agar anak merasa nyaman dan tidak takut saat diperiksa.",
+      answer: "Ya, drg. Ummi melayani pemeriksaan dan perawatan kesehatan gigi anak dengan pendampingan orang tua.",
     },
     {
       question: "Apakah bisa membuat jadwal setelah jam kerja (malam)?",
-      answer: "Jadwal perawatan hingga pukul 21.00 WIB dapat disediakan khusus dengan konfirmasi reservasi sebelumnya (by appointment only). Kami tidak melayani walk-in larut malam tanpa janji temu.",
+      answer: "Jadwal perawatan hingga pukul 21.00 dapat tersedia dengan reservasi dan konfirmasi terlebih dahulu via WhatsApp (by appointment only). Kami tidak melayani walk-in larut malam.",
     },
     {
       question: "Bagaimana cara membuat janji perawatan?",
-      answer: "Cukup klik tombol Reservasi via WhatsApp di situs ini. Sampaikan nama pasien, keluhan singkat, serta perkiraan hari dan jam yang diinginkan.",
+      answer: "Klik tombol Reservasi via WhatsApp di situs ini, sampaikan nama pasien, kebutuhan perawatan, serta hari dan perkiraan jam yang diinginkan.",
     },
     {
-      question: "Apakah menerima pasien baru dari luar Panunggangan Barat?",
-      answer: "Tentu. Kami melayani pasien keluarga dari Cibodas, Karawaci, Kavling Pemda, Kelapa Dua, Palem Semi, dan wilayah sekitarnya.",
+      question: "Apakah menerima pasien dari luar Panunggangan Barat?",
+      answer: "Ya, kami melayani pasien dari Cibodas, Karawaci, Kavling Pemda, Kelapa Dua, Palem Semi, dan wilayah sekitarnya.",
     },
   ],
   meta: {

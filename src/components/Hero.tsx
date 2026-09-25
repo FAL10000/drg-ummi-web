@@ -1,5 +1,5 @@
 import React from 'react';
-import { Star, MessageCircle, ArrowRight, ArrowUpRight, ShieldCheck } from 'lucide-react';
+import { Star, MessageCircle, ArrowRight, ArrowUpRight, MapPin } from 'lucide-react';
 import { clinicConfig, buildWhatsAppUrl } from '../config/business';
 import { trackWhatsAppBooking, trackMapsClick } from '../utils/analytics';
 
@@ -21,7 +21,7 @@ export const Hero: React.FC = () => {
             </h1>
 
             <p className="text-sm sm:text-base md:text-lg text-brand-muted leading-relaxed max-w-xl font-normal">
-              Bersama <strong>{clinicConfig.doctorName}</strong>, setiap pemeriksaan dilakukan dalam suasana yang nyaman tanpa rasa tergesa-gesa. Melayani anak-anak, dewasa, dan lansia di wilayah Panunggangan Barat, Cibodas, dan sekitarnya.
+              Bersama <strong>{clinicConfig.doctorName}</strong>, melayani konsultasi dan pemeriksaan kesehatan gigi untuk anak-anak hingga dewasa di wilayah Panunggangan Barat, Cibodas, dan sekitarnya.
             </p>
 
             {/* Google Trust Badge (Factual, no fabricated reviews) */}
@@ -87,18 +87,18 @@ export const Hero: React.FC = () => {
                 {/* Overlay Badge */}
                 <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
                   <div className="inline-flex items-center gap-2 text-[11px] font-mono bg-brand-navy/90 backdrop-blur-md px-3 py-1.5 border border-white/20 text-slate-100 shadow-sm">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                    <span>Praktik Sore 16.00 – 20.00</span>
+                    <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+                    <span>Praktik Setiap Hari</span>
                   </div>
                   <div className="hidden sm:inline-flex items-center gap-1 text-[11px] font-mono bg-white/90 backdrop-blur-md px-2.5 py-1 text-brand-navy font-semibold border border-brand-border">
-                    <ShieldCheck className="w-3.5 h-3.5 text-brand-slate" />
-                    <span>SIP Aktif</span>
+                    <MapPin className="w-3.5 h-3.5 text-brand-slate" />
+                    <span>Cibodas, Tangerang</span>
                   </div>
                 </div>
               </div>
 
               <div className="p-3.5 bg-white border-t border-brand-border flex justify-between items-center text-[11px] text-brand-muted">
-                <span className="font-medium text-brand-navy">Ruang Periksa Personal &amp; Higienis</span>
+                <span className="font-medium text-brand-navy">Ruang Periksa Dental Unit</span>
                 <span className="font-mono text-[10px] bg-brand-lightBlue px-2 py-0.5 border border-[#DCE8F2]">
                   Cibodas, Tangerang
                 </span>
