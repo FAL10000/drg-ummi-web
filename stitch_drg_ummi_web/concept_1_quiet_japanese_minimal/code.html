@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>drg. Ummi Kaltsum — Concept 1: Japanese Minimal / Quiet Clinic</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-base: #F7F5F0;
+    --text-charcoal: #1C1D1F;
+    --text-muted: #73757A;
+    --indigo-quiet: #2B384A;
+    --border-hairline: rgba(28, 29, 31, 0.12);
+  }
+  body {
+    background-color: var(--bg-base);
+    color: var(--text-charcoal);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .font-serif-quiet {
+    font-family: 'Shippori Mincho', serif;
+  }
+  .font-mono-quiet {
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .vertical-rl {
+    writing-mode: vertical-rl;
+  }
+  .hairline-b {
+    border-bottom: 1px solid var(--border-hairline);
+  }
+  .hairline-t {
+    border-top: 1px solid var(--border-hairline);
+  }
+  .hairline-r {
+    border-right: 1px solid var(--border-hairline);
+  }
+  .hairline-l {
+    border-left: 1px solid var(--border-hairline);
+  }
+</style>
+</head>
+<body class="selection:bg-[#2B384A] selection:text-white">
+
+  <!-- Micro Notice Bar -->
+  <div class="px-6 md:px-16 py-3 hairline-b text-[10px] md:text-xs font-mono-quiet text-[#73757A] flex justify-between items-center tracking-widest uppercase">
+    <span>Panunggangan Barat · Cibodas · Tangerang</span>
+    <span class="hidden md:inline">Praktik Mandiri · Janji Temu Terjadwal</span>
+    <span>★ 5.0 Google (55 Ulasan)</span>
+  </div>
+
+  <!-- Header -->
+  <header class="px-6 md:px-16 py-8 md:py-10 hairline-b flex justify-between items-baseline">
+    <div>
+      <span class="text-[10px] font-mono-quiet uppercase tracking-widest text-[#73757A] block mb-1">Praktik Dokter Gigi Mandiri</span>
+      <a href="#" class="font-serif-quiet text-2xl md:text-3xl tracking-tight text-[#1C1D1F] hover:text-[#2B384A] transition-colors">
+        drg. Ummi Kaltsum
+      </a>
+    </div>
+
+    <div class="flex items-center gap-8 md:gap-12">
+      <nav class="hidden lg:flex gap-8 text-xs font-mono-quiet tracking-widest uppercase text-[#73757A]">
+        <a href="#katalog" class="hover:text-[#1C1D1F] transition-colors">01 Indeks Tindakan</a>
+        <a href="#arsitektur" class="hover:text-[#1C1D1F] transition-colors">02 Ruang & Sanitasi</a>
+        <a href="#penanggungjawab" class="hover:text-[#1C1D1F] transition-colors">03 Profil Dokter</a>
+        <a href="#alamat" class="hover:text-[#1C1D1F] transition-colors">04 Lokasi</a>
+      </nav>
+      
+      <a href="https://wa.me/6285888417271?text=Hallo%20drg.%20Ummi,%20saya%20ingin%20reservasi%20jadwal%20perawatan." target="_blank" rel="noopener noreferrer" class="text-xs font-mono-quiet uppercase tracking-wider px-4 py-2 border border-[#1C1D1F] text-[#1C1D1F] hover:bg-[#1C1D1F] hover:text-[#F7F5F0] transition-colors">
+        Reservasi via WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO: Japanese Minimal / Quiet Portrait Dominance (65% Portrait + Vertical Typography) -->
+  <section class="hairline-b relative overflow-hidden">
+    <div class="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 min-h-[82vh]">
+      
+      <!-- Left Column: Rotated / Vertical Typographic Ledger & Metadata -->
+      <div class="lg:col-span-1 hairline-r hidden lg:flex flex-col justify-between items-center py-12 px-2">
+        <span class="font-mono-quiet text-[10px] tracking-[0.25em] text-[#73757A] uppercase vertical-rl rotate-180">
+          KEHENINGAN &bull; KETELITIAN &bull; KENYAMANAN
+        </span>
+        <div class="w-px h-16 bg-[#1C1D1F]/20"></div>
+        <span class="font-mono-quiet text-[10px] text-[#73757A] tracking-widest">
+          EST. CIBODAS
+        </span>
+      </div>
+
+      <!-- Center-Right Dominant: 65% Portrait with Architectural Restraint -->
+      <div class="lg:col-span-7 hairline-r relative bg-[#ECE8DF] flex flex-col justify-between">
+        <div class="p-8 md:p-12 z-10 flex justify-between items-start">
+          <div class="font-mono-quiet text-xs text-[#73757A] tracking-wider">
+            [FIG. 01 — DOKTER PENANGGUNG JAWAB]
+          </div>
+          <span class="inline-block text-[11px] font-mono-quiet px-2.5 py-0.5 border border-[#1C1D1F]/20 text-[#1C1D1F]">
+            1 Pasien · 1 Waktu
+          </span>
+        </div>
+
+        <!-- Hero Portrait Image Frame -->
+        <div class="px-8 md:px-16 pb-8 md:pb-12 flex justify-center items-center">
+          <div class="relative w-full max-w-md aspect-[4/5] bg-[#E2DDCF] overflow-hidden border border-[#1C1D1F]/10 flex flex-col justify-center items-center p-8 text-center">
+            <!-- Architectural Placeholder Visual -->
+            <div class="w-20 h-20 rounded-full border border-[#1C1D1F]/30 flex items-center justify-center font-serif-quiet text-xl text-[#2B384A] mb-4">
+              UK
+            </div>
+            <div class="font-serif-quiet text-xl text-[#1C1D1F] tracking-tight">drg. Ummi Kaltsum</div>
+            <p class="font-mono-quiet text-[11px] text-[#73757A] mt-2 max-w-xs leading-relaxed">
+              Ruang periksa mandiri yang privat, tenang, dan tanpa ketergesaan untuk warga sekitar Panunggangan Barat.
+            </p>
+            <div class="mt-6 font-mono-quiet text-[9px] uppercase tracking-widest text-[#73757A] border-t border-[#1C1D1F]/15 pt-3 w-full">
+              Kavling Pemda 3 &bull; Tangerang
+            </div>
+          </div>
+        </div>
+
+        <div class="hairline-t p-4 md:px-8 bg-[#F2EFE7] flex justify-between items-center text-[11px] font-mono-quiet text-[#73757A]">
+          <span>DOKUMENTASI PRAKTEK MANDIRI</span>
+          <span>KOTA TANGERANG 15139</span>
+        </div>
+      </div>
+
+      <!-- Right Column: Poetic Spatial Typography & Direct Action -->
+      <div class="lg:col-span-4 p-8 md:p-14 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center gap-2 mb-6">
+            <span class="w-2 h-2 rounded-full bg-[#2B384A]"></span>
+            <span class="font-mono-quiet text-[11px] uppercase tracking-widest text-[#73757A]">
+              Praktek Personal
+            </span>
+          </div>
+
+          <h1 class="font-serif-quiet text-3xl md:text-4xl lg:text-[2.65rem] text-[#1C1D1F] leading-[1.28] tracking-tight mb-8">
+            Pemeriksaan gigi yang hening, teliti, dan bersahaja.
+          </h1>
+
+          <p class="text-sm md:text-[15px] text-[#73757A] leading-relaxed font-light mb-8">
+            Kami membatasi ritme tindakan agar setiap pasien anak, dewasa, hingga lansia didengarkan secara menyeluruh dalam ruang yang bersih dan tidak mengintimidasi.
+          </p>
+
+          <div class="space-y-4 py-6 hairline-t hairline-b">
+            <div class="flex justify-between items-baseline text-xs">
+              <span class="text-[#73757A] font-mono-quiet">Ulasan Google</span>
+              <span class="font-mono-quiet font-semibold text-[#1C1D1F]">5.0 / 5.0 (55 Pasien)</span>
+            </div>
+            <div class="flex justify-between items-baseline text-xs">
+              <span class="text-[#73757A] font-mono-quiet">Sistem Periksa</span>
+              <span class="font-mono-quiet text-[#1C1D1F]">By Appointment (Tanpa Antre)</span>
+            </div>
+            <div class="flex justify-between items-baseline text-xs">
+              <span class="text-[#73757A] font-mono-quiet">Lokasi</span>
+              <span class="font-mono-quiet text-[#1C1D1F]">Panunggangan Barat, Cibodas</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-8">
+          <a href="https://wa.me/6285888417271?text=Hallo%20drg.%20Ummi,%20saya%20ingin%20reservasi%20jadwal%20perawatan." target="_blank" rel="noopener noreferrer" class="w-full flex justify-between items-center bg-[#2B384A] hover:bg-[#1C1D1F] text-[#F7F5F0] py-4 px-6 text-xs font-mono-quiet uppercase tracking-widest transition-colors">
+            <span>Reservasi via WhatsApp</span>
+            <span>&rarr;</span>
+          </a>
+          <p class="font-mono-quiet text-[10px] text-[#73757A] mt-3 text-center">
+            Pesan langsung terhubung dengan asisten praktik drg. Ummi
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 01: Sparse Catalogue / Index Layout for Services -->
+  <section id="katalog" class="hairline-b py-20 md:py-28 px-6 md:px-16">
+    <div class="max-w-[1400px] mx-auto">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 hairline-b">
+        <div>
+          <span class="font-mono-quiet text-[11px] text-[#73757A] uppercase tracking-widest block mb-2">
+            KATALOG TINDAKAN &bull; INDEKS KLINIS
+          </span>
+          <h2 class="font-serif-quiet text-3xl md:text-4xl text-[#1C1D1F] tracking-tight">
+            Layanan Perawatan Gigi
+          </h2>
+        </div>
+        <p class="font-mono-quiet text-xs text-[#73757A] max-w-sm mt-4 md:mt-0 leading-relaxed">
+          Tindakan konservatif mengedepankan pertahanan gigi asli dengan penjelasan transparan sebelum dimulai.
+        </p>
+      </div>
+
+      <!-- Sparse Index: Vast Whitespace, Thin Hairline, No Cards -->
+      <div class="divide-y divide-[#1C1D1F]/15">
+        
+        <div class="py-8 md:py-10 grid grid-cols-1 md:grid-cols-12 gap-4 items-baseline group hover:bg-[#ECE8DF]/40 transition-colors px-2">
+          <div class="md:col-span-1 font-mono-quiet text-xs text-[#73757A]">01</div>
+          <div class="md:col-span-4 font-serif-quiet text-xl md:text-2xl text-[#1C1D1F]">
+            Pemeriksaan & Konsultasi
+          </div>
+          <div class="md:col-span-5 text-sm text-[#73757A] font-light leading-relaxed">
+            Evaluasi menyeluruh rongga mulut, jaringan periodontal, dan penjelas edukatif kondisi gigi tanpa ketergesaan.
+          </div>
+          <div class="md:col-span-2 md:text-right font-mono-quiet text-xs">
+            <a href="https://wa.me/6285888417271" class="text-[#2B384A] hover:underline">[ Konsultasi &rarr; ]</a>
+          </div>
+        </div>
+
+        <div class="py-8 md:py-10 grid grid-cols-1 md:grid-cols-12 gap-4 items-baseline group hover:bg-[#ECE8DF]/40 transition-colors px-2">
+          <div class="md:col-span-1 font-mono-quiet text-xs text-[#73757A]">02</div>
+          <div class="md:col-span-4 font-serif-quiet text-xl md:text-2xl text-[#1C1D1F]">
+            Scaling & Pembersihan Karang
+          </div>
+          <div class="md:col-span-5 text-sm text-[#73757A] font-light leading-relaxed">
+            Pembersihan kalkulus supra dan sub-gingiva secara presisi guna meredakan inflamasi gusi dan bau mulut.
+          </div>
+          <div class="md:col-span-2 md:text-right font-mono-quiet text-xs">
+            <a href="https://wa.me/6285888417271" class="text-[#2B384A] hover:underline">[ Jadwal &rarr; ]</a>
+          </div>
+        </div>
+
+        <div class="py-8 md:py-10 grid grid-cols-1 md:grid-cols-12 gap-4 items-baseline group hover:bg-[#ECE8DF]/40 transition-colors px-2">
+          <div class="md:col-span-1 font-mono-quiet text-xs text-[#73757A]">03</div>
+          <div class="md:col-span-4 font-serif-quiet text-xl md:text-2xl text-[#1C1D1F]">
+            Tambal Gigi Komposit Estetik
+          </div>
+          <div class="md:col-span-5 text-sm text-[#73757A] font-light leading-relaxed">
+            Restorasi gigi karies dengan resin komposit biokompatibel yang dipadukan presisi dengan warna enamel asli.
+          </div>
+          <div class="md:col-span-2 md:text-right font-mono-quiet text-xs">
+            <a href="https://wa.me/6285888417271" class="text-[#2B384A] hover:underline">[ Jadwal &rarr; ]</a>
+          </div>
+        </div>
+
+        <div class="py-8 md:py-10 grid grid-cols-1 md:grid-cols-12 gap-4 items-baseline group hover:bg-[#ECE8DF]/40 transition-colors px-2">
+          <div class="md:col-span-1 font-mono-quiet text-xs text-[#73757A]">04</div>
+          <div class="md:col-span-4 font-serif-quiet text-xl md:text-2xl text-[#1C1D1F]">
+            Cabut Gigi Anak & Dewasa
+          </div>
+          <div class="md:col-span-5 text-sm text-[#73757A] font-light leading-relaxed">
+            Ekstraksi gigi susu goyang atau gigi dewasa non-restorabel dengan anestesi lembut dan minim trauma psikologis.
+          </div>
+          <div class="md:col-span-2 md:text-right font-mono-quiet text-xs">
+            <a href="https://wa.me/6285888417271" class="text-[#2B384A] hover:underline">[ Jadwal &rarr; ]</a>
+          </div>
+        </div>
+
+        <div class="py-8 md:py-10 grid grid-cols-1 md:grid-cols-12 gap-4 items-baseline group hover:bg-[#ECE8DF]/40 transition-colors px-2">
+          <div class="md:col-span-1 font-mono-quiet text-xs text-[#73757A]">05</div>
+          <div class="md:col-span-4 font-serif-quiet text-xl md:text-2xl text-[#1C1D1F]">
+            Perawatan Gigi Anak (Pediatrik)
+          </div>
+          <div class="md:col-span-5 text-sm text-[#73757A] font-light leading-relaxed">
+            Pendekatan adaptif bertahap bagi buah hati tanpa paksaan, membangun memori positif terhadap dokter gigi.
+          </div>
+          <div class="md:col-span-2 md:text-right font-mono-quiet text-xs">
+            <a href="https://wa.me/6285888417271" class="text-[#2B384A] hover:underline">[ Konsultasi &rarr; ]</a>
+          </div>
+        </div>
+
+        <div class="py-8 md:py-10 grid grid-cols-1 md:grid-cols-12 gap-4 items-baseline group hover:bg-[#ECE8DF]/40 transition-colors px-2">
+          <div class="md:col-span-1 font-mono-quiet text-xs text-[#73757A]">06</div>
+          <div class="md:col-span-4 font-serif-quiet text-xl md:text-2xl text-[#1C1D1F]">
+            Perawatan Saluran Akar Gigi
+          </div>
+          <div class="md:col-span-5 text-sm text-[#73757A] font-light leading-relaxed">
+            Terapi endodontik untuk gigi berlubang dalam dengan infeksi pulpa, meredakan nyeri dan mempertahankan gigi asli.
+          </div>
+          <div class="md:col-span-2 md:text-right font-mono-quiet text-xs">
+            <a href="https://wa.me/6285888417271" class="text-[#2B384A] hover:underline">[ Jadwal &rarr; ]</a>
+          </div>
+        </div>
+
+        <div class="py-8 md:py-10 grid grid-cols-1 md:grid-cols-12 gap-4 items-baseline group hover:bg-[#ECE8DF]/40 transition-colors px-2">
+          <div class="md:col-span-1 font-mono-quiet text-xs text-[#73757A]">07</div>
+          <div class="md:col-span-4 font-serif-quiet text-xl md:text-2xl text-[#1C1D1F]">
+            Gigi Tiruan Lepasan
+          </div>
+          <div class="md:col-span-5 text-sm text-[#73757A] font-light leading-relaxed">
+            Pembuatan protesa gigi tiruan pengganti yang presisi untuk kenyamanan mengunyah dan berbicara sehari-hari.
+          </div>
+          <div class="md:col-span-2 md:text-right font-mono-quiet text-xs">
+            <a href="https://wa.me/6285888417271" class="text-[#2B384A] hover:underline">[ Konsultasi &rarr; ]</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 02: Doctor Section (Quiet Professional Monograph) -->
+  <section id="penanggungjawab" class="hairline-b py-20 md:py-28 px-6 md:px-16 bg-[#F2EFE7]">
+    <div class="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      
+      <div class="lg:col-span-5">
+        <div class="border border-[#1C1D1F]/20 p-8 bg-[#F7F5F0]">
+          <span class="font-mono-quiet text-[10px] text-[#73757A] uppercase tracking-widest block mb-4">
+            SIP AKTIF KOTA TANGERANG
+          </span>
+          <div class="font-serif-quiet text-3xl text-[#1C1D1F] mb-1">
+            drg. Ummi Kaltsum
+          </div>
+          <div class="text-xs font-mono-quiet text-[#73757A] mb-8">
+            Dokter Gigi Penanggung Jawab Praktik Mandiri
+          </div>
+
+          <div class="aspect-square bg-[#ECE8DF] border border-[#1C1D1F]/10 flex flex-col items-center justify-center p-6 text-center mb-6">
+            <div class="w-16 h-16 rounded-full border border-[#1C1D1F]/30 flex items-center justify-center font-serif-quiet text-lg text-[#2B384A] mb-3">
+              UK
+            </div>
+            <div class="font-mono-quiet text-xs text-[#1C1D1F]">Dokter Gigi Praktik Mandiri</div>
+            <div class="font-mono-quiet text-[10px] text-[#73757A] mt-1">Panunggangan Barat, Cibodas</div>
+          </div>
+
+          <div class="font-mono-quiet text-[11px] text-[#73757A] space-y-2 border-t border-[#1C1D1F]/10 pt-4">
+            <div class="flex justify-between">
+              <span>Metode Layanan:</span>
+              <span class="text-[#1C1D1F]">Mandiri &bull; Personal</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Wilayah Praktik:</span>
+              <span class="text-[#1C1D1F]">Kavling Pemda 3, Cibodas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7 space-y-8">
+        <span class="font-mono-quiet text-[11px] text-[#73757A] uppercase tracking-widest block">
+          02 &bull; PENDEKATAN KLINIS
+        </span>
+
+        <h3 class="font-serif-quiet text-3xl md:text-4xl text-[#1C1D1F] leading-tight">
+          "Pemeriksaan gigi tidak perlu tergesa-gesa. Pasien berhak mengerti setiap tindakan dengan rasa aman."
+        </h3>
+
+        <div class="space-y-5 text-sm md:text-base text-[#73757A] font-light leading-relaxed">
+          <p>
+            Sebagai dokter gigi yang melayani warga di lingkungan Panunggangan Barat, drg. Ummi Kaltsum menjalankan praktik dengan prinsip kehati-hatian. Setiap pasien dialokasikan waktu yang cukup agar tidak ada tekanan antrean.
+          </p>
+          <p>
+            Pendekatan ini sangat membantu anak-anak yang kerap merasa cemas saat pertama kali berkunjung, serta pasien dewasa yang memerlukan penjelasan mendalam seputar pilihan restorasi maupun saluran akar.
+          </p>
+        </div>
+
+        <!-- Appointment Safety Hours -->
+        <div class="hairline-t pt-8 mt-8">
+          <span class="font-mono-quiet text-xs text-[#1C1D1F] uppercase tracking-wider block mb-3 font-semibold">
+            Jadwal Pelayanan & Jadwal Malam
+          </span>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs font-mono-quiet text-[#73757A]">
+            <div class="border border-[#1C1D1F]/15 p-4 bg-[#F7F5F0]">
+              <span class="text-[#1C1D1F] block font-semibold mb-1">Senin – Jumat</span>
+              16.00 – 20.00 WIB (Sore – Malam)
+            </div>
+            <div class="border border-[#1C1D1F]/15 p-4 bg-[#F7F5F0]">
+              <span class="text-[#1C1D1F] block font-semibold mb-1">Sabtu</span>
+              09.00 – 16.00 WIB (Siang)
+            </div>
+          </div>
+          <p class="font-mono-quiet text-[11px] text-[#2B384A] mt-3">
+            * Butuh jadwal setelah jam kerja? Jadwal perawatan hingga pukul 21.00 WIB dapat disediakan melalui reservasi dan konfirmasi terlebih dahulu (By appointment only). Tidak melayani walk-in larut malam.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 03: Editorial Location Ledger (Not a Generic Card) -->
+  <section id="alamat" class="hairline-b py-20 md:py-28 px-6 md:px-16">
+    <div class="max-w-[1400px] mx-auto">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <div class="lg:col-span-5 space-y-6">
+          <span class="font-mono-quiet text-[11px] text-[#73757A] uppercase tracking-widest block">
+            03 &bull; PETUNJUK AKSES & KEDATANGAN
+          </span>
+          
+          <h2 class="font-serif-quiet text-3xl md:text-4xl text-[#1C1D1F]">
+            Alamat Praktik
+          </h2>
+
+          <div class="hairline-t hairline-b py-6 space-y-3 font-mono-quiet text-xs text-[#73757A]">
+            <div class="text-[#1C1D1F] font-semibold text-sm">
+              Jl. Kav. Pemda 3 No. 241A, RT.005 / RW.005
+            </div>
+            <div>Kel. Panunggangan Barat, Kec. Cibodas</div>
+            <div>Kota Tangerang, Banten 15139</div>
+            <div class="pt-2 text-[#2B384A]">
+              <strong>Patokan:</strong> Area permukiman Kavling Pemda 3, dekat akses Palem Semi & Karawaci. Papan nama terpasang jelas di depan rumah praktik.
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-4 pt-2 font-mono-quiet text-xs">
+            <a href="https://maps.google.com/?q=Jl.+Kav.+Pemda+3+No.241A+Panunggangan+Barat+Cibodas+Tangerang" target="_blank" rel="noopener noreferrer" class="px-5 py-3 border border-[#1C1D1F] text-[#1C1D1F] hover:bg-[#1C1D1F] hover:text-[#F7F5F0] transition-colors text-center">
+              Buka Google Maps &rarr;
+            </a>
+            <a href="https://wa.me/6285888417271?text=Hallo%20drg.%20Ummi,%20saya%20sedang%20menuju%20ke%20lokasi%20praktik." target="_blank" rel="noopener noreferrer" class="px-5 py-3 bg-[#2B384A] text-white hover:bg-[#1C1D1F] transition-colors text-center">
+              Panduan Rute via WA
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7">
+          <div class="border border-[#1C1D1F]/20 p-2 bg-[#ECE8DF]">
+            <div class="w-full aspect-[16/10] bg-[#E2DDCF] flex flex-col items-center justify-center text-center p-8">
+              <span class="font-mono-quiet text-xs uppercase tracking-widest text-[#73757A] mb-2">[ GOOGLE MAPS & DOKUMENTASI GERBANG ]</span>
+              <div class="font-serif-quiet text-xl text-[#1C1D1F] mb-1">Praktek Dokter Gigi drg. Ummi Kaltsum</div>
+              <p class="font-mono-quiet text-[11px] text-[#73757A] max-w-sm">
+                Jl. Kav. Pemda 3 No. 241A &bull; Panunggangan Barat, Cibodas
+              </p>
+              <div class="mt-4 inline-block font-mono-quiet text-[10px] text-[#2B384A] border border-[#2B384A]/30 px-3 py-1">
+                Koordinat Presisi: 5.0 Google Rating Verified
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="px-6 md:px-16 py-12 hairline-t text-xs font-mono-quiet text-[#73757A] flex flex-col md:flex-row justify-between items-baseline gap-6">
+    <div>
+      <span class="text-[#1C1D1F] font-semibold block mb-1">Praktek Dokter Gigi drg. Ummi Kaltsum</span>
+      <span>Panunggangan Barat &bull; Cibodas &bull; Kota Tangerang 15139</span>
+    </div>
+    <div class="flex items-center gap-6">
+      <a href="https://wa.me/6285888417271" class="hover:text-[#1C1D1F]">WhatsApp: 0858-8841-7271</a>
+      <a href="https://maps.google.com" class="hover:text-[#1C1D1F]">Google Maps</a>
+    </div>
+  </footer>
+
+</body>
+</html>

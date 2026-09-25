@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    background-color: #FAF9F6;
+    color: #252A31;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+.hero-gradient {
+  background: linear-gradient(180deg, #FAF9F6 0%, #F4F6F8 100%);
+}
+
+/* Ensure accessible focus outlines */
+:focus-visible {
+  outline: 2px solid #243B53;
+  outline-offset: 2px;
+}

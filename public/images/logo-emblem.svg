@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
+  <defs>
+    <linearGradient id="emblemGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#243B53"/>
+      <stop offset="100%" stop-color="#172A3A"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="24" fill="url(#emblemGrad)"/>
+  <circle cx="60" cy="60" r="48" fill="none" stroke="#FAF9F6" stroke-width="1.5" stroke-opacity="0.25"/>
+  <circle cx="60" cy="60" r="44" fill="none" stroke="#FAF9F6" stroke-width="0.75" stroke-dasharray="2 3" stroke-opacity="0.3"/>
+  
+  <!-- Stylized Tooth & Medical Cross Emblem -->
+  <g transform="translate(60, 58)">
+    <!-- Elegant stylized tooth contour -->
+    <path d="M-18,-20 C-26,-20 -28,-6 -26,8 C-24,20 -16,28 -12,28 C-8,28 -7,22 0,22 C7,22 8,28 12,28 C16,28 24,20 26,8 C28,-6 26,-20 18,-20 C10,-20 6,-14 0,-14 C-6,-14 -10,-20 -18,-20 Z" 
+          fill="#FAF9F6" 
+          opacity="0.95"/>
+    <!-- Subtle medical cross cutout / accent -->
+    <path d="M-3,-5 L3,-5 L3,-11 L7,-11 L7,-5 L13,-5 L13,-1 L7,-1 L7,5 L3,5 L3,-1 L-3,-1 Z" 
+          fill="#243B53" 
+          opacity="0.9"/>
+    <!-- Subtle shine accent -->
+    <circle cx="-10" cy="-8" r="3" fill="#FFFFFF" opacity="0.8"/>
+  </g>
+  
+  <text x="60" y="104" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="7.5" fill="#FAF9F6" font-weight="600" letter-spacing="1.5" opacity="0.85">DRG. UMMI</text>
+</svg>
