@@ -10,9 +10,17 @@ import {
 } from 'lucide-react';
 import { clinicConfig, buildWhatsAppUrl } from '../config/business';
 import { trackWhatsAppBooking, trackPhoneCall, trackMapsClick } from '../utils/analytics';
+import { useHeroEntrance, usePointerTilt, Reveal } from '../utils/motion';
 
 export const BoldTypographyConcept: React.FC = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  const stage1 = useHeroEntrance(1, 75);
+  const stage2 = useHeroEntrance(2, 75);
+  const stage3 = useHeroEntrance(3, 75);
+  const stage4 = useHeroEntrance(4, 75);
+  const stage5 = useHeroEntrance(5, 75);
+  const pointerTilt = usePointerTilt({ maxTilt: 2.0, maxTranslate: 4 });
 
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index);
@@ -68,7 +76,7 @@ export const BoldTypographyConcept: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackWhatsAppBooking('concept4_header')}
-              className="bg-[#25D366] hover:bg-[#20ba5a] text-slate-950 px-4 sm:px-5 py-2.5 uppercase font-mono text-xs font-black tracking-wider transition-all shadow-[2px_2px_0px_#0A0A0A] flex items-center gap-2"
+              className="bg-[#25D366] hover:bg-[#20ba5a] text-slate-950 px-4 sm:px-5 py-2.5 uppercase font-mono text-xs font-black tracking-wider transition-all shadow-[2px_2px_0px_#0A0A0A] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none flex items-center gap-2"
             >
               <MessageCircle className="w-4 h-4 fill-slate-950" />
               <span>RESERVASI VIA WA</span>
@@ -79,36 +87,69 @@ export const BoldTypographyConcept: React.FC = () => {
       </header>
 
       {/* 3. HERO: MONUMENTAL ARCHITECTURAL SPREAD */}
-      <section className="border-b-2 border-[#0A0A0A]">
+      <section className="border-b-2 border-[#0A0A0A] overflow-hidden">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 min-h-[70vh]">
           
           {/* Left Column: Bold Typographic Identity */}
           <div className="lg:col-span-7 p-6 sm:p-10 lg:p-14 border-b-2 lg:border-b-0 lg:border-r-2 border-[#0A0A0A] flex flex-col justify-between">
             <div className="space-y-4 sm:space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F0F4FF] border border-[#0038FF] text-[#0038FF] font-mono text-xs font-bold uppercase tracking-widest">
+              <div style={stage1.style} className="inline-flex items-center gap-2 px-3 py-1 bg-[#F0F4FF] border border-[#0038FF] text-[#0038FF] font-mono text-xs font-bold uppercase tracking-widest">
                 <span>// PRAKTIK DOKTER GIGI MANDIRI &bull; PANUNGGANGAN BARAT</span>
               </div>
 
               <h1 className="font-extrabold text-4xl sm:text-6xl md:text-7xl lg:text-[5.2rem] leading-[0.95] tracking-tighter uppercase text-[#0A0A0A]">
-                PERAWATAN<br />
-                GIGI UNTUK<br />
-                <span className="text-[#0038FF] underline decoration-4 underline-offset-8">KELUARGA.</span>
+                <span className="block overflow-hidden py-0.5">
+                  <span
+                    className="block transition-all duration-600 ease-out"
+                    style={{
+                      transform: stage2.isEntered ? 'translate3d(0, 0, 0)' : 'translate3d(0, 100%, 0)',
+                      opacity: stage2.isEntered ? 1 : 0,
+                      transitionDelay: '60ms',
+                    }}
+                  >
+                    PERAWATAN
+                  </span>
+                </span>
+                <span className="block overflow-hidden py-0.5">
+                  <span
+                    className="block transition-all duration-600 ease-out"
+                    style={{
+                      transform: stage2.isEntered ? 'translate3d(0, 0, 0)' : 'translate3d(0, 100%, 0)',
+                      opacity: stage2.isEntered ? 1 : 0,
+                      transitionDelay: '130ms',
+                    }}
+                  >
+                    GIGI UNTUK
+                  </span>
+                </span>
+                <span className="block overflow-hidden py-0.5">
+                  <span
+                    className="block text-[#0038FF] underline decoration-4 underline-offset-8 transition-all duration-600 ease-out"
+                    style={{
+                      transform: stage2.isEntered ? 'translate3d(0, 0, 0)' : 'translate3d(0, 100%, 0)',
+                      opacity: stage2.isEntered ? 1 : 0,
+                      transitionDelay: '200ms',
+                    }}
+                  >
+                    KELUARGA.
+                  </span>
+                </span>
               </h1>
 
-              <p className="text-base sm:text-xl font-medium text-[#262626] max-w-xl leading-relaxed pt-2">
+              <p style={stage3.style} className="text-base sm:text-xl font-medium text-[#262626] max-w-xl leading-relaxed pt-2">
                 Praktik dokter gigi mandiri drg. Ummi Kaltsum di Cibodas, Tangerang. Melayani konsultasi dan perawatan kesehatan gigi untuk pasien anak-anak hingga dewasa.
               </p>
             </div>
 
             {/* Action Bar & Direct Credentials */}
-            <div className="pt-8 sm:pt-10 space-y-6">
+            <div style={stage4.style} className="pt-8 sm:pt-10 space-y-6">
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <a
                   href={buildWhatsAppUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackWhatsAppBooking('concept4_hero_main')}
-                  className="bg-[#25D366] hover:bg-[#20ba5a] text-slate-950 px-6 sm:px-8 py-4 font-mono text-xs sm:text-sm font-black uppercase tracking-wider transition-all shadow-[4px_4px_0px_#0A0A0A] active:translate-x-1 active:translate-y-1 active:shadow-none flex items-center justify-center gap-2.5"
+                  className="bg-[#25D366] hover:bg-[#20ba5a] text-slate-950 px-6 sm:px-8 py-4 font-mono text-xs sm:text-sm font-black uppercase tracking-wider transition-all shadow-[4px_4px_0px_#0A0A0A] hover:shadow-[6px_6px_0px_#0A0A0A] active:translate-x-1 active:translate-y-1 active:shadow-none flex items-center justify-center gap-2.5"
                 >
                   <MessageCircle className="w-5 h-5 fill-slate-950" />
                   <span>RESERVASI WHATSAPP SEKARANG</span>
@@ -118,7 +159,7 @@ export const BoldTypographyConcept: React.FC = () => {
                 <a
                   href={`tel:${clinicConfig.contact.phoneTel}`}
                   onClick={trackPhoneCall}
-                  className="bg-white hover:bg-[#F2F2F2] text-[#0A0A0A] border-2 border-[#0A0A0A] px-5 py-4 font-mono text-xs sm:text-sm font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2"
+                  className="bg-white hover:bg-[#F2F2F2] text-[#0A0A0A] border-2 border-[#0A0A0A] px-5 py-4 font-mono text-xs sm:text-sm font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 active:translate-x-0.5 active:translate-y-0.5"
                 >
                   <Phone className="w-4 h-4" />
                   <span>{clinicConfig.contact.phoneDisplay}</span>
@@ -135,15 +176,21 @@ export const BoldTypographyConcept: React.FC = () => {
           </div>
 
           {/* Right Column: Visual Composition with Real Photos */}
-          <div className="lg:col-span-5 p-6 sm:p-8 lg:p-10 flex flex-col justify-between bg-[#F8F9FA]">
+          <div style={stage5.style} className="lg:col-span-5 p-6 sm:p-8 lg:p-10 flex flex-col justify-between bg-[#F8F9FA]">
             
-            {/* Main Treatment Room Photo */}
-            <div className="border-2 border-[#0A0A0A] bg-white shadow-[6px_6px_0px_#0A0A0A] overflow-hidden">
+            {/* Main Treatment Room Photo with subtle desktop pointer tilt */}
+            <div
+              ref={pointerTilt.ref}
+              style={pointerTilt.style}
+              onMouseMove={pointerTilt.onMouseMove}
+              onMouseLeave={pointerTilt.onMouseLeave}
+              className="border-2 border-[#0A0A0A] bg-white shadow-[6px_6px_0px_#0A0A0A] hover:shadow-[8px_8px_0px_#0A0A0A] transition-shadow duration-300 overflow-hidden"
+            >
               <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
                 <img
                   src={clinicConfig.images.treatmentRoom}
                   alt="Ruang periksa dental unit utama drg. Ummi Kaltsum Cibodas"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
                 />
               </div>
               <div className="p-3 border-t-2 border-[#0A0A0A] bg-white font-mono text-[11px] text-[#666666] flex justify-between items-center">
@@ -205,7 +252,7 @@ export const BoldTypographyConcept: React.FC = () => {
       {/* 4. TRUST & INFORMATION MATRIX */}
       <section className="border-b-2 border-[#0A0A0A] bg-[#0A0A0A] text-white py-12 px-4 sm:px-8 lg:px-12">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 divide-y-2 sm:divide-y-0 sm:divide-x-2 divide-white/20">
+          <Reveal variant="fade-up" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 divide-y-2 sm:divide-y-0 sm:divide-x-2 divide-white/20">
             
             <div className="pt-4 sm:pt-0 sm:pr-6 space-y-2">
               <div className="font-mono text-xs text-[#0038FF] font-bold tracking-widest">[01 / RATING GOOGLE]</div>
@@ -252,23 +299,23 @@ export const BoldTypographyConcept: React.FC = () => {
               </p>
             </div>
 
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* 5. DOCTOR PROFILE */}
-      <section id="profil-bold" className="border-b-2 border-[#0A0A0A] py-16 sm:py-20 px-4 sm:px-8 lg:px-12 bg-white">
+      <section id="profil-bold" className="border-b-2 border-[#0A0A0A] py-16 sm:py-20 px-4 sm:px-8 lg:px-12 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
             {/* Visual Photography Collage */}
-            <div className="lg:col-span-5 space-y-4">
-              <div className="border-2 border-[#0A0A0A] bg-white p-3 shadow-[6px_6px_0px_#0A0A0A]">
-                <div className="aspect-[4/5] overflow-hidden bg-slate-100 border border-[#0A0A0A]">
+            <Reveal variant="fade-right" duration={650} className="lg:col-span-5 space-y-4">
+              <div className="border-2 border-[#0A0A0A] bg-white p-3 shadow-[6px_6px_0px_#0A0A0A] hover:shadow-[8px_8px_0px_#0A0A0A] transition-shadow duration-300">
+                <div className="aspect-[4/5] overflow-hidden bg-slate-100 border border-[#0A0A0A] group">
                   <img
                     src={clinicConfig.images.doctorPortrait}
                     alt="drg. Ummi Kaltsum dokter gigi di Panunggangan Barat Cibodas Tangerang"
-                    className="w-full h-full object-cover object-top"
+                    className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.025]"
                     loading="lazy"
                   />
                 </div>
@@ -279,12 +326,12 @@ export const BoldTypographyConcept: React.FC = () => {
               </div>
 
               {/* Patient Care Inset */}
-              <div className="border-2 border-[#0A0A0A] bg-[#F8F9FA] p-3 shadow-[4px_4px_0px_#0A0A0A]">
-                <div className="aspect-[16/9] overflow-hidden border border-[#0A0A0A]">
+              <div className="border-2 border-[#0A0A0A] bg-[#F8F9FA] p-3 shadow-[4px_4px_0px_#0A0A0A] hover:shadow-[6px_6px_0px_#0A0A0A] transition-shadow duration-300">
+                <div className="aspect-[16/9] overflow-hidden border border-[#0A0A0A] group">
                   <img
                     src={clinicConfig.images.doctorPatient}
                     alt="drg. Ummi Kaltsum saat memeriksa pasien anak"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]"
                     loading="lazy"
                   />
                 </div>
@@ -293,10 +340,10 @@ export const BoldTypographyConcept: React.FC = () => {
                   <span>PENDAMPINGAN ORANG TUA</span>
                 </div>
               </div>
-            </div>
+            </Reveal>
 
             {/* Editorial Content */}
-            <div className="lg:col-span-7 space-y-6">
+            <Reveal variant="fade-left" delay={100} duration={650} className="lg:col-span-7 space-y-6">
               <div className="font-mono text-xs uppercase tracking-widest text-[#0038FF] font-bold">
                 // DOKTER GIGI KELUARGA &bull; PROFIL PRAKTISI
               </div>
@@ -316,14 +363,14 @@ export const BoldTypographyConcept: React.FC = () => {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 font-mono text-xs">
-                <div className="border-2 border-[#0A0A0A] p-4 bg-white">
+                <div className="border-2 border-[#0A0A0A] p-4 bg-white hover:border-[#0038FF] transition-colors duration-200">
                   <div className="text-[#0038FF] font-bold text-sm mb-1">[01] PASIEN ANAK</div>
                   <p className="text-[#555555]">
                     Pemeriksaan dan tindakan gigi anak dengan pendampingan orang tua selama perawatan.
                   </p>
                 </div>
 
-                <div className="border-2 border-[#0A0A0A] p-4 bg-white">
+                <div className="border-2 border-[#0A0A0A] p-4 bg-white hover:border-[#0038FF] transition-colors duration-200">
                   <div className="text-[#0038FF] font-bold text-sm mb-1">[02] PASIEN DEWASA</div>
                   <p className="text-[#555555]">
                     Konsultasi terbuka mengenai pilihan tindakan sesuai kondisi klinis rongga mulut.
@@ -337,13 +384,13 @@ export const BoldTypographyConcept: React.FC = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackWhatsAppBooking('concept4_profile_wa')}
-                  className="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-[#0038FF] hover:underline"
+                  className="group inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-[#0038FF] hover:underline"
                 >
-                  <MessageCircle className="w-4 h-4 text-emerald-600" />
+                  <MessageCircle className="w-4 h-4 text-emerald-600 transition-transform duration-300 group-hover:scale-110" />
                   <span>Konsultasi dengan drg. Ummi via WhatsApp &rarr;</span>
                 </a>
               </div>
-            </div>
+            </Reveal>
 
           </div>
         </div>
@@ -353,7 +400,7 @@ export const BoldTypographyConcept: React.FC = () => {
       <section id="layanan-bold" className="border-b-2 border-[#0A0A0A] py-16 sm:py-20 px-4 sm:px-8 lg:px-12 bg-[#F8F9FA]">
         <div className="max-w-7xl mx-auto">
           
-          <div className="flex flex-col md:flex-row justify-between md:items-end mb-10 pb-4 border-b-2 border-[#0A0A0A] gap-4">
+          <Reveal variant="fade-up" className="flex flex-col md:flex-row justify-between md:items-end mb-10 pb-4 border-b-2 border-[#0A0A0A] gap-4">
             <div>
               <div className="font-mono text-xs font-bold text-[#0038FF] uppercase tracking-widest mb-1">
                 // DAFTAR LAYANAN
@@ -365,15 +412,17 @@ export const BoldTypographyConcept: React.FC = () => {
             <div className="font-mono text-xs text-[#555555] font-bold">
               [ {clinicConfig.services.length} KATEGORI LAYANAN ]
             </div>
-          </div>
+          </Reveal>
 
           <div className="divide-y-2 border-y-2 border-[#0A0A0A] bg-white">
-            {clinicConfig.services.map((service) => (
-              <div
+            {clinicConfig.services.map((service, index) => (
+              <Reveal
                 key={service.id}
-                className="py-6 px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-12 gap-4 items-center group hover:bg-[#F0F4FF] transition-colors"
+                variant="fade-up"
+                delay={index * 40}
+                className="py-6 px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-12 gap-4 items-center group hover:bg-[#F0F4FF] transition-all duration-200"
               >
-                <div className="lg:col-span-1 font-mono font-black text-sm text-[#0038FF]">
+                <div className="lg:col-span-1 font-mono font-black text-sm text-[#0038FF] group-hover:translate-x-1 transition-transform">
                   [{service.number}]
                 </div>
 
@@ -398,18 +447,18 @@ export const BoldTypographyConcept: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => trackWhatsAppBooking('concept4_service', service.title)}
-                    className="inline-flex items-center gap-1 font-mono text-xs font-bold text-[#0038FF] hover:underline"
+                    className="group/btn inline-flex items-center gap-1 font-mono text-xs font-bold text-[#0038FF] hover:underline"
                   >
                     <span>TANYAKAN</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover/btn:translate-x-1" />
                   </a>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
 
           {/* Quick Note */}
-          <div className="mt-8 p-4 border-2 border-[#0A0A0A] bg-white font-mono text-xs flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+          <Reveal variant="fade-up" delay={120} className="mt-8 p-4 border-2 border-[#0A0A0A] bg-white font-mono text-xs flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 hover:shadow-[4px_4px_0px_#0A0A0A] transition-shadow">
             <div className="text-[#333333]">
               <span className="font-bold text-[#0038FF] mr-2">[INFO]</span>
               Rincian tindakan dan penanganan disesuaikan dengan kondisi hasil pemeriksaan klinis langsung.
@@ -423,7 +472,7 @@ export const BoldTypographyConcept: React.FC = () => {
             >
               TANYAKAN JADWAL VIA WA &rarr;
             </a>
-          </div>
+          </Reveal>
 
         </div>
       </section>
@@ -449,100 +498,108 @@ export const BoldTypographyConcept: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             
             {/* Facility 1: Treatment Room */}
-            <div className="border-2 border-[#0A0A0A] bg-white shadow-[4px_4px_0px_#0A0A0A] flex flex-col justify-between">
-              <div>
-                <div className="aspect-[4/3] overflow-hidden border-b-2 border-[#0A0A0A] bg-slate-100">
-                  <img
-                    src={clinicConfig.images.treatmentRoom}
-                    alt="Ruang periksa dental unit utama drg. Ummi Kaltsum"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                    loading="lazy"
-                  />
+            <Reveal variant="fade-up" delay={0}>
+              <div className="border-2 border-[#0A0A0A] bg-white shadow-[4px_4px_0px_#0A0A0A] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0px_#0A0A0A] transition-all duration-200 flex flex-col justify-between h-full group">
+                <div>
+                  <div className="aspect-[4/3] overflow-hidden border-b-2 border-[#0A0A0A] bg-slate-100">
+                    <img
+                      src={clinicConfig.images.treatmentRoom}
+                      alt="Ruang periksa dental unit utama drg. Ummi Kaltsum"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="p-4 space-y-1.5 font-mono text-xs">
+                    <div className="font-extrabold text-sm text-[#0038FF] uppercase">[01] RUANG PERIKSA</div>
+                    <div className="font-bold text-[#0A0A0A]">Dental Unit Elektrik</div>
+                    <p className="text-[#666666] leading-relaxed">
+                      Unit dental untuk pemeriksaan dan tindakan perawatan gigi pasien.
+                    </p>
+                  </div>
                 </div>
-                <div className="p-4 space-y-1.5 font-mono text-xs">
-                  <div className="font-extrabold text-sm text-[#0038FF] uppercase">[01] RUANG PERIKSA</div>
-                  <div className="font-bold text-[#0A0A0A]">Dental Unit Elektrik</div>
-                  <p className="text-[#666666] leading-relaxed">
-                    Unit dental untuk pemeriksaan dan tindakan perawatan gigi pasien.
-                  </p>
+                <div className="p-3 bg-[#F8F9FA] border-t border-[#0A0A0A] font-mono text-[10px] text-[#555555]">
+                  KAV. PEMDA 3 &bull; PANUNGGANGAN
                 </div>
               </div>
-              <div className="p-3 bg-[#F8F9FA] border-t border-[#0A0A0A] font-mono text-[10px] text-[#555555]">
-                KAV. PEMDA 3 &bull; PANUNGGANGAN
-              </div>
-            </div>
+            </Reveal>
 
             {/* Facility 2: Dental Chair */}
-            <div className="border-2 border-[#0A0A0A] bg-white shadow-[4px_4px_0px_#0A0A0A] flex flex-col justify-between">
-              <div>
-                <div className="aspect-[4/3] overflow-hidden border-b-2 border-[#0A0A0A] bg-slate-100">
-                  <img
-                    src={clinicConfig.images.dentalChair}
-                    alt="Dental chair kursi periksa pasien"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                    loading="lazy"
-                  />
+            <Reveal variant="fade-up" delay={70}>
+              <div className="border-2 border-[#0A0A0A] bg-white shadow-[4px_4px_0px_#0A0A0A] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0px_#0A0A0A] transition-all duration-200 flex flex-col justify-between h-full group">
+                <div>
+                  <div className="aspect-[4/3] overflow-hidden border-b-2 border-[#0A0A0A] bg-slate-100">
+                    <img
+                      src={clinicConfig.images.dentalChair}
+                      alt="Dental chair kursi periksa pasien"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="p-4 space-y-1.5 font-mono text-xs">
+                    <div className="font-extrabold text-sm text-[#0038FF] uppercase">[02] DENTAL CHAIR</div>
+                    <div className="font-bold text-[#0A0A0A]">Kursi Periksa Pasien</div>
+                    <p className="text-[#666666] leading-relaxed">
+                      Unit kursi periksa dental untuk posisi nyaman pasien saat perawatan.
+                    </p>
+                  </div>
                 </div>
-                <div className="p-4 space-y-1.5 font-mono text-xs">
-                  <div className="font-extrabold text-sm text-[#0038FF] uppercase">[02] DENTAL CHAIR</div>
-                  <div className="font-bold text-[#0A0A0A]">Kursi Periksa Pasien</div>
-                  <p className="text-[#666666] leading-relaxed">
-                    Unit kursi periksa dental untuk posisi nyaman pasien saat perawatan.
-                  </p>
+                <div className="p-3 bg-[#F8F9FA] border-t border-[#0A0A0A] font-mono text-[10px] text-[#555555]">
+                  UNIT KURSI PERIKSA
                 </div>
               </div>
-              <div className="p-3 bg-[#F8F9FA] border-t border-[#0A0A0A] font-mono text-[10px] text-[#555555]">
-                UNIT KURSI PERIKSA
-              </div>
-            </div>
+            </Reveal>
 
             {/* Facility 3: Equipment */}
-            <div className="border-2 border-[#0A0A0A] bg-white shadow-[4px_4px_0px_#0A0A0A] flex flex-col justify-between">
-              <div>
-                <div className="aspect-[4/3] overflow-hidden border-b-2 border-[#0A0A0A] bg-slate-100">
-                  <img
-                    src={clinicConfig.images.sterilization}
-                    alt="Peralatan dan instrumen praktik dokter gigi"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                    loading="lazy"
-                  />
+            <Reveal variant="fade-up" delay={140}>
+              <div className="border-2 border-[#0A0A0A] bg-white shadow-[4px_4px_0px_#0A0A0A] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0px_#0A0A0A] transition-all duration-200 flex flex-col justify-between h-full group">
+                <div>
+                  <div className="aspect-[4/3] overflow-hidden border-b-2 border-[#0A0A0A] bg-slate-100">
+                    <img
+                      src={clinicConfig.images.sterilization}
+                      alt="Peralatan dan instrumen praktik dokter gigi"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="p-4 space-y-1.5 font-mono text-xs">
+                    <div className="font-extrabold text-sm text-[#0038FF] uppercase">[03] PERALATAN</div>
+                    <div className="font-bold text-[#0A0A0A]">Instrumen Praktik</div>
+                    <p className="text-[#666666] leading-relaxed">
+                      Area penataan dan penyiapan peralatan instrumen perawatan gigi.
+                    </p>
+                  </div>
                 </div>
-                <div className="p-4 space-y-1.5 font-mono text-xs">
-                  <div className="font-extrabold text-sm text-[#0038FF] uppercase">[03] PERALATAN</div>
-                  <div className="font-bold text-[#0A0A0A]">Instrumen Praktik</div>
-                  <p className="text-[#666666] leading-relaxed">
-                    Area penataan dan penyiapan peralatan instrumen perawatan gigi.
-                  </p>
+                <div className="p-3 bg-[#F8F9FA] border-t border-[#0A0A0A] font-mono text-[10px] text-[#555555]">
+                  PENATAAN INSTRUMEN
                 </div>
               </div>
-              <div className="p-3 bg-[#F8F9FA] border-t border-[#0A0A0A] font-mono text-[10px] text-[#555555]">
-                PENATAAN INSTRUMEN
-              </div>
-            </div>
+            </Reveal>
 
             {/* Facility 4: Consultation Table */}
-            <div className="border-2 border-[#0A0A0A] bg-white shadow-[4px_4px_0px_#0A0A0A] flex flex-col justify-between">
-              <div>
-                <div className="aspect-[4/3] overflow-hidden border-b-2 border-[#0A0A0A] bg-slate-100">
-                  <img
-                    src={clinicConfig.images.waitingArea}
-                    alt="Meja konsultasi dan rekam medis pasien drg. Ummi Kaltsum"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                    loading="lazy"
-                  />
+            <Reveal variant="fade-up" delay={210}>
+              <div className="border-2 border-[#0A0A0A] bg-white shadow-[4px_4px_0px_#0A0A0A] hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0px_#0A0A0A] transition-all duration-200 flex flex-col justify-between h-full group">
+                <div>
+                  <div className="aspect-[4/3] overflow-hidden border-b-2 border-[#0A0A0A] bg-slate-100">
+                    <img
+                      src={clinicConfig.images.waitingArea}
+                      alt="Meja konsultasi dan rekam medis pasien drg. Ummi Kaltsum"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="p-4 space-y-1.5 font-mono text-xs">
+                    <div className="font-extrabold text-sm text-[#0038FF] uppercase">[04] KONSULTASI</div>
+                    <div className="font-bold text-[#0A0A0A]">Meja Konsultasi</div>
+                    <p className="text-[#666666] leading-relaxed">
+                      Area untuk konsultasi kondisi gigi serta pencatatan kunjungan pasien.
+                    </p>
+                  </div>
                 </div>
-                <div className="p-4 space-y-1.5 font-mono text-xs">
-                  <div className="font-extrabold text-sm text-[#0038FF] uppercase">[04] KONSULTASI</div>
-                  <div className="font-bold text-[#0A0A0A]">Meja Konsultasi</div>
-                  <p className="text-[#666666] leading-relaxed">
-                    Area untuk konsultasi kondisi gigi serta pencatatan kunjungan pasien.
-                  </p>
+                <div className="p-3 bg-[#F8F9FA] border-t border-[#0A0A0A] font-mono text-[10px] text-[#555555]">
+                  KONSULTASI &bull; ADMINISTRASI
                 </div>
               </div>
-              <div className="p-3 bg-[#F8F9FA] border-t border-[#0A0A0A] font-mono text-[10px] text-[#555555]">
-                KONSULTASI &bull; ADMINISTRASI
-              </div>
-            </div>
+            </Reveal>
 
           </div>
 
@@ -556,7 +613,7 @@ export const BoldTypographyConcept: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
             
             {/* Left Column: Schedule Table */}
-            <div className="lg:col-span-6 space-y-6">
+            <Reveal variant="fade-right" className="lg:col-span-6 space-y-6">
               <div>
                 <div className="font-mono text-xs font-bold text-[#0038FF] uppercase tracking-widest mb-1">
                   // WAKTU PELAYANAN
@@ -642,11 +699,11 @@ export const BoldTypographyConcept: React.FC = () => {
                   </a>
                 </div>
               </div>
-            </div>
+            </Reveal>
 
             {/* Right Column: Location & Physical Access */}
-            <div id="lokasi-bold" className="lg:col-span-6 space-y-6">
-              <div>
+            <Reveal variant="fade-left" className="lg:col-span-6 space-y-6">
+              <div id="lokasi-bold">
                 <div className="font-mono text-xs font-bold text-[#0038FF] uppercase tracking-widest mb-1">
                   // PANDUAN KEDATANGAN
                 </div>
@@ -714,7 +771,7 @@ export const BoldTypographyConcept: React.FC = () => {
                 </a>
               </div>
 
-            </div>
+            </Reveal>
 
           </div>
 
@@ -725,14 +782,14 @@ export const BoldTypographyConcept: React.FC = () => {
       <section className="border-b-2 border-[#0A0A0A] py-16 sm:py-20 px-4 sm:px-8 lg:px-12 bg-white">
         <div className="max-w-4xl mx-auto">
           
-          <div className="mb-10 pb-4 border-b-2 border-[#0A0A0A]">
+          <Reveal variant="fade-up" className="mb-10 pb-4 border-b-2 border-[#0A0A0A]">
             <div className="font-mono text-xs font-bold text-[#0038FF] uppercase tracking-widest mb-1">
               // INFORMASI PASIEN
             </div>
             <h2 className="font-extrabold text-3xl sm:text-5xl uppercase tracking-tighter text-[#0A0A0A]">
               PERTANYAAN UMUM
             </h2>
-          </div>
+          </Reveal>
 
           <div className="divide-y-2 border-y-2 border-[#0A0A0A]">
             {clinicConfig.faqs.map((faq, index) => {
@@ -742,6 +799,7 @@ export const BoldTypographyConcept: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => toggleFaq(index)}
+                    aria-expanded={isOpen}
                     className="w-full py-5 px-3 flex justify-between items-center text-left hover:text-[#0038FF] transition-colors group"
                   >
                     <span className="font-extrabold text-base sm:text-lg uppercase tracking-tight text-[#0A0A0A] group-hover:text-[#0038FF]">
@@ -751,11 +809,13 @@ export const BoldTypographyConcept: React.FC = () => {
                       {isOpen ? '[-]' : '[+]'}
                     </span>
                   </button>
-                  {isOpen && (
-                    <div className="pb-5 px-3 text-sm text-[#444444] font-mono leading-relaxed bg-[#F8F9FA] p-4 border-l-4 border-[#0038FF] mb-2">
-                      {faq.answer}
+                  <div className={`accordion-grid ${isOpen ? 'open' : ''}`}>
+                    <div className="overflow-hidden">
+                      <div className="pb-5 px-3 text-sm text-[#444444] font-mono leading-relaxed bg-[#F8F9FA] p-4 border-l-4 border-[#0038FF] mb-2">
+                        {faq.answer}
+                      </div>
                     </div>
-                  )}
+                  </div>
                 </div>
               );
             })}

@@ -2,6 +2,7 @@ import React from 'react';
 import { Clock, MessageCircle } from 'lucide-react';
 import { clinicConfig, buildWhatsAppUrl } from '../config/business';
 import { trackWhatsAppBooking } from '../utils/analytics';
+import { Reveal } from '../utils/motion';
 
 export const Schedule: React.FC = () => {
   const { schedule } = clinicConfig;
@@ -10,7 +11,7 @@ export const Schedule: React.FC = () => {
     <section id="jadwal" className="py-14 md:py-24 border-b border-brand-border bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-8">
         
-        <div className="text-center max-w-xl mx-auto mb-10">
+        <Reveal variant="fade-up" className="text-center max-w-xl mx-auto mb-10">
           <div className="text-xs uppercase tracking-widest font-semibold text-brand-slate mb-2">
             Waktu Pelayanan
           </div>
@@ -20,13 +21,13 @@ export const Schedule: React.FC = () => {
           <p className="text-xs sm:text-sm text-brand-muted mt-2">
             Silakan reservasi terlebih dahulu melalui WhatsApp agar jadwal kunjungan dapat dikonfirmasi.
           </p>
-        </div>
+        </Reveal>
 
         {/* Tabular Schedule */}
-        <div className="border-t border-b border-brand-border divide-y divide-brand-border">
+        <Reveal variant="fade-up" delay={80} className="border-t border-b border-brand-border divide-y divide-brand-border">
           
           {/* Monday */}
-          <div className="py-4 sm:py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs sm:text-sm">
+          <div className="py-4 sm:py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs sm:text-sm hover:bg-[#FAF9F6]/60 transition-colors px-2 rounded-xs">
             <span className="font-serif text-brand-navy font-semibold text-base sm:text-lg">
               {schedule.monday.days}
             </span>
@@ -39,7 +40,7 @@ export const Schedule: React.FC = () => {
           </div>
 
           {/* Tuesday to Saturday */}
-          <div className="py-4 sm:py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs sm:text-sm">
+          <div className="py-4 sm:py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs sm:text-sm hover:bg-[#FAF9F6]/60 transition-colors px-2 rounded-xs">
             <span className="font-serif text-brand-navy font-semibold text-base sm:text-lg">
               {schedule.tuesdayToSaturday.days}
             </span>
@@ -52,7 +53,7 @@ export const Schedule: React.FC = () => {
           </div>
 
           {/* Sunday */}
-          <div className="py-4 sm:py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs sm:text-sm">
+          <div className="py-4 sm:py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs sm:text-sm hover:bg-[#FAF9F6]/60 transition-colors px-2 rounded-xs">
             <span className="font-serif text-brand-navy font-semibold text-base sm:text-lg">
               {schedule.sunday.days}
             </span>
@@ -64,10 +65,10 @@ export const Schedule: React.FC = () => {
             </div>
           </div>
 
-        </div>
+        </Reveal>
 
         {/* Clear Evening Notice Block - strictly "by appointment only" */}
-        <div className="mt-8 p-6 sm:p-8 bg-[#FAF9F6] border border-brand-border">
+        <Reveal variant="fade-up" delay={140} className="mt-8 p-6 sm:p-8 bg-[#FAF9F6] border border-brand-border hover:shadow-xs transition-shadow duration-300">
           <div className="flex items-start gap-4">
             <Clock className="w-6 h-6 text-brand-slate shrink-0 mt-1" />
             <div className="space-y-2">
@@ -86,15 +87,15 @@ export const Schedule: React.FC = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackWhatsAppBooking('schedule_evening_block')}
-                  className="inline-flex items-center gap-2 bg-brand-wa hover:bg-brand-waHover text-white px-4 py-2.5 text-xs uppercase tracking-wider font-bold transition-all shadow-xs"
+                  className="group inline-flex items-center gap-2 bg-brand-wa hover:bg-brand-waHover text-white px-4 py-2.5 text-xs uppercase tracking-wider font-bold transition-all duration-300 shadow-xs hover:shadow-md active:scale-[0.98]"
                 >
-                  <MessageCircle className="w-4 h-4" />
+                  <MessageCircle className="w-4 h-4 transition-transform duration-300 group-hover:scale-110" />
                   <span>{schedule.eveningNotice.buttonText}</span>
                 </a>
               </div>
             </div>
           </div>
-        </div>
+        </Reveal>
 
       </div>
     </section>

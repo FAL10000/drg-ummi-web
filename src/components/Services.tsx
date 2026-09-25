@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { clinicConfig, buildWhatsAppUrl } from '../config/business';
 import { trackWhatsAppBooking } from '../utils/analytics';
+import { Reveal } from '../utils/motion';
 
 export const Services: React.FC = () => {
   return (
@@ -9,7 +10,7 @@ export const Services: React.FC = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-6 border-b border-brand-border">
+        <Reveal variant="fade-up" className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-6 border-b border-brand-border">
           <div className="max-w-xl">
             <div className="text-xs uppercase tracking-widest font-semibold text-brand-slate mb-2">
               Layanan Gigi
@@ -21,17 +22,19 @@ export const Services: React.FC = () => {
           <p className="text-xs sm:text-sm text-brand-muted max-w-md mt-3 md:mt-0 leading-relaxed">
             Tindakan dilakukan secara hati-hati dengan penjelasan prosedur yang lugas terlebih dahulu kepada pasien dan keluarga.
           </p>
-        </div>
+        </Reveal>
 
         {/* Numbered Typography List */}
         <div className="divide-y divide-brand-border">
-          {clinicConfig.services.map((service) => (
-            <div
+          {clinicConfig.services.map((service, index) => (
+            <Reveal
               key={service.id}
-              className="py-5 sm:py-6 grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-8 items-start group hover:bg-white/70 transition-colors px-2 rounded-sm"
+              variant="fade-up"
+              delay={index * 55}
+              className="py-5 sm:py-6 grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-8 items-start group hover:bg-white/80 hover:shadow-xs transition-all duration-300 px-3 rounded-sm"
             >
               {/* Number */}
-              <div className="md:col-span-1 font-mono text-xs sm:text-sm text-brand-muted font-medium pt-1">
+              <div className="md:col-span-1 font-mono text-xs sm:text-sm text-brand-muted group-hover:text-brand-slate font-medium pt-1 transition-colors">
                 {service.number}
               </div>
 
@@ -56,13 +59,13 @@ export const Services: React.FC = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackWhatsAppBooking('service_list', service.title)}
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-brand-slate hover:text-brand-navy transition-colors py-1 px-2 border border-transparent hover:border-brand-border bg-transparent hover:bg-white"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-brand-slate hover:text-brand-navy transition-colors py-1 px-2.5 border border-transparent hover:border-brand-border bg-transparent hover:bg-white rounded-xs shadow-none hover:shadow-xs active:scale-[0.98]"
                 >
                   <span>Tanyakan</span>
-                  <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-0.5" />
+                  <ArrowRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-1" />
                 </a>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
 

@@ -1,42 +1,40 @@
 import React from 'react';
 import { clinicConfig, buildWhatsAppUrl } from '../config/business';
 import { trackWhatsAppBooking, trackMapsClick } from '../utils/analytics';
+import { useHeroEntrance, Reveal } from '../utils/motion';
 
 export const JapaneseMinimalConcept: React.FC = () => {
+  const stage1 = useHeroEntrance(1, 100);
+  const stage2 = useHeroEntrance(2, 100);
+  const stage3 = useHeroEntrance(3, 100);
+  const stage4 = useHeroEntrance(4, 100);
+  const stage5 = useHeroEntrance(5, 100);
+
   return (
-    <div className="bg-[#F7F5F0] text-[#1C1D1F] selection:bg-[#2B384A] selection:text-white font-sans antialiased pb-24 md:pb-0">
+    <div className="bg-[#F7F5F0] text-[#1C1D1F] font-sans antialiased selection:bg-[#ECE8DF] selection:text-[#1C1D1F]">
       
-      {/* Micro Notice Bar */}
-      <div className="px-6 md:px-16 py-3 border-b border-[#1C1D1F]/15 text-[10px] md:text-xs font-mono text-[#73757A] flex justify-between items-center tracking-widest uppercase">
-        <span>{clinicConfig.subTagline}</span>
-        <span className="hidden md:inline">Praktik Mandiri · Janji Temu Terjadwal</span>
-        <span>★ {clinicConfig.googleRating.score.toFixed(1)} di Google · {clinicConfig.googleRating.reviewCount} Ulasan</span>
-      </div>
+      {/* Top Quiet Minimal Bar */}
+      <header className="border-b border-[#1C1D1F]/15 py-4 px-6 md:px-16 flex justify-between items-center bg-[#F7F5F0]/95 backdrop-blur-xs sticky top-0 z-30 transition-colors">
+        <a href="#" className="font-['Shippori_Mincho'] text-lg tracking-tight font-medium hover:opacity-75 transition-opacity">
+          drg. Ummi Kaltsum
+        </a>
 
-      {/* Header */}
-      <header className="px-6 md:px-16 py-8 md:py-10 border-b border-[#1C1D1F]/15 flex justify-between items-baseline">
-        <div>
-          <span className="text-[10px] font-mono uppercase tracking-widest text-[#73757A] block mb-1">
-            {clinicConfig.tagline}
-          </span>
-          <a href="#" className="font-['Shippori_Mincho'] text-2xl md:text-3xl tracking-tight text-[#1C1D1F] hover:text-[#2B384A] transition-colors">
-            {clinicConfig.doctorName}
+        <div className="flex items-center gap-6 font-mono text-xs">
+          <a href="#katalog" className="text-[#73757A] hover:text-[#1C1D1F] transition-colors duration-300">
+            Perawatan
           </a>
-        </div>
-
-        <div className="flex items-center gap-8 md:gap-12">
-          <nav className="hidden lg:flex gap-8 text-xs font-mono tracking-widest uppercase text-[#73757A]">
-            <a href="#katalog" className="hover:text-[#1C1D1F] transition-colors">01 Layanan</a>
-            <a href="#arsitektur" className="hover:text-[#1C1D1F] transition-colors">02 Ruang &amp; Peralatan</a>
-            <a href="#alamat" className="hover:text-[#1C1D1F] transition-colors">03 Jadwal &amp; Lokasi</a>
-          </nav>
-          
+          <a href="#arsitektur" className="text-[#73757A] hover:text-[#1C1D1F] transition-colors duration-300">
+            Sarana
+          </a>
+          <a href="#alamat" className="text-[#73757A] hover:text-[#1C1D1F] transition-colors duration-300">
+            Lokasi
+          </a>
           <a
             href={buildWhatsAppUrl()}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackWhatsAppBooking('concept2_header')}
-            className="text-xs font-mono uppercase tracking-wider px-4 py-2 border border-[#1C1D1F] text-[#1C1D1F] hover:bg-[#1C1D1F] hover:text-[#F7F5F0] transition-colors"
+            className="px-3.5 py-1.5 border border-[#1C1D1F] text-[#1C1D1F] hover:bg-[#1C1D1F] hover:text-white transition-all duration-300 shadow-none active:scale-[0.98]"
           >
             Reservasi via WhatsApp
           </a>
@@ -48,7 +46,10 @@ export const JapaneseMinimalConcept: React.FC = () => {
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 min-h-[80vh]">
           
           {/* Left Vertical Typographic Column */}
-          <div className="lg:col-span-1 border-r border-[#1C1D1F]/15 hidden lg:flex flex-col justify-between items-center py-12 px-2">
+          <div
+            style={stage1.style}
+            className="lg:col-span-1 border-r border-[#1C1D1F]/15 hidden lg:flex flex-col justify-between items-center py-12 px-2"
+          >
             <span className="font-mono text-[10px] tracking-[0.25em] text-[#73757A] uppercase [writing-mode:vertical-rl] rotate-180">
               PRAKTIK MANDIRI &bull; CIBODAS, TANGERANG
             </span>
@@ -59,7 +60,10 @@ export const JapaneseMinimalConcept: React.FC = () => {
           </div>
 
           {/* Center Dominant: Clear Photo Card */}
-          <div className="lg:col-span-7 border-r border-[#1C1D1F]/15 relative bg-[#ECE8DF] flex flex-col justify-between">
+          <div
+            style={stage2.style}
+            className="lg:col-span-7 border-r border-[#1C1D1F]/15 relative bg-[#ECE8DF] flex flex-col justify-between"
+          >
             <div className="p-6 md:p-10 z-10 flex justify-between items-center">
               <span className="font-mono text-xs text-[#73757A] tracking-wider uppercase">
                 Dokter Penanggung Jawab
@@ -70,12 +74,12 @@ export const JapaneseMinimalConcept: React.FC = () => {
             </div>
 
             <div className="px-6 md:px-14 pb-8 flex justify-center items-center">
-              <div className="w-full max-w-md bg-[#FAF8F5] border border-[#1C1D1F]/20 shadow-xs">
+              <div className="w-full max-w-md bg-[#FAF8F5] border border-[#1C1D1F]/20 shadow-xs group">
                 <div className="aspect-[4/4.5] overflow-hidden bg-[#E2DDCF]">
                   <img
                     src={clinicConfig.images.doctorPatient}
                     alt="drg. Ummi Kaltsum memeriksa pasien anak dalam suasana praktik mandiri"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.015]"
                     loading="eager"
                   />
                 </div>
@@ -102,22 +106,28 @@ export const JapaneseMinimalConcept: React.FC = () => {
           {/* Right Column: Spatial Typography */}
           <div className="lg:col-span-4 p-8 md:p-12 flex flex-col justify-between bg-[#F7F5F0]">
             <div>
-              <div className="flex items-center gap-2 mb-6">
+              <div style={stage1.style} className="flex items-center gap-2 mb-6">
                 <span className="w-2 h-2 rounded-full bg-[#2B384A]"></span>
                 <span className="font-mono text-[11px] uppercase tracking-widest text-[#73757A]">
                   Praktik Dokter Gigi Mandiri
                 </span>
               </div>
 
-              <h1 className="font-['Shippori_Mincho'] text-3xl md:text-4xl lg:text-[2.65rem] text-[#1C1D1F] leading-[1.28] tracking-tight mb-6">
+              <h1
+                style={stage3.style}
+                className="font-['Shippori_Mincho'] text-3xl md:text-4xl lg:text-[2.65rem] text-[#1C1D1F] leading-[1.28] tracking-tight mb-6"
+              >
                 Pemeriksaan gigi dalam suasana yang tenang.
               </h1>
 
-              <p className="text-sm md:text-[15px] text-[#73757A] leading-relaxed font-light mb-8">
+              <p
+                style={stage3.style}
+                className="text-sm md:text-[15px] text-[#73757A] leading-relaxed font-light mb-8"
+              >
                 Konsultasi dilakukan langsung bersama drg. Ummi sebelum tindakan.
               </p>
 
-              <div className="space-y-4 py-6 border-t border-b border-[#1C1D1F]/15">
+              <div style={stage4.style} className="space-y-4 py-6 border-t border-b border-[#1C1D1F]/15">
                 <div className="flex justify-between items-baseline text-xs">
                   <span className="text-[#73757A] font-mono">Ulasan Google</span>
                   <span className="font-mono font-semibold text-[#1C1D1F]">{clinicConfig.googleRating.score.toFixed(1)} / 5.0 ({clinicConfig.googleRating.reviewCount} Ulasan)</span>
@@ -133,16 +143,16 @@ export const JapaneseMinimalConcept: React.FC = () => {
               </div>
             </div>
 
-            <div className="pt-8">
+            <div style={stage5.style} className="pt-8">
               <a
                 href={buildWhatsAppUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackWhatsAppBooking('concept2_hero')}
-                className="w-full flex justify-between items-center bg-[#2B384A] hover:bg-[#1C1D1F] text-[#F7F5F0] py-4 px-6 text-xs font-mono uppercase tracking-widest transition-colors shadow-xs"
+                className="w-full flex justify-between items-center bg-[#2B384A] hover:bg-[#1C1D1F] text-[#F7F5F0] py-4 px-6 text-xs font-mono uppercase tracking-widest transition-colors duration-300 shadow-xs active:scale-[0.99]"
               >
                 <span>Reservasi via WhatsApp</span>
-                <span>&rarr;</span>
+                <span className="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
               </a>
               <p className="font-mono text-[10px] text-[#73757A] mt-2.5 text-center">
                 Pesan langsung terhubung dengan drg. Ummi
@@ -157,7 +167,7 @@ export const JapaneseMinimalConcept: React.FC = () => {
       {/* Services Index */}
       <section id="katalog" className="border-b border-[#1C1D1F]/15 py-16 md:py-20 px-6 md:px-16">
         <div className="max-w-[1400px] mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-6 border-b border-[#1C1D1F]/15">
+          <Reveal variant="fade" duration={700} className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-6 border-b border-[#1C1D1F]/15">
             <div>
               <span className="font-mono text-[11px] text-[#73757A] uppercase tracking-widest block mb-2">
                 Daftar Perawatan
@@ -169,13 +179,16 @@ export const JapaneseMinimalConcept: React.FC = () => {
             <p className="font-mono text-xs text-[#73757A] max-w-sm mt-4 md:mt-0 leading-relaxed">
               Pilihan perawatan dijelaskan sesuai kondisi gigi setelah pemeriksaan.
             </p>
-          </div>
+          </Reveal>
 
           <div className="divide-y divide-[#1C1D1F]/15">
-            {clinicConfig.services.map((service) => (
-              <div
+            {clinicConfig.services.map((service, index) => (
+              <Reveal
                 key={service.id}
-                className="py-5 md:py-7 grid grid-cols-1 md:grid-cols-12 gap-4 items-baseline group hover:bg-[#ECE8DF]/40 transition-colors px-2"
+                variant="fade"
+                delay={index * 50}
+                duration={650}
+                className="py-5 md:py-7 grid grid-cols-1 md:grid-cols-12 gap-4 items-baseline group hover:bg-[#ECE8DF]/40 transition-colors duration-300 px-2"
               >
                 <div className="md:col-span-1 font-mono text-xs text-[#73757A]">{service.number}</div>
                 <div className="md:col-span-4 font-['Shippori_Mincho'] text-lg md:text-xl text-[#1C1D1F]">
@@ -195,7 +208,7 @@ export const JapaneseMinimalConcept: React.FC = () => {
                     Konsultasi &rarr;
                   </a>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -204,26 +217,38 @@ export const JapaneseMinimalConcept: React.FC = () => {
       {/* Ruang & Peralatan (Local Images) */}
       <section id="arsitektur" className="border-b border-[#1C1D1F]/15 py-16 md:py-20 px-6 md:px-16 bg-[#F2EFE7]/50">
         <div className="max-w-[1400px] mx-auto">
-          <div className="max-w-xl mb-10">
+          <Reveal variant="fade" duration={700} className="max-w-xl mb-10">
             <span className="font-mono text-[11px] text-[#73757A] uppercase tracking-widest block mb-2">
               Dokumentasi Praktik
             </span>
             <h2 className="font-['Shippori_Mincho'] text-3xl md:text-4xl text-[#1C1D1F] tracking-tight">
               Sarana Ruang &amp; Peralatan
             </h2>
-          </div>
+          </Reveal>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {clinicConfig.facilities.slice(0, 4).map((f) => (
-              <div key={f.id} className="border border-[#1C1D1F]/15 bg-white">
+            {clinicConfig.facilities.slice(0, 4).map((f, index) => (
+              <Reveal
+                key={f.id}
+                variant="fade-up"
+                distance={10}
+                delay={index * 60}
+                duration={650}
+                className="border border-[#1C1D1F]/15 bg-white group hover:border-[#1C1D1F]/40 transition-colors duration-400"
+              >
                 <div className="aspect-[4/3] overflow-hidden bg-[#ECE8DF]">
-                  <img src={f.image} alt={f.alt} className="w-full h-full object-cover" loading="lazy" />
+                  <img
+                    src={f.image}
+                    alt={f.alt}
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                    loading="lazy"
+                  />
                 </div>
                 <div className="p-4 font-mono text-xs text-[#73757A] space-y-1">
                   <div className="font-['Shippori_Mincho'] text-sm text-[#1C1D1F] font-semibold">{f.title}</div>
                   <p className="text-[11px] leading-relaxed line-clamp-2">{f.description}</p>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -233,7 +258,7 @@ export const JapaneseMinimalConcept: React.FC = () => {
       <section id="alamat" className="py-16 md:py-20 px-6 md:px-16 border-b border-[#1C1D1F]/15">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
           
-          <div className="lg:col-span-6 space-y-6">
+          <Reveal variant="fade" duration={700} className="lg:col-span-6 space-y-6">
             <span className="font-mono text-[11px] text-[#73757A] uppercase tracking-widest block">
               Waktu &amp; Lokasi Praktik
             </span>
@@ -275,21 +300,21 @@ export const JapaneseMinimalConcept: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackMapsClick('concept2_maps')}
-                className="px-5 py-3 border border-[#1C1D1F] text-xs font-mono uppercase tracking-wider text-[#1C1D1F] hover:bg-[#1C1D1F] hover:text-white transition-colors"
+                className="px-5 py-3 border border-[#1C1D1F] text-xs font-mono uppercase tracking-wider text-[#1C1D1F] hover:bg-[#1C1D1F] hover:text-white transition-colors duration-300"
               >
                 Buka Google Maps &rarr;
               </a>
             </div>
-          </div>
+          </Reveal>
 
-          <div className="lg:col-span-6 border border-[#1C1D1F]/15 aspect-[16/10] overflow-hidden">
+          <Reveal variant="fade" delay={100} duration={700} className="lg:col-span-6 border border-[#1C1D1F]/15 aspect-[16/10] overflow-hidden">
             <iframe
               title="Peta Praktek drg. Ummi Kaltsum"
               src={clinicConfig.location.googleMapsEmbedUrl}
               className="w-full h-full border-0"
               loading="lazy"
             />
-          </div>
+          </Reveal>
 
         </div>
       </section>

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { ChevronDown } from 'lucide-react';
 import { clinicConfig } from '../config/business';
 import { trackFaqToggle } from '../utils/analytics';
+import { Reveal } from '../utils/motion';
 
 export const Faq: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -16,16 +18,16 @@ export const Faq: React.FC = () => {
     <section id="faq" className="py-14 md:py-24 border-b border-brand-border bg-white">
       <div className="max-w-3xl mx-auto px-4 sm:px-8">
         
-        <div className="text-center mb-10">
+        <Reveal variant="fade-up" className="text-center mb-10">
           <div className="text-xs uppercase tracking-widest font-semibold text-brand-slate mb-2">
             Tanya Jawab
           </div>
           <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-brand-navy tracking-tight">
             Pertanyaan yang Sering Diajukan
           </h2>
-        </div>
+        </Reveal>
 
-        <div className="border-t border-b border-brand-border divide-y divide-brand-border">
+        <Reveal variant="fade-up" delay={80} className="border-t border-b border-brand-border divide-y divide-brand-border">
           {clinicConfig.faqs.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
@@ -33,23 +35,26 @@ export const Faq: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => toggleFaq(index)}
-                  className="w-full text-left flex items-start justify-between gap-4 font-serif text-base sm:text-lg text-brand-navy hover:text-brand-slate transition-colors focus:outline-hidden"
+                  className="w-full text-left flex items-start justify-between gap-4 font-serif text-base sm:text-lg text-brand-navy hover:text-brand-slate transition-colors focus:outline-hidden group"
                   aria-expanded={isOpen}
                 >
-                  <span className="font-medium">{faq.question}</span>
-                  <span className="font-mono text-sm text-brand-muted shrink-0 mt-1 font-bold select-none">
-                    {isOpen ? '—' : '+'}
+                  <span className="font-medium group-hover:translate-x-0.5 transition-transform duration-200">
+                    {faq.question}
                   </span>
-                </button>
-                {isOpen && (
-                  <div className="pt-3 text-xs sm:text-sm text-brand-muted leading-relaxed max-w-2xl animate-in fade-in duration-150">
-                    {faq.answer}
+                  <div className={`w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-0.5 transition-transform duration-300 ${isOpen ? 'rotate-180 text-brand-navy bg-slate-100' : 'text-brand-muted'}`}>
+                    <ChevronDown className="w-4 h-4" />
                   </div>
-                )}
+                </button>
+
+                <div className={`accordion-grid ${isOpen ? 'open' : ''}`}>
+                  <div className="pt-3 text-xs sm:text-sm text-brand-muted leading-relaxed max-w-2xl">
+                    <p className="pb-1">{faq.answer}</p>
+                  </div>
+                </div>
               </div>
             );
           })}
-        </div>
+        </Reveal>
 
       </div>
     </section>

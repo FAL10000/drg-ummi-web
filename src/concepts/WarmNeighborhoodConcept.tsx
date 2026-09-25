@@ -11,10 +11,17 @@ import {
 } from 'lucide-react';
 import { clinicConfig, buildWhatsAppUrl } from '../config/business';
 import { trackWhatsAppBooking, trackPhoneCall, trackMapsClick } from '../utils/analytics';
+import { useHeroEntrance, Reveal } from '../utils/motion';
 
 export const WarmNeighborhoodConcept: React.FC = () => {
   const [openService, setOpenService] = useState<string>('pediatrik');
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  const stage1 = useHeroEntrance(1, 80);
+  const stage2 = useHeroEntrance(2, 80);
+  const stage3 = useHeroEntrance(3, 80);
+  const stage4 = useHeroEntrance(4, 80);
+  const stage5 = useHeroEntrance(5, 80);
 
   const toggleService = (id: string) => {
     setOpenService(openService === id ? '' : id);
@@ -49,7 +56,7 @@ export const WarmNeighborhoodConcept: React.FC = () => {
       </div>
 
       {/* 2. HEADER */}
-      <header className="sticky top-0 z-40 bg-[#FDF9F3]/95 backdrop-blur-md border-b border-[#E6DDD2]">
+      <header className="sticky top-0 z-40 bg-[#FDF9F3]/95 backdrop-blur-md border-b border-[#E6DDD2] transition-colors">
         <div className="max-w-6xl mx-auto px-4 sm:px-8 h-20 flex items-center justify-between gap-4">
           <div>
             <a href="#" className="font-['Newsreader',serif] font-medium text-xl sm:text-2xl text-[#000B21] tracking-tight hover:text-[#97472E] transition-colors block leading-tight">
@@ -74,7 +81,7 @@ export const WarmNeighborhoodConcept: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackWhatsAppBooking('concept5_header')}
-              className="bg-[#25D366] hover:bg-[#20ba5a] text-slate-950 px-4 sm:px-5 py-2.5 rounded-full font-semibold text-xs sm:text-sm transition-colors shadow-xs flex items-center gap-2"
+              className="bg-[#25D366] hover:bg-[#20ba5a] text-slate-950 px-4 sm:px-5 py-2.5 rounded-full font-semibold text-xs sm:text-sm transition-all duration-200 shadow-xs hover:shadow-sm hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2"
             >
               <MessageCircle className="w-4 h-4 fill-slate-950" />
               <span>Janji Temu WhatsApp</span>
@@ -92,37 +99,67 @@ export const WarmNeighborhoodConcept: React.FC = () => {
             {/* Left Column: Humanist Narrative */}
             <div className="lg:col-span-7 space-y-6">
               
-              <div className="text-xs uppercase tracking-wider text-[#97472E] font-semibold">
+              <div
+                style={{
+                  opacity: stage1 ? 1 : 0,
+                  transform: stage1 ? 'translateY(0)' : 'translateY(12px)',
+                  transition: 'opacity 600ms cubic-bezier(0.16, 1, 0.3, 1), transform 600ms cubic-bezier(0.16, 1, 0.3, 1)'
+                }}
+                className="text-xs uppercase tracking-wider text-[#97472E] font-semibold"
+              >
                 Kavling Pemda 3 · Panunggangan Barat, Cibodas
               </div>
 
-              <h1 className="font-['Newsreader',serif] font-normal text-4xl sm:text-5xl lg:text-6xl text-[#000B21] leading-[1.12] tracking-tight">
+              <h1
+                style={{
+                  opacity: stage2 ? 1 : 0,
+                  transform: stage2 ? 'translateY(0)' : 'translateY(16px)',
+                  transition: 'opacity 700ms cubic-bezier(0.16, 1, 0.3, 1), transform 700ms cubic-bezier(0.16, 1, 0.3, 1)'
+                }}
+                className="font-['Newsreader',serif] font-normal text-4xl sm:text-5xl lg:text-6xl text-[#000B21] leading-[1.12] tracking-tight"
+              >
                 Dokter gigi keluarga di <br className="hidden sm:inline" />
                 <span className="italic text-[#97472E]">Panunggangan Barat, Cibodas.</span>
               </h1>
 
-              <p className="text-base sm:text-lg text-[#44474D] max-w-xl leading-relaxed">
-                Praktik dokter gigi mandiri di Kavling Pemda 3, Panunggangan Barat. Kami melayani pemeriksaan dan perawatan gigi untuk seluruh anggota keluarga—anak-anak, dewasa, hingga lansia.
-              </p>
+              <div
+                style={{
+                  opacity: stage3 ? 1 : 0,
+                  transform: stage3 ? 'translateY(0)' : 'translateY(14px)',
+                  transition: 'opacity 600ms cubic-bezier(0.16, 1, 0.3, 1), transform 600ms cubic-bezier(0.16, 1, 0.3, 1)'
+                }}
+                className="space-y-4"
+              >
+                <p className="text-base sm:text-lg text-[#44474D] max-w-xl leading-relaxed">
+                  Praktik dokter gigi mandiri di Kavling Pemda 3, Panunggangan Barat. Kami melayani pemeriksaan dan perawatan gigi untuk seluruh anggota keluarga—anak-anak, dewasa, hingga lansia.
+                </p>
 
-              {/* Trust Line */}
-              <div className="flex items-center gap-2 text-xs sm:text-sm text-[#44474D]">
-                <div className="flex text-[#97472E]">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 fill-current" />
-                  ))}
+                {/* Trust Line */}
+                <div className="flex items-center gap-2 text-xs sm:text-sm text-[#44474D]">
+                  <div className="flex text-[#97472E]">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-3.5 h-3.5 fill-current" />
+                    ))}
+                  </div>
+                  <span><strong>5.0 di Google</strong> · {clinicConfig.googleRating.reviewCount} ulasan</span>
                 </div>
-                <span><strong>5.0 di Google</strong> · {clinicConfig.googleRating.reviewCount} ulasan</span>
               </div>
 
               {/* Primary Action + Secondary Route Link */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+              <div
+                style={{
+                  opacity: stage4 ? 1 : 0,
+                  transform: stage4 ? 'translateY(0)' : 'translateY(14px)',
+                  transition: 'opacity 600ms cubic-bezier(0.16, 1, 0.3, 1), transform 600ms cubic-bezier(0.16, 1, 0.3, 1)'
+                }}
+                className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2"
+              >
                 <a
                   href={buildWhatsAppUrl("Halo drg. Ummi, saya ingin konsultasi dan membuat jadwal perawatan gigi keluarga.")}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackWhatsAppBooking('concept5_hero_wa')}
-                  className="bg-[#25D366] hover:bg-[#20ba5a] text-slate-950 px-6 sm:px-7 py-3.5 rounded-full font-bold text-xs sm:text-sm uppercase tracking-wider transition-all shadow-xs flex items-center justify-center gap-2.5 active:scale-95"
+                  className="bg-[#25D366] hover:bg-[#20ba5a] text-slate-950 px-6 sm:px-7 py-3.5 rounded-full font-bold text-xs sm:text-sm uppercase tracking-wider transition-all duration-200 shadow-xs hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2.5 active:scale-95"
                 >
                   <MessageCircle className="w-4 h-4 fill-slate-950" />
                   <span>Konsultasi &amp; Reservasi via WA</span>
@@ -138,7 +175,14 @@ export const WarmNeighborhoodConcept: React.FC = () => {
               </div>
 
               {/* Quiet Information Line */}
-              <div className="pt-6 border-t border-[#E6DDD2] grid grid-cols-2 sm:grid-cols-3 gap-4">
+              <div
+                style={{
+                  opacity: stage5 ? 1 : 0,
+                  transform: stage5 ? 'translateY(0)' : 'translateY(12px)',
+                  transition: 'opacity 600ms cubic-bezier(0.16, 1, 0.3, 1), transform 600ms cubic-bezier(0.16, 1, 0.3, 1)'
+                }}
+                className="pt-6 border-t border-[#E6DDD2] grid grid-cols-2 sm:grid-cols-3 gap-4"
+              >
                 <div>
                   <span className="text-[11px] uppercase tracking-wider text-[#97472E] font-semibold block mb-0.5">Cara Reservasi</span>
                   <span className="font-['Newsreader',serif] text-lg font-medium text-[#000B21] block">Janji Temu</span>
@@ -158,14 +202,21 @@ export const WarmNeighborhoodConcept: React.FC = () => {
 
             </div>
 
-            {/* Right Column: Clean Photographic Frame (No artificial overlaps or floating pills) */}
-            <div className="lg:col-span-5">
-              <div className="rounded-2xl overflow-hidden bg-[#F7F3ED] p-3 border border-[#E6DDD2] shadow-xs">
+            {/* Right Column: Clean Photographic Frame */}
+            <div
+              style={{
+                opacity: stage4 ? 1 : 0,
+                transform: stage4 ? 'scale(1) translateY(0)' : 'scale(0.97) translateY(16px)',
+                transition: 'opacity 800ms cubic-bezier(0.16, 1, 0.3, 1), transform 800ms cubic-bezier(0.16, 1, 0.3, 1)'
+              }}
+              className="lg:col-span-5"
+            >
+              <div className="rounded-2xl overflow-hidden bg-[#F7F3ED] p-3 border border-[#E6DDD2] shadow-xs group">
                 <div className="aspect-[4/4.8] rounded-xl overflow-hidden bg-[#EBE8E2]">
                   <img
                     src={clinicConfig.images.doctorPortrait}
                     alt="drg. Ummi Kaltsum dokter gigi di Cibodas Tangerang"
-                    className="w-full h-full object-cover object-top"
+                    className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-700 ease-out"
                     loading="eager"
                   />
                 </div>
@@ -187,7 +238,7 @@ export const WarmNeighborhoodConcept: React.FC = () => {
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
             
-            <div className="lg:col-span-5 space-y-4">
+            <Reveal variant="fade-right" className="lg:col-span-5 space-y-4">
               <span className="text-xs uppercase tracking-wider text-[#97472E] font-semibold block">
                 Tentang Praktik
               </span>
@@ -203,10 +254,10 @@ export const WarmNeighborhoodConcept: React.FC = () => {
               <div className="pt-2 text-xs text-[#44474D] border-l-2 border-[#97472E] pl-3 py-1">
                 Setiap kunjungan diatur melalui janji temu terlebih dahulu agar pasien dan keluarga mendapatkan waktu konsultasi yang cukup.
               </div>
-            </div>
+            </Reveal>
 
             {/* Editorial Focus Points (Open typographic list instead of app-like cards) */}
-            <div className="lg:col-span-7 divide-y divide-[#E6DDD2] bg-white rounded-xl border border-[#E6DDD2] p-6 sm:p-8">
+            <Reveal variant="fade-left" className="lg:col-span-7 divide-y divide-[#E6DDD2] bg-white rounded-xl border border-[#E6DDD2] p-6 sm:p-8">
               
               <div className="pb-5 space-y-1">
                 <span className="text-xs font-mono text-[#97472E] block">01</span>
@@ -248,7 +299,7 @@ export const WarmNeighborhoodConcept: React.FC = () => {
                 </p>
               </div>
 
-            </div>
+            </Reveal>
 
           </div>
 
@@ -259,7 +310,7 @@ export const WarmNeighborhoodConcept: React.FC = () => {
       <section id="layanan-keluarga" className="py-16 sm:py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-8">
           
-          <div className="max-w-2xl mb-10">
+          <Reveal variant="fade-up" className="max-w-2xl mb-10">
             <span className="text-xs uppercase tracking-wider text-[#97472E] font-semibold block mb-1">
               Layanan Gigi
             </span>
@@ -269,12 +320,12 @@ export const WarmNeighborhoodConcept: React.FC = () => {
             <p className="text-sm text-[#44474D] mt-2">
               Pelayanan konsultasi dan tindakan perawatan gigi bersama drg. Ummi Kaltsum.
             </p>
-          </div>
+          </Reveal>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             
             {/* Left: Clean Accordion Services */}
-            <div className="lg:col-span-7 space-y-2.5">
+            <Reveal variant="fade-right" className="lg:col-span-7 space-y-2.5">
               {clinicConfig.services.map((service) => {
                 const isOpen = openService === service.id;
                 return (
@@ -289,6 +340,7 @@ export const WarmNeighborhoodConcept: React.FC = () => {
                     <button
                       type="button"
                       onClick={() => toggleService(service.id)}
+                      aria-expanded={isOpen}
                       className="w-full p-4 sm:p-5 flex items-center justify-between text-left gap-4"
                     >
                       <div className="flex items-center gap-3.5">
@@ -306,39 +358,41 @@ export const WarmNeighborhoodConcept: React.FC = () => {
                       </div>
 
                       <ChevronDown
-                        className={`w-4 h-4 text-[#97472E] shrink-0 transition-transform duration-200 ${
+                        className={`w-4 h-4 text-[#97472E] shrink-0 transition-transform duration-250 ${
                           isOpen ? 'rotate-180' : ''
                         }`}
                       />
                     </button>
 
-                    {isOpen && (
-                      <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-[#44474D] leading-relaxed border-t border-[#E6DDD2]/60">
-                        <p className="mb-3">{service.description}</p>
-                        <a
-                          href={buildWhatsAppUrl(service.whatsappMessage)}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={() => trackWhatsAppBooking('concept5_service', service.title)}
-                          className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#97472E] hover:underline"
-                        >
-                          <span>Tanyakan jadwal via WA &rarr;</span>
-                        </a>
+                    <div className={`accordion-grid ${isOpen ? 'open' : ''}`}>
+                      <div className="overflow-hidden">
+                        <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-[#44474D] leading-relaxed border-t border-[#E6DDD2]/60">
+                          <p className="mb-3">{service.description}</p>
+                          <a
+                            href={buildWhatsAppUrl(service.whatsappMessage)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={() => trackWhatsAppBooking('concept5_service', service.title)}
+                            className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#97472E] hover:underline"
+                          >
+                            <span>Tanyakan jadwal via WA &rarr;</span>
+                          </a>
+                        </div>
                       </div>
-                    )}
+                    </div>
                   </div>
                 );
               })}
-            </div>
+            </Reveal>
 
             {/* Right: Real Photograph Companion Frame */}
-            <div className="lg:col-span-5">
-              <div className="rounded-xl bg-[#F7F3ED] border border-[#E6DDD2] p-4 space-y-3">
+            <Reveal variant="fade-left" className="lg:col-span-5">
+              <div className="rounded-xl bg-[#F7F3ED] border border-[#E6DDD2] p-4 space-y-3 group">
                 <div className="aspect-[4/3] rounded-lg overflow-hidden bg-white border border-[#E6DDD2]">
                   <img
                     src={clinicConfig.images.doctorPatient}
                     alt="drg. Ummi Kaltsum sedang memeriksa pasien anak"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                     loading="lazy"
                   />
                 </div>
@@ -355,7 +409,7 @@ export const WarmNeighborhoodConcept: React.FC = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </Reveal>
 
           </div>
 
@@ -366,7 +420,7 @@ export const WarmNeighborhoodConcept: React.FC = () => {
       <section id="suasana-fasilitas" className="bg-[#F7F3ED] py-16 sm:py-20 border-y border-[#E6DDD2]">
         <div className="max-w-6xl mx-auto px-4 sm:px-8">
           
-          <div className="max-w-xl mb-10">
+          <Reveal variant="fade-up" className="max-w-xl mb-10">
             <span className="text-xs uppercase tracking-wider text-[#97472E] font-semibold block mb-1">
               Dokumentasi Ruang
             </span>
@@ -376,101 +430,109 @@ export const WarmNeighborhoodConcept: React.FC = () => {
             <p className="text-sm text-[#44474D] mt-2">
               Foto asli sarana perawatan di rumah praktik drg. Ummi Kaltsum, Kavling Pemda 3.
             </p>
-          </div>
+          </Reveal>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             
             {/* Facility 1 */}
-            <div className="bg-[#FDF9F3] rounded-xl overflow-hidden border border-[#E6DDD2] shadow-xs flex flex-col justify-between">
-              <div>
-                <div className="aspect-[4/3] overflow-hidden bg-[#EBE8E2]">
-                  <img
-                    src={clinicConfig.images.treatmentRoom}
-                    alt="Ruang periksa utama drg. Ummi Kaltsum"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
+            <Reveal variant="fade-up" delay={0}>
+              <div className="bg-[#FDF9F3] rounded-xl overflow-hidden border border-[#E6DDD2] shadow-xs flex flex-col justify-between h-full group hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
+                <div>
+                  <div className="aspect-[4/3] overflow-hidden bg-[#EBE8E2]">
+                    <img
+                      src={clinicConfig.images.treatmentRoom}
+                      alt="Ruang periksa utama drg. Ummi Kaltsum"
+                      className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500 ease-out"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="p-4 space-y-1">
+                    <h4 className="font-['Newsreader',serif] text-base font-semibold text-[#000B21]">Dental Unit Elektrik</h4>
+                    <p className="text-xs text-[#44474D] leading-relaxed">
+                      Unit dental untuk pemeriksaan dan tindakan perawatan gigi pasien.
+                    </p>
+                  </div>
                 </div>
-                <div className="p-4 space-y-1">
-                  <h4 className="font-['Newsreader',serif] text-base font-semibold text-[#000B21]">Dental Unit Elektrik</h4>
-                  <p className="text-xs text-[#44474D] leading-relaxed">
-                    Unit dental untuk pemeriksaan dan tindakan perawatan gigi pasien.
-                  </p>
+                <div className="px-4 pb-4 text-[11px] text-[#75777E]">
+                  Cibodas, Tangerang
                 </div>
               </div>
-              <div className="px-4 pb-4 text-[11px] text-[#75777E]">
-                Cibodas, Tangerang
-              </div>
-            </div>
+            </Reveal>
 
             {/* Facility 2 */}
-            <div className="bg-[#FDF9F3] rounded-xl overflow-hidden border border-[#E6DDD2] shadow-xs flex flex-col justify-between">
-              <div>
-                <div className="aspect-[4/3] overflow-hidden bg-[#EBE8E2]">
-                  <img
-                    src={clinicConfig.images.dentalChair}
-                    alt="Kursi periksa dental chair"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
+            <Reveal variant="fade-up" delay={70}>
+              <div className="bg-[#FDF9F3] rounded-xl overflow-hidden border border-[#E6DDD2] shadow-xs flex flex-col justify-between h-full group hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
+                <div>
+                  <div className="aspect-[4/3] overflow-hidden bg-[#EBE8E2]">
+                    <img
+                      src={clinicConfig.images.dentalChair}
+                      alt="Kursi periksa dental chair"
+                      className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500 ease-out"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="p-4 space-y-1">
+                    <h4 className="font-['Newsreader',serif] text-base font-semibold text-[#000B21]">Dental Chair</h4>
+                    <p className="text-xs text-[#44474D] leading-relaxed">
+                      Unit kursi periksa dental untuk tindakan perawatan gigi.
+                    </p>
+                  </div>
                 </div>
-                <div className="p-4 space-y-1">
-                  <h4 className="font-['Newsreader',serif] text-base font-semibold text-[#000B21]">Dental Chair</h4>
-                  <p className="text-xs text-[#44474D] leading-relaxed">
-                    Unit kursi periksa dental untuk tindakan perawatan gigi.
-                  </p>
+                <div className="px-4 pb-4 text-[11px] text-[#75777E]">
+                  Unit Periksa
                 </div>
               </div>
-              <div className="px-4 pb-4 text-[11px] text-[#75777E]">
-                Unit Periksa
-              </div>
-            </div>
+            </Reveal>
 
             {/* Facility 3 */}
-            <div className="bg-[#FDF9F3] rounded-xl overflow-hidden border border-[#E6DDD2] shadow-xs flex flex-col justify-between">
-              <div>
-                <div className="aspect-[4/3] overflow-hidden bg-[#EBE8E2]">
-                  <img
-                    src={clinicConfig.images.waitingArea}
-                    alt="Meja konsultasi dan rekam medis pasien"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
+            <Reveal variant="fade-up" delay={140}>
+              <div className="bg-[#FDF9F3] rounded-xl overflow-hidden border border-[#E6DDD2] shadow-xs flex flex-col justify-between h-full group hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
+                <div>
+                  <div className="aspect-[4/3] overflow-hidden bg-[#EBE8E2]">
+                    <img
+                      src={clinicConfig.images.waitingArea}
+                      alt="Meja konsultasi dan rekam medis pasien"
+                      className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500 ease-out"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="p-4 space-y-1">
+                    <h4 className="font-['Newsreader',serif] text-base font-semibold text-[#000B21]">Meja Konsultasi</h4>
+                    <p className="text-xs text-[#44474D] leading-relaxed">
+                      Area untuk konsultasi kondisi gigi serta pencatatan kunjungan pasien.
+                    </p>
+                  </div>
                 </div>
-                <div className="p-4 space-y-1">
-                  <h4 className="font-['Newsreader',serif] text-base font-semibold text-[#000B21]">Meja Konsultasi</h4>
-                  <p className="text-xs text-[#44474D] leading-relaxed">
-                    Area untuk konsultasi kondisi gigi serta pencatatan kunjungan pasien.
-                  </p>
+                <div className="px-4 pb-4 text-[11px] text-[#75777E]">
+                  Area Konsultasi
                 </div>
               </div>
-              <div className="px-4 pb-4 text-[11px] text-[#75777E]">
-                Area Konsultasi
-              </div>
-            </div>
+            </Reveal>
 
             {/* Facility 4 */}
-            <div className="bg-[#FDF9F3] rounded-xl overflow-hidden border border-[#E6DDD2] shadow-xs flex flex-col justify-between">
-              <div>
-                <div className="aspect-[4/3] overflow-hidden bg-[#EBE8E2]">
-                  <img
-                    src={clinicConfig.images.sterilization}
-                    alt="Peralatan instrumen praktik dokter gigi"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
+            <Reveal variant="fade-up" delay={210}>
+              <div className="bg-[#FDF9F3] rounded-xl overflow-hidden border border-[#E6DDD2] shadow-xs flex flex-col justify-between h-full group hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
+                <div>
+                  <div className="aspect-[4/3] overflow-hidden bg-[#EBE8E2]">
+                    <img
+                      src={clinicConfig.images.sterilization}
+                      alt="Peralatan instrumen praktik dokter gigi"
+                      className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500 ease-out"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="p-4 space-y-1">
+                    <h4 className="font-['Newsreader',serif] text-base font-semibold text-[#000B21]">Instrumen Praktik</h4>
+                    <p className="text-xs text-[#44474D] leading-relaxed">
+                      Area penataan dan penyiapan peralatan instrumen perawatan gigi.
+                    </p>
+                  </div>
                 </div>
-                <div className="p-4 space-y-1">
-                  <h4 className="font-['Newsreader',serif] text-base font-semibold text-[#000B21]">Instrumen Praktik</h4>
-                  <p className="text-xs text-[#44474D] leading-relaxed">
-                    Area penataan dan penyiapan peralatan instrumen perawatan gigi.
-                  </p>
+                <div className="px-4 pb-4 text-[11px] text-[#75777E]">
+                  Peralatan Praktik
                 </div>
               </div>
-              <div className="px-4 pb-4 text-[11px] text-[#75777E]">
-                Peralatan Praktik
-              </div>
-            </div>
+            </Reveal>
 
           </div>
 
@@ -481,7 +543,7 @@ export const WarmNeighborhoodConcept: React.FC = () => {
       <section id="jadwal-kedatangan" className="py-16 sm:py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-8">
           
-          <div className="max-w-xl mb-10">
+          <Reveal variant="fade-up" className="max-w-xl mb-10">
             <span className="text-xs uppercase tracking-wider text-[#97472E] font-semibold block mb-1">
               Waktu Pelayanan
             </span>
@@ -491,9 +553,9 @@ export const WarmNeighborhoodConcept: React.FC = () => {
             <p className="text-sm text-[#44474D] mt-2">
               Harap membuat janji terlebih dahulu melalui WhatsApp agar jadwal Anda terkonfirmasi.
             </p>
-          </div>
+          </Reveal>
 
-          <div className="bg-[#F7F3ED] rounded-2xl p-6 sm:p-8 border border-[#E6DDD2] shadow-xs space-y-6">
+          <Reveal variant="fade-up" className="bg-[#F7F3ED] rounded-2xl p-6 sm:p-8 border border-[#E6DDD2] shadow-xs space-y-6">
             
             {/* Timetable Table */}
             <div className="divide-y divide-[#E6DDD2] text-sm">
@@ -555,7 +617,7 @@ export const WarmNeighborhoodConcept: React.FC = () => {
               </div>
             </div>
 
-          </div>
+          </Reveal>
 
         </div>
       </section>
@@ -567,7 +629,7 @@ export const WarmNeighborhoodConcept: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
             {/* Real Exterior Photo */}
-            <div className="lg:col-span-6 space-y-3">
+            <Reveal variant="fade-right" className="lg:col-span-6 space-y-3">
               <div className="rounded-2xl overflow-hidden bg-white border border-[#E6DDD2] shadow-xs p-2.5">
                 <div className="aspect-[16/10] rounded-xl overflow-hidden bg-[#EBE8E2]">
                   <img
@@ -581,10 +643,10 @@ export const WarmNeighborhoodConcept: React.FC = () => {
               <p className="text-xs text-[#75777E]">
                 Saat tiba di Jl. Kav. Pemda 3, perhatikan plang nama resmi dokter gigi di depan pagar rumah.
               </p>
-            </div>
+            </Reveal>
 
             {/* Address Details */}
-            <div className="lg:col-span-6 space-y-5">
+            <Reveal variant="fade-left" className="lg:col-span-6 space-y-5">
               <div>
                 <span className="text-xs uppercase tracking-wider text-[#97472E] font-semibold block mb-1">
                   Lokasi Praktik
@@ -615,7 +677,7 @@ export const WarmNeighborhoodConcept: React.FC = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackMapsClick('concept5_maps_btn')}
-                  className="bg-[#000B21] hover:bg-[#152238] text-white px-6 py-3.5 rounded-full font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 transition-colors shadow-xs"
+                  className="bg-[#000B21] hover:bg-[#152238] text-white px-6 py-3.5 rounded-full font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all duration-200 shadow-xs hover:shadow-md hover:-translate-y-0.5"
                 >
                   <Compass className="w-4 h-4 text-[#FFDBD0]" />
                   <span>Petunjuk Arah Google Maps</span>
@@ -626,13 +688,13 @@ export const WarmNeighborhoodConcept: React.FC = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackWhatsAppBooking('concept5_ask_direction')}
-                  className="bg-[#FDF9F3] hover:bg-[#EBE8E2] text-[#000B21] border border-[#E6DDD2] px-5 py-3.5 rounded-full font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 transition-colors"
+                  className="bg-[#FDF9F3] hover:bg-[#EBE8E2] text-[#000B21] border border-[#E6DDD2] px-5 py-3.5 rounded-full font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all duration-200 hover:-translate-y-0.5"
                 >
                   <MessageCircle className="w-4 h-4 text-[#25D366]" />
                   <span>Tanya Arah via WhatsApp</span>
                 </a>
               </div>
-            </div>
+            </Reveal>
 
           </div>
 
@@ -643,14 +705,14 @@ export const WarmNeighborhoodConcept: React.FC = () => {
       <section className="py-16 sm:py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-8">
           
-          <div className="max-w-xl mb-10">
+          <Reveal variant="fade-up" className="max-w-xl mb-10">
             <span className="text-xs uppercase tracking-wider text-[#97472E] font-semibold block mb-1">
               Informasi Kunjungan
             </span>
             <h2 className="font-['Newsreader',serif] text-3xl sm:text-4xl text-[#000B21] font-normal">
               Pertanyaan yang Sering Diajukan
             </h2>
-          </div>
+          </Reveal>
 
           <div className="space-y-2.5">
             {clinicConfig.faqs.map((faq, index) => {
@@ -663,23 +725,26 @@ export const WarmNeighborhoodConcept: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => toggleFaq(index)}
+                    aria-expanded={isOpen}
                     className="w-full p-4 sm:p-5 flex justify-between items-center text-left gap-4"
                   >
                     <span className="font-semibold text-sm sm:text-base text-[#000B21]">
                       {faq.question}
                     </span>
                     <ChevronDown
-                      className={`w-4 h-4 text-[#97472E] shrink-0 transition-transform ${
+                      className={`w-4 h-4 text-[#97472E] shrink-0 transition-transform duration-250 ${
                         isOpen ? 'rotate-180' : ''
                       }`}
                     />
                   </button>
 
-                  {isOpen && (
-                    <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-[#44474D] leading-relaxed border-t border-[#E6DDD2]/60">
-                      {faq.answer}
+                  <div className={`accordion-grid ${isOpen ? 'open' : ''}`}>
+                    <div className="overflow-hidden">
+                      <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-[#44474D] leading-relaxed border-t border-[#E6DDD2]/60">
+                        {faq.answer}
+                      </div>
                     </div>
-                  )}
+                  </div>
                 </div>
               );
             })}

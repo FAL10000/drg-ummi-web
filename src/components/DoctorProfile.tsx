@@ -2,22 +2,23 @@ import React from 'react';
 import { MapPin, MessageCircle } from 'lucide-react';
 import { clinicConfig, buildWhatsAppUrl } from '../config/business';
 import { trackWhatsAppBooking } from '../utils/analytics';
+import { Reveal } from '../utils/motion';
 
 export const DoctorProfile: React.FC = () => {
   return (
-    <section id="profil" className="py-14 md:py-24 border-b border-brand-border bg-white">
+    <section id="profil" className="py-14 md:py-24 border-b border-brand-border bg-white overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-8">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
           
           {/* Left Doctor Feature Visual */}
-          <div className="lg:col-span-5">
-            <div className="border border-brand-border bg-white shadow-xs overflow-hidden">
+          <Reveal variant="fade-right" duration={650} className="lg:col-span-5">
+            <div className="border border-brand-border bg-white shadow-xs hover:shadow-md transition-shadow duration-500 overflow-hidden">
               <div className="relative aspect-[4/5] bg-slate-100 overflow-hidden group">
                 <img
                   src={clinicConfig.images.doctorPortrait}
                   alt="Potret drg. Ummi Kaltsum dokter gigi penanggung jawab praktik mandiri"
-                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-103"
+                  className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.025]"
                   loading="lazy"
                 />
                 
@@ -42,10 +43,10 @@ export const DoctorProfile: React.FC = () => {
                 <span>{clinicConfig.location.district}, {clinicConfig.location.city}</span>
               </div>
             </div>
-          </div>
+          </Reveal>
 
           {/* Right Editorial Profile Text */}
-          <div className="lg:col-span-7 space-y-5">
+          <Reveal variant="fade-left" delay={100} duration={650} className="lg:col-span-7 space-y-5">
             <div className="text-xs uppercase tracking-widest font-semibold text-brand-slate">
               Tentang Praktik
             </div>
@@ -78,14 +79,14 @@ export const DoctorProfile: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => trackWhatsAppBooking('doctor_profile')}
-                className="inline-flex items-center gap-2 bg-brand-navy hover:bg-brand-slate text-white px-5 py-3 text-xs uppercase tracking-wider font-semibold transition-colors shadow-xs"
+                className="group inline-flex items-center gap-2 bg-brand-navy hover:bg-brand-slate text-white px-5 py-3 text-xs uppercase tracking-wider font-semibold transition-all duration-300 shadow-xs hover:shadow-md active:scale-[0.98]"
               >
-                <MessageCircle className="w-4 h-4" />
+                <MessageCircle className="w-4 h-4 transition-transform duration-300 group-hover:scale-110" />
                 <span>Konsultasi dengan drg. Ummi</span>
               </a>
             </div>
 
-          </div>
+          </Reveal>
 
         </div>
 
